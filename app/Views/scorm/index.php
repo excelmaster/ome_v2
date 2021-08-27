@@ -29,7 +29,6 @@ $this->section('content');
         echo 'dibuja sitio';
         return view('../m4/l1/1_3');
         ?>
-
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 $activos = 0;
 $inactivos = 0;
 $data = [$course, $lesson];
-$this->extend('templates/template', $data);
+$this->extend('templates/template_new', $data);
 $this->section('content');
 ?>
 <!-- Default box -->

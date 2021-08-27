@@ -18,10 +18,10 @@
 
 <body class="hold-transition sidebar-mini layout-footer-fixed" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);height: auto;">
   <!-- video background -->
-  <video autoplay muted loop id="myVideo">
+  <!-- <video autoplay muted loop id="myVideo">
     <source src="<?php echo base_url('public/img/' . $site . '/template/video_back.mp4'); ?>" type="video/mp4">
     Your browser does not support HTML5 video.
-  </video>
+  </video> -->
   <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
@@ -50,7 +50,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-transparent">
       <!-- Brand Logo -->
       <a href="<?php echo base_url('courses/' . $site); ?>" class="brand-link">
-        <img src="<?php echo base_url('public/img/' . $site . '/template/logo.PNG'); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?php echo base_url('public/img/' . $site . '/template/logo.jpg'); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
         <span class="brand-text font-weight-light">Mundo Educativo</span>
       </a>
 

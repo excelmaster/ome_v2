@@ -2,7 +2,7 @@
 $activos = 0;
 $inactivos = 0;
 
-$this->extend('templates/template', $site);
+$this->extend('templates/template_new', $site);
 $this->section('content');
 ?>
 

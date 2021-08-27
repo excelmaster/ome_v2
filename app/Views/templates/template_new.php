@@ -21,45 +21,46 @@
 <body class="grid-container" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <div class="header">
         <div class="container-fluid">
-            <div class="row float-left">
+            <div class="logo">
                 <a href="<?php echo base_url('courses/' . $site); ?>">
                     <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>" alt="AdminLTE Logo" class="logo-header">
                 </a>
-            </div>
+            </div>            
         </div>
+    </div>
 
     </div>
     <div class="menu">
         <div class="mn_1">
             <a href="https://www.colorear-online.com/" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu">
             </a>
         </div>
         <div class="mn_2">
             <a href="https://www.colorear-online.com/" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu">
             </a>
         </div>
         <div class="mn_3">
             <a href="https://www.colorear-online.com/" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu">
             </a>
         </div>
         <div class="mn_4">
             <a href="https://www.colorear-online.com/" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu">
             </a>
         </div>
         <div class="mn_5">
             <a href="https://www.colorear-online.com/" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu">
             </a>
         </div>
     </div>
     </div>
     <div class="sidebar">
         <a class="button" onclick="sonido()" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/footer_no_volume.PNG'); ?>" id="volume" class="animate__animated animate__bounceInUp animate_delay_4s" style="width: 70px; height: 70px;  ">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/footer_no_volume.PNG'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
         </a>
         <audio id="myAudio" autoplay preload="auto" allow="autoplay">
             <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">

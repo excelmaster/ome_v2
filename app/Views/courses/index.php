@@ -11,10 +11,10 @@ $this->section('content');
     <div class="card-header">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.gif'); ?>" alt="">
+                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.gif'); ?>" alt="">
             </div>
             <div class="col-sm-5">
-                <div class="col-sm-10 direct-chat-text bg-blue">Escoge el mundo que quieres estudiar!</div>
+            <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/mensaje_mundo.svg'); ?>" alt="">
             </div>
         </div>
         <!-- <div class="card-tools">

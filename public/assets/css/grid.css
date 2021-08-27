@@ -93,6 +93,13 @@ body {
       "menu   content sidebar" auto / 200px auto 200px
   }
 
+  .header {
+    display: grid;
+    grid-template: 
+      "logo marca  usuario" 100px 100px auto
+      ;
+  }
+
   .menu {
     display: grid;
     grid-area: menu;
@@ -107,24 +114,24 @@ body {
       "mn_5" 120px
   }
   .mn_1 {
-    animation: fadeInBottomRight;
+    animation: bounceInUp;
     animation-duration: 2s;
   }
   .mn_2 {
-    animation: fadeInBottomRight;
-    animation-duration: 3s;
+    animation: bounceInUp;
+    animation-duration: 2.5s;
   }
   .mn_3 {
-    animation: fadeInBottomRight;
-    animation-duration: 4s;
+    animation: bounceInUp;
+    animation-duration: 3s;
   }
   .mn_4 {
-    animation: fadeInBottomRight;
-    animation-duration: 5s;
+    animation: bounceInUp;
+    animation-duration: 3.5s;
   }
   .mn_5 {
-    animation: fadeInBottomRight;
-    animation-duration: 6s;
+    animation: bounceInUp;
+    animation-duration: 4s;
   }
   .mn_6 {
     height: 70px;
@@ -147,4 +154,22 @@ body {
 .logo-header {
   animation: lightSpeedInRight;
   animation-duration: 4s;
+}
+
+.btn-sonido {
+  animation: jackInTheBox ;
+  animation-duration: 3s;
+}
+
+.img-menu {
+  transition: transform 1s;
+}
+.img-menu:hover {
+  transform: scale(1.2);
+  background-color: rgba(63, 83, 197, 0.329);
+}
+
+.img-bnvd {
+  animation: fadeInDownBig ;
+  animation-duration: 2s;
 }

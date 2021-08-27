@@ -31,8 +31,8 @@ $this->section('content');
             <?php
             foreach ($courses as $c) {
             ?>
-                <div class="col-sm-2">
-                    <div class="card text-white bg-yellow">
+                <div class="col-sm-3">
+                    <div class="card text-blue bg-transparent">
                         <h5 class="text-center">World <?php echo $c['mundo']; ?></h5>
                         <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
                             <img src="<?php echo base_url('public/img/' . $site . '/courses/' . $c['img']); ?>" alt="" class="img-fluid" style="width: 100%;">
@@ -45,7 +45,7 @@ $this->section('content');
             $inactivos = $activos + 1;
 
             for ($i = $activos; $i < 8; $i++) { ?>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="card text-white bg-gray">
                         <h5 class="text-center">World <?php echo $inactivos; ?></h5>
                         <a href="#">

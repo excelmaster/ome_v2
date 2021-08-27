@@ -166,7 +166,7 @@ body {
 }
 .img-menu:hover {
   transform: scale(1.2);
-  background-color: rgba(63, 83, 197, 0.329);
+  background-color: rgba(59, 88, 252, 0.205);
 }
 
 .img-bnvd {
@@ -178,4 +178,9 @@ body {
   animation: flipInX;
   animation-duration: 3s;
   transition: scale(.7) 1s;
+}
+
+.card:hover {
+  animation: Wobble;
+  animation-duration: 1s;
 }

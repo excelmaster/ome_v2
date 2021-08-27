@@ -37,7 +37,7 @@
             </a>
         </div>
         <div class="mn_2">
-            <a href="https://www.colorear-online.com/" target="blank_">
+            <a href="<?php echo base_url('dict/' . $site);  ?>" target="blank_">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu">
             </a>
         </div>
@@ -47,7 +47,7 @@
             </a>
         </div>
         <div class="mn_4">
-            <a href="https://www.colorear-online.com/" target="blank_">
+            <a href="https://api.whatsapp.com/send/?phone=3228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu">
             </a>
         </div>

@@ -173,3 +173,9 @@ body {
   animation: fadeInDownBig ;
   animation-duration: 2s;
 }
+
+.img-mundos { 
+  animation: flipInX;
+  animation-duration: 3s;
+  transition: scale(.7) 1s;
+}

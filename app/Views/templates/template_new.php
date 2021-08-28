@@ -19,13 +19,23 @@
 </head>
 
 <body class="grid-container" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
+    <!-- video background -->
+    <?php 
+    if ($site == 'teens'){
+        echo '<video autoplay muted loop id="myVideo">';
+        echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
+        echo 'Your browser does not support HTML5 video.';
+        echo '</video>';
+    };
+    ?>
+    
     <div class="header">
         <div class="container-fluid">
             <div class="logo">
                 <a href="<?php echo base_url('courses/' . $site); ?>">
                     <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>" alt="AdminLTE Logo" class="logo-header">
                 </a>
-            </div>            
+            </div>
         </div>
     </div>
 

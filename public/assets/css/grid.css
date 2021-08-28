@@ -91,17 +91,22 @@ body {
     grid-template:
       "header header  header" 80px 
       "menu   content sidebar" auto / 200px auto 200px
+      ;
+      z-index: 1;
   }
 
   .header {
     display: grid;
+    z-index: 1;
     grid-template: 
       "logo marca  usuario" 100px 100px auto
       ;
+    background-color: rgba(213, 223, 66, 0.589);
   }
 
   .menu {
     display: grid;
+    z-index: 1;
     grid-area: menu;
     background-color: transparent;
     /* border: 1px solid red; */
@@ -183,4 +188,9 @@ body {
 .card:hover {
   animation: Wobble;
   animation-duration: 1s;
+}
+
+#myVideo {
+  position: absolute;
+  z-index: 0;
 }

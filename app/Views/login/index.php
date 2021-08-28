@@ -16,22 +16,29 @@
 	<link rel="stylesheet" href="<?php echo base_url('public/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('public/assets/dist/css/adminlte.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('public/assets/css/intro.css'); ?>">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">
+	<!-- video background -->
+	<!-- <video class="login-video" playsinline autoplay muted loop poster= "<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>" id="loginVideo">
+		<source src="<?php echo base_url('public/img/mdl_img/login.mp4'); ?>" type="video/mp4" style="width:900px;heigth: 500px">
+		Your browser does not support HTML5 video.
+	</video> -->
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
-				<h1><b>MUNDO EDUCATIVO </b>DIGITAL
+			<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
 			</a></h1>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">INGRESE PARA EMPEZAR SU SESIÓN</p>
-				<div class="input-group mb-3">
+				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>
+				<?php echo form_open(base_url('login/auth')); ?>
+				<div class="input-group mb-5">
 					<input type="text" name="username" id="username" class="form-control" placeholder="Nobre de usuario">
 					<div class="input-group-append">
 						<div class="input-group-text">
@@ -39,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="input-group mb-3">
+				<div class="input-group mb-5">
 					<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
 					<div class="input-group-append">
 						<div class="input-group-text">
@@ -48,18 +55,18 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-8">
+					<div class="col-6">
 					</div>
 					<!-- /.col -->
-					<div class="col-4">
-						<button type="button" onclick="updateIframe()" class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
+					<div class="col-6">
+						<button type="submit"  class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
 					</div>
 					<!-- /.col -->
 				</div>
-				
-				<div class="social-auth-links text-center mb-3">
+				<?php echo form_close(); ?>
+				<!-- <div class="social-auth-links text-center mb-3">
 					<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" style="height: 50%;width: 50%">
-				</div>
+				</div> -->
 				<!-- /.social-auth-links -->
 
 				<!-- <p class="mb-1">
@@ -70,9 +77,10 @@
 				</p> -->
 			</div>
 			<!-- /.login-card-body -->
-		</div>		
+			<?php var_dump($username . ' == ' . $password); ?>
+		</div>
 	</div>
-	<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe>
+	<!-- <iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->
 	<!-- /.login-box -->
 
 	<!-- jQuery -->

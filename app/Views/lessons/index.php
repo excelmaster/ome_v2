@@ -14,7 +14,9 @@ $this->section('content');
                 <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.gif'); ?>" alt="">
             </div>
             <div class="col-sm-5">
-                <div class="col-sm-10 direct-chat-text bg-blue">Escoge la lección que quieres estudiar!</div>
+                <div class="col-sm-10 direct-chat-text bg-blue">
+                    <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/lessons/mensaje_lecciones_kids.svg'); ?>" alt="">
+                </div>
             </div>
             <div class="col-sm-2">
                 <a href="<?php echo base_url('courses/' . $site); ?>"><img src="<?php echo base_url('public/img/' . $site . '/lessons/volver_mundos.gif'); ?>"></a>
@@ -37,8 +39,8 @@ $this->section('content');
             foreach ($lessons as $c) {
             ?>
                 <div class="col-sm-2">
-                    <div class="card text-white bg-yellow">
-                        <h5 class="text-center">LESSON <?php echo $c['lesson_number']; ?></h5>
+                    <div class="card text-blue bg-transparent">
+                        <h5 class="text-center text-blue">LESSON </h5>
                         <img class="card-img-top" src="holder.js/100px180/" alt="">
                         <a type="button" href="<?php echo base_url('activities/' . $site . '/' . $c['id'] . '/' . $course . '/' . $c['lesson_number'] . '/' . $courseId); ?>">
                             <img src="<?php echo base_url('public/img/' . $site . '/lessons/' . $c['img_url']); ?>" alt="" class="img-fluid rounded">

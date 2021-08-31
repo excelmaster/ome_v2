@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\CourseModel;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
@@ -17,9 +17,16 @@ class Login extends BaseController
 
 	public function auth(){
 		$request = \Config\Services::request();
+		$username = $request->getPostGet('username');
+		
+		$authInstance = new UserModel($db);
+		$idSession = $authInstance->where('username', $request->getPostGet('username'))->findAll();
+
+		var_dump($idSession);
 		$data = array(
 			'username' => $request->getPostGet('username'),
-			'password' => $request->getIPAddress()
+			'password' => $request->getIPAddress(),
+			'idsession' => $idSession
 		);
 		return view('login/index', $data);
 	}

@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="mn_4">
-            <a href="https://api.whatsapp.com/send/?phone=3228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
+            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu">
             </a>
         </div>

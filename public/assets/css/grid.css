@@ -89,7 +89,7 @@ body {
   .grid-container {
     /* background-color: yellow; */
     grid-template:
-      "header header  header" 80px 
+      "header header  header" 60px 
       "menu   content sidebar" auto / 200px auto 200px
       ;
       z-index: 1;

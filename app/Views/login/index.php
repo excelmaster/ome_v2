@@ -77,7 +77,7 @@
 				</p> -->
 			</div>
 			<!-- /.login-card-body -->
-			<?php var_dump($username . ' == ' . $password); ?>
+			<?php var_dump($username); ?>
 		</div>
 	</div>
 	<!-- <iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->

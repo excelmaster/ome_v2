@@ -43,6 +43,7 @@
 					<div class="col-6">
 						<h1>hello, <?= session()->get('id') ?></h1>
 						<h1>id : <?= session()->get('sid') ?></h1>
+						<h5>suspended : <?= session()->get('suspended') ?></h5>
 						<a href="users/logout">salir >></a>
 					</div>
 					<!-- /.col -->

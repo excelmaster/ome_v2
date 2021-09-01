@@ -46,8 +46,12 @@ class Users extends BaseController
     {
         // traer la session de moodle
         $model = new MdlsessionModel();
+        echo $model->where('id', $user['id'])
+            ->where('firstip', $_SERVER['REMOTE_ADDR'])->getCompiledSelect();
+        
         $idMdl = $model->where('id', $user['id'])
-                ->where('firstip', $_SERVER['REMOTE_ADDR'])->getCompiledSelect();
+            ->where('firstip', $_SERVER['REMOTE_ADDR'])->first();
+        var_dump($idMdl);
 
         $data = [
             'id' => $user['id'],
@@ -56,6 +60,7 @@ class Users extends BaseController
             'username' => $user['username'],
             'isLoggedIn' => true,
             'idmdl' => $idMdl,
+            'sid' => $idMdl['sid'],
         ];
 
         session()->set($data);

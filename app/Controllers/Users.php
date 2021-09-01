@@ -58,12 +58,14 @@ class Users extends BaseController
         $where = "sid is not null";
 
         $ssql = $model->where('id', $user['id'])
-            ->where('firstip', $_SERVER['REMOTE_ADDR'])
+            //->where('firstip', $_SERVER['REMOTE_ADDR'])
+            ->where('firstip', '181.137.113.22')
             ->where($where)
             ->getCompiledSelect();
 
         $idMdl = $model->where('id', $user['id'])
-            ->where('firstip', $_SERVER['REMOTE_ADDR'])
+            //->where('firstip', $_SERVER['REMOTE_ADDR'])
+            ->where('firstip', '181.137.113.22')
             ->where($where)
             ->first();
 

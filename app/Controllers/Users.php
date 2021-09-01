@@ -35,15 +35,18 @@ class Users extends BaseController
                 $model = new UserModel();
                 $user = $model->where('username', $this->request->getVar('username'))
                     ->first();
-                var_dump($user);
-                $this->setUserSession($user);
-                echo ' .. sid: '.session()->get('sid');
-                $vista = session()->get('sid') == "0" ? "logmdl" : "hub";
-                echo $vista;
+                //var_dump($user);
+                echo session()->get('ip');
+                echo $user['username']."<br>";
+                echo $user['id'];
+                $activeMdl = $this->setUserSession($user);
+                echo "<br>ACTIVO" . $activeMdl;
+                $vista = $activeMdl == false ? "logmdl" : "hub";
+                echo "<br>".$vista;
                 //return redirect()->to($vista);
             }
         }
-              
+
         return view("login/index", $data);
     }
 
@@ -54,29 +57,39 @@ class Users extends BaseController
         $where = "sid is not null";
 
         $ssql = $model->where('id', $user['id'])
-        ->where('firstip', $_SERVER['REMOTE_ADDR'])            
-        ->where($where)
-        ->getCompiledSelect();
-        
+            ->where('firstip', $_SERVER['REMOTE_ADDR'])
+            ->where($where)
+            ->getCompiledSelect();
+
         $idMdl = $model->where('id', $user['id'])
-            ->where('firstip', $_SERVER['REMOTE_ADDR'])            
+            ->where('firstip', $_SERVER['REMOTE_ADDR'])
             ->where($where)
             ->first();
-        echo $ssql;
+
         echo "<br>";
+        //echo $ssql;
+
         //echo($idMdl['id']);
 
-        $data = [
-            'id' => $user['id'],
-            'firstname' => $user['firstname'],
-            'lastname' => $user['lastname'],
-            'username' => $user['username'],
-            'isLoggedIn' => true,
-            'sid' => (empty($idMdl['sid'] )) ? "0" :  $idMdl['sid'] ,
-            'ssql' => $ssql,
-        ];
+        if (empty($idMdl)) {
+            echo "no tiene sesion";
+            return false;
+        } else {
+            echo "si tiene sesion";
+            $data = [
+                'id' => $user['id'],
+                'firstname' => $user['firstname'],
+                'lastname' => $user['lastname'],
+                'username' => $user['username'],
+                'isLoggedIn' => true,
+                'sid' => (empty($idMdl['sid'])) ? "0" :  $idMdl['sid'],
+                'ssql' => $ssql,
+                'ip' => $_SERVER['REMOTE_ADDR'],
+            ];
 
-        session()->set($data);
+            session()->set($data);
+            return true;
+        }
     }
 
     public function logout()

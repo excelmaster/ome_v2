@@ -39,7 +39,7 @@ class Users extends BaseController
                 return redirect()->to('hub');
             }
         }
-        return view('Login/index', $data);
+        return view('login/index', $data);
     }
 
     private function setUserSession($user)

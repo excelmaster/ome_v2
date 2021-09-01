@@ -43,6 +43,7 @@
 					<div class="col-6">
 						<h1>loguearse con moodle</h1>
 						<h1>id : <?= session()->get('id') ?></h1>
+						<h1>id : <?= session()->get('ssql') ?></h1>
 						<a href="users/logout">salir >></a>
 					</div>
 					<!-- /.col -->

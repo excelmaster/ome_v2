@@ -37,6 +37,7 @@ class Users extends BaseController
                     ->first();
                 $this->setUserSession($user);
                 $vista = session()->get('sid') == 0 ? "logmdl" : "hub";
+                echo $vista;
                 return redirect()->to($vista);
             }
         }
@@ -48,9 +49,13 @@ class Users extends BaseController
     {
         // traer la session de moodle
         $model = new MdlsessionModel();
-        echo $model->where('id', $user['id'])
-            ->where('firstip', $_SERVER['REMOTE_ADDR'])->getCompiledSelect();
         $where = "sid is not null";
+
+        $ssql = $model->where('id', $user['id'])
+        ->where('firstip', $_SERVER['REMOTE_ADDR'])            
+        ->where($where)
+        ->getCompiledSelect();
+        
         $idMdl = $model->where('id', $user['id'])
             ->where('firstip', $_SERVER['REMOTE_ADDR'])            
             ->where($where)
@@ -65,6 +70,7 @@ class Users extends BaseController
             'isLoggedIn' => true,
             'idmdl' => (empty ($idMdl['id'])) ? "0" :  $idMdl['id'] ,
             'sid' => (empty ($idMdl['sid'])) ? "0" :  $idMdl['sid'] ,
+            'ssql' => $ssql,
         ];
 
         session()->set($data);

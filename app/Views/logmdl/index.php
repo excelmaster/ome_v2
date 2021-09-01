@@ -37,13 +37,13 @@
 		<div class="card">
 			<div class="card-body login-card-body">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-2">
 					</div>
 					<!-- /.col -->
-					<div class="col-6">
+					<div class="col-10">
 						<h1>loguearse con moodle</h1>
 						<h1>id : <?= session()->get('id') ?></h1>
-						<h1>id : <?= session()->get('ssql') ?></h1>
+						<h6>id : <?= session()->get('ssql') ?></h6>
 						<a href="users/logout">salir >></a>
 					</div>
 					<!-- /.col -->

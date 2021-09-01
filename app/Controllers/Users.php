@@ -35,10 +35,12 @@ class Users extends BaseController
                 $model = new UserModel();
                 $user = $model->where('username', $this->request->getVar('username'))
                     ->first();
+                var_dump($user);
                 $this->setUserSession($user);
-                $vista = session()->get('sid') == 0 ? "logmdl" : "hub";
+                echo ' .. sid: '.session()->get('sid');
+                $vista = session()->get('sid') == "0" ? "logmdl" : "hub";
                 echo $vista;
-                return redirect()->to($vista);
+                //return redirect()->to($vista);
             }
         }
               
@@ -60,7 +62,9 @@ class Users extends BaseController
             ->where('firstip', $_SERVER['REMOTE_ADDR'])            
             ->where($where)
             ->first();
-        var_dump($idMdl);
+        echo $ssql;
+        echo "<br>";
+        //echo($idMdl['id']);
 
         $data = [
             'id' => $user['id'],
@@ -68,8 +72,7 @@ class Users extends BaseController
             'lastname' => $user['lastname'],
             'username' => $user['username'],
             'isLoggedIn' => true,
-            'idmdl' => (empty ($idMdl['id'])) ? "0" :  $idMdl['id'] ,
-            'sid' => (empty ($idMdl['sid'])) ? "0" :  $idMdl['sid'] ,
+            'sid' => (empty($idMdl['sid'] )) ? "0" :  $idMdl['sid'] ,
             'ssql' => $ssql,
         ];
 

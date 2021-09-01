@@ -41,7 +41,7 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-6">
-						<h1>hello, <?= session()->get('idmdl') ?></h1>
+						<h1>hello, <?= session()->get('id') ?></h1>
 						<h1>id : <?= session()->get('sid') ?></h1>
 						<a href="users/logout">salir >></a>
 					</div>

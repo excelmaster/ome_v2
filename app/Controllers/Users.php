@@ -59,8 +59,8 @@ class Users extends BaseController
             'lastname' => $user['lastname'],
             'username' => $user['username'],
             'isLoggedIn' => true,
-            'idmdl' => $idMdl['id'],
-            'sid' => $idMdl['sid'],
+            'idmdl' => (empty ($idMdl['id'])) ? "0" :  $idMdl['id'] ,
+            'sid' => (empty ($idMdl['sid'])) ? "0" :  $idMdl['sid'] ,
         ];
 
         session()->set($data);

@@ -34,10 +34,10 @@
 			</a></h1>
 		</div>
 		<!-- /.login-logo -->
+		<?php echo form_open('/'); ?>
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>
-				<?php echo form_open(base_url('login/auth')); ?>
+				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>				
 				<div class="input-group mb-5">
 					<input type="text" name="username" id="username" class="form-control" placeholder="Nobre de usuario">
 					<div class="input-group-append">
@@ -62,7 +62,15 @@
 						<button type="submit"  class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
 					</div>
 					<!-- /.col -->
+				</div>	
+				<?php 
+				if (isset($validation)): ?>
+				<div class="col-12">
+					<div class="alert alert-danger" role="alert">
+						<?= $validation->listErrors() ?>
+					</div>
 				</div>
+				<?php endif; ?>
 				<?php echo form_close(); ?>
 				<!-- <div class="social-auth-links text-center mb-3">
 					<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" style="height: 50%;width: 50%">
@@ -76,8 +84,7 @@
 					<a href="register.html" class="text-center">Register a new membership</a>
 				</p> -->
 			</div>
-			<!-- /.login-card-body -->
-			<?php var_dump($username); ?>
+			<!-- /.login-card-body -->			
 		</div>
 	</div>
 	<!-- <iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->

@@ -50,9 +50,11 @@ class Users extends BaseController
         $model = new MdlsessionModel();
         echo $model->where('id', $user['id'])
             ->where('firstip', $_SERVER['REMOTE_ADDR'])->getCompiledSelect();
-        
+        $where = "sid is not null";
         $idMdl = $model->where('id', $user['id'])
-            ->where('firstip', $_SERVER['REMOTE_ADDR'])->first();
+            ->where('firstip', $_SERVER['REMOTE_ADDR'])            
+            ->where($where)
+            ->first();
         var_dump($idMdl);
 
         $data = [

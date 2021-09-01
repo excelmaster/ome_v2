@@ -59,7 +59,7 @@ class Users extends BaseController
             'lastname' => $user['lastname'],
             'username' => $user['username'],
             'isLoggedIn' => true,
-            'idmdl' => $idMdl,
+            'idmdl' => $idMdl['id'],
             'sid' => $idMdl['sid'],
         ];
 

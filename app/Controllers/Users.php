@@ -38,12 +38,13 @@ class Users extends BaseController
                 //var_dump($user);
                 echo session()->get('ip');
                 echo $user['username']."<br>";
-                echo $user['id'];
+                echo $user['id']."<br>";
+                echo $user['suspended'];
                 $activeMdl = $this->setUserSession($user);
                 echo "<br>ACTIVO" . $activeMdl;
                 $vista = $activeMdl == false ? "logmdl" : "hub";
                 echo "<br>".$vista;
-                //return redirect()->to($vista);
+                return redirect()->to($vista);
             }
         }
 
@@ -85,6 +86,7 @@ class Users extends BaseController
                 'sid' => (empty($idMdl['sid'])) ? "0" :  $idMdl['sid'],
                 'ssql' => $ssql,
                 'ip' => $_SERVER['REMOTE_ADDR'],
+                'suspended' => $user['suspended'],
             ];
 
             session()->set($data);

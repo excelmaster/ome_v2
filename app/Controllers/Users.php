@@ -36,10 +36,12 @@ class Users extends BaseController
                 $user = $model->where('username', $this->request->getVar('username'))
                     ->first();
                 $this->setUserSession($user);
-                return redirect()->to('hub');
+                $vista = session()->get('sid') == 0 ? "logmdl" : "hub";
+                return redirect()->to($vista);
             }
         }
-        return view('login/index', $data);
+              
+        return view("login/index", $data);
     }
 
     private function setUserSession($user)

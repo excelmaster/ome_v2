@@ -22,54 +22,31 @@
 </head>
 
 <body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">
-	<!-- video background -->
-	<!-- <video class="login-video" playsinline autoplay muted loop poster= "<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>" id="loginVideo">
-		<source src="<?php echo base_url('public/img/mdl_img/login.mp4'); ?>" type="video/mp4" style="width:900px;heigth: 500px">
-		Your browser does not support HTML5 video.
-	</video> -->
-	<div class="login-box">
-		<div class="login-logo">
-			<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
-				<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
-			</a></h1>
-		</div>
-		<!-- /.login-logo -->
-		<div class="card">
-			<div class="card-body login-card-body">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
 				<div class="row">
-					<div class="col-2">
-					</div>
-					<!-- /.col -->
-					<div class="col-10">
-						<h1>loguearse con moodle</h1>
-						<h1>id : <?= session()->get('id') ?></h1>
-						<h6>id : <?= session()->get('ssql') ?></h6>
-						<a href="users/logout">salir >></a>
-					</div>
-					<!-- /.col -->
+					<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
+						<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
+					</a></h1>
 				</div>
-				<!-- /.login-card-body -->
+				<!-- /.login-logo -->
+			</div>
+			<div class="col-sm-8">
+				<div class="row align-content-center">
+					<div class="card">
+						<div class="card-body login-card-body">
+							<p class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
+							<p class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma"</p>
+							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 300px;" id="ifrLogin" class="float-center"></iframe>
+						</div>
+						<!-- /.login-card-body -->
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- <iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->
-		<!-- /.login-box -->
+	</div>
 
-		<!-- jQuery -->
-		<script src="<?php echo base_url('public/assets/plugins/jquery/jquery.min.js'); ?>"></script>
-		<!-- Bootstrap 4 -->
-		<script src="<?php echo base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-		<!-- AdminLTE App -->
-		<script src="<?php echo base_url('public/assets/dist/js/adminlte.min.js'); ?>"></script>
-		<script>
-			function updateIframe() {
-				alert('boton clickeado');
-				var mdlusername = $("#ifrLogin").contents().find('#username');
-				console.log(mdlusername);
-				var txtUsername = $('#username').val();
-				alert(txtUsername);
-				mdlusername.text(txtUsername);
-			}
-		</script>
 </body>
 
 </html>

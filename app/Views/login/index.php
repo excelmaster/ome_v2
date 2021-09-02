@@ -30,14 +30,14 @@
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
-			<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
+				<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
 			</a></h1>
 		</div>
 		<!-- /.login-logo -->
-		<?php echo form_open('/'); ?>
+		<?php echo form_open('https://mdl.mundoeducativodigital.com/login/index.php'); ?>
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>				
+				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>
 				<div class="input-group mb-5">
 					<input type="text" name="username" id="username" class="form-control" placeholder="Nobre de usuario">
 					<div class="input-group-append">
@@ -59,35 +59,29 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-6">
-						<button type="submit"  class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
+						<button type="button" onclick="updateIframe()" class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
 					</div>
 					<!-- /.col -->
-				</div>	
-				<?php 
-				if (isset($validation)): ?>
-				<div class="col-12">
-					<div class="alert alert-danger" role="alert">
+				</div>
+				<?php echo form_close(); ?>
+			</div>
+			<!-- /.login-card-body -->
+		</div>
+	</div>
+
+	<div class="row">
+		<?php
+		if (isset($validation)) : ?>
+			<div class="col-xl-12">
+				<div class="alert alert-info" role="alert">					
+					<div>
 						<?= $validation->listErrors() ?>
 					</div>
 				</div>
-				<?php endif; ?>
-				<?php echo form_close(); ?>
-				<!-- <div class="social-auth-links text-center mb-3">
-					<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" style="height: 50%;width: 50%">
-				</div> -->
-				<!-- /.social-auth-links -->
-
-				<!-- <p class="mb-1">
-					<a href="forgot-password.html">I forgot my password</a>
-				</p>
-				<p class="mb-0">
-					<a href="register.html" class="text-center">Register a new membership</a>
-				</p> -->
 			</div>
-			<!-- /.login-card-body -->			
-		</div>
+		<?php endif; ?>
 	</div>
-	<!-- <iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->
+	<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe>
 	<!-- /.login-box -->
 
 	<!-- jQuery -->
@@ -99,8 +93,13 @@
 	<script>
 		function updateIframe() {
 			alert('boton clickeado');
-			var mdlusername = $("#ifrLogin").contents().find('#username');
-			console.log(mdlusername);
+			var mdlframe = document.getElementById("ifrLogin");
+			/*var token = mdlframe.ContentWindow.document.getElementByName('logintoken'); */
+
+
+			var mdlusername = $("#ifrLogin").contents().find('logintoken');
+			var token = mdlframe.contentWindow.document.getElementByName('logintoken').val();
+			alert('token'  + token);
 			var txtUsername = $('#username').val();
 			alert(txtUsername);
 			mdlusername.text(txtUsername);

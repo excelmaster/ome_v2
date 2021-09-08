@@ -35,9 +35,9 @@ $this->section('content');
             foreach ($dicts as $d) {
             ?>
                 <div class="col-sm-2">
-                    <div class="card text-white bg-yellow">
+                    <div class="card text-blue bg-transparent">
                         <h5 class="text-center"> <?php echo strtoupper($d['termino']) ; ?></h5>                        
-                        <img src="<?php echo base_url('public/img/' . $site . '/dict/' . strtoupper( $letter) . '/' . str_replace(' ','_', $d['termino']) . '.png') ; ?>" alt="" class="img-fluid" style="width: 100%;">                        
+                        <img src="<?php echo base_url('public/img/' . $site . '/dict/' . strtoupper( $letter) . '/' . str_replace(' ','_', $d['termino']) . '.png') ; ?>" alt="" class="img-fluid bg-transparent" style="width: 100%;">                        
                     </div>
                 </div>
             <?php

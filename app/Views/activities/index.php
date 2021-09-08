@@ -10,7 +10,7 @@ $this->section('content');
     <div class="card-header">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.gif'); ?>" alt="">
+                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.png'); ?>" alt="">
                 
             </div>
             <div class="col-sm-5">
@@ -32,7 +32,7 @@ $this->section('content');
             </button>
         </div> -->
     </div>
-    <div class="card-body">
+    <div class="card-body bg-transparent">
         <div class="row">
             <?php
             foreach ($lessons as $c) {
@@ -40,10 +40,10 @@ $this->section('content');
                 <div class="col-sm-2">
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center">Activity <?php echo $c['activityNumber']; ?></h5>
-                        <img class="card-img-top" src="holder.js/100px180/" alt="">
+                        <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
                         <form action="contenido.html" method="post"></form>
                         <?php
-                        echo '<a type="button" class="btn btn-primary" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
+                        echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
                         <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded">
                         </a>

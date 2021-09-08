@@ -11,7 +11,7 @@ $this->section('content');
     <div class="card-header">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.gif'); ?>" alt="">
+                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.png'); ?>" alt="">
             </div>
             <div class="col-sm-5">
                 <div class="col-sm-10 direct-chat-text bg-blue">

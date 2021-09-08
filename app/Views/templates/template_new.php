@@ -21,7 +21,7 @@
 <body class="grid-container" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <!-- video background -->
     <?php 
-    if ($site == 'teens'){
+    if ($site == 'teens' || $site == 'kids' ){
         echo '<video autoplay muted loop id="myVideo">';
         echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
         echo 'Your browser does not support HTML5 video.';
@@ -42,7 +42,7 @@
     </div>
     <div class="menu">
         <div class="mn_1">
-            <a href="https://www.colorear-online.com/" target="blank_">
+            <a href="<?php echo base_url('/pdfs'); ?>" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu">
             </a>
         </div>
@@ -86,7 +86,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.gif'); ?>" alt="">
+              <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="">
             </div>
             <div class="col-sm-6">
             </div>
@@ -108,7 +108,7 @@
             <!-- /.content-wrapper -->
         </div>
         <div class="navigation">
-            navf
+            <h6 hidden>nav</h6>
         </div>
     </div>
 

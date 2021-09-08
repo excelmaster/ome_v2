@@ -34,7 +34,7 @@
 			</a></h1>
 		</div>
 		<!-- /.login-logo -->
-		<?php echo form_open('https://mdl.mundoeducativodigital.com/login/index.php'); ?>
+		<?php echo form_open('/users'); ?>
 		<div class="card">
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>
@@ -59,7 +59,7 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-6">
-						<button type="button" onclick="updateIframe()" class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
+						<button type="submit" class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>
 					</div>
 					<!-- /.col -->
 				</div>
@@ -81,7 +81,7 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:700px;height: 400px;" id="ifrLogin"></iframe>
+	<!-- <iframe src="https://omedev.mundoeducativodigital.com/content/kids/223/1/1/1/5/hvp/4/memoria" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->
 	<!-- /.login-box -->
 
 	<!-- jQuery -->
@@ -93,16 +93,18 @@
 	<script>
 		function updateIframe() {
 			alert('boton clickeado');
-			var mdlframe = document.getElementById("ifrLogin");
+			var mdlframe = document.getElementById("ifrLogin").textContent;
+			alert(mdlframe.toString());
 			/*var token = mdlframe.ContentWindow.document.getElementByName('logintoken'); */
 
 
-			var mdlusername = $("#ifrLogin").contents().find('logintoken');
+			/* var mdlusername = $("#ifrLogin").contents().find('logintoken');
+			var token = mdlframe.
 			var token = mdlframe.contentWindow.document.getElementByName('logintoken').val();
 			alert('token'  + token);
 			var txtUsername = $('#username').val();
 			alert(txtUsername);
-			mdlusername.text(txtUsername);
+			mdlusername.text(txtUsername); */
 		}
 	</script>
 </body>

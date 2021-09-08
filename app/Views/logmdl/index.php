@@ -46,7 +46,34 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function checkCookies() {
+			var cookies = document.cookie.split(';');
+			var ret = '';
+			/* for (var i= 1; i<= cookies.length; i++){
+				ret += i + ' - ' + cookies[i-1] + '<br>';
+				alert("cookies : " + cookies[i+1]);
+			}
+			var_dump(cookies); */
+			console.log(cookies[1]);
+		}
 
+		function getIframeContent(frameId) {
+			var frameObj =
+				document.getElementById(frameId);
+
+			var frameContent = frameObj.
+			contentWindow.document.body.innerHTML;
+
+			alert("frame content : " + frameContent);
+		}
+
+		
+
+		var i = setInterval(function() {
+			getIframeContent('ifrLogin');
+		}, 2000);
+	</script>
 </body>
 
 </html>

@@ -102,6 +102,8 @@ body {
       "logo marca  usuario" 100px 100px auto
       ;
     background-color: rgba(213, 223, 66, 0.589);
+    background-size: cover;
+    background-attachment: fixed;
   }
 
   .menu {

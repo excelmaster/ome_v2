@@ -15,7 +15,7 @@ $colvideo = array(
 <!-- Default box -->
 <div class="card bg-transparent">
   <div class="card-header">
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-<?php echo $colvideo['a'] ?>">
         <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.gif'); ?>" alt="" style="height: 70%;width: 70%">
       </div>
@@ -34,12 +34,12 @@ $colvideo = array(
       <div class="col-md-<?php echo $colvideo['d'] ?>">
         <a href="<?php echo base_url('activities/' . $site . '/' . $lessonId . '/' . $course . '/' . $lesson . '/' . $courseId); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
       </div>
-    </div> -->
+    </div>
   </div>
   <div class="card-body">
 
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-xl-11">
         <?php
         switch ($tipo) {
           case 'hvp':
@@ -53,7 +53,7 @@ $colvideo = array(
             break;
 
           case 'resource':
-            echo '<iframe src="'.$urlresource.'" width="838" height="503" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+            echo '<iframe src="' . $urlresource . '" width="838" height="503" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 
@@ -62,6 +62,22 @@ $colvideo = array(
             break;
         }
         ?>
+      </div>
+      <div class="col-xl-1">
+        <button type="button" class="btn text-blue bg-transparent">
+          Previous
+          <a class="button float-none bg-transparent" style="width: 100px;">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/flecha_next.png'); ?>" id="actv_next" class="btn-sonido" style="width: 70px; height: 70px;  ">
+          </a>
+        </button>
+
+        <br><br>
+        <button type="button" class="btn text-blue bg-transparent">
+          Next
+          <a class="button float-none bg-transparent" style="width: 100px;">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/flecha_prev.png'); ?>" id="actv_prev" class="btn-sonido" style="width: 70px; height: 70px;  ">
+          </a>
+        </button>
 
       </div>
     </div>

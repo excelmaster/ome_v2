@@ -15,9 +15,9 @@ $this->section('content');
             </div>
             <div class="col-sm-5">
                 <div class="direct-chat-msg">
-                    <div class="direct-chat-text text-primary"><b> <?php echo 'MUNDO ' . $course . '   >>   LECCIÓN ' . $lesson; ?></b></div>
+                    <div class="direct-chat-text text-primary"><b> <?php echo 'WORLD ' . $course . '   >>   LESSON ' . $lesson; ?></b></div>
                 </div>
-                <div class="col-sm-10 direct-chat-text bg-blue">Escoge la Actividad que quieres estudiar!</div>
+                <div class="col-sm-10 direct-chat-text bg-blue">CHOOSE THE ACTIVITY THAT YOU WANT TO STUDY!</div>
             </div>
             <div class="col-sm-2">
                 <a href="<?php echo base_url('lessons/' . $site . '/' . $courseId . '/' . $course); ?>"><img src="<?php echo base_url('public/img/' . $site . '/activities/volver_leccion.gif'); ?>"></a>

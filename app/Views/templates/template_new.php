@@ -47,7 +47,7 @@
             </a>
         </div>
         <div class="mn_2">
-            <a href="<?php echo base_url('dict/' . $site);  ?>" target="blank_">
+            <a href="<?php echo base_url('dict/' . $site);  ?>" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu">
             </a>
         </div>
@@ -70,7 +70,7 @@
     </div>
     <div class="sidebar">
         <a class="button" onclick="sonido()" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/footer_no_volume.PNG'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.PNG'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
         </a>
         <audio id="myAudio" autoplay preload="auto" allow="autoplay">
             <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">
@@ -135,11 +135,11 @@
 
         function sonido() {
             if (myAudio.paused) {
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/footer_no_volume.PNG'); ?>");
+                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
                 myAudio.play();
                 myAudio.loop = true;
             } else {
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume.PNG'); ?>");
+                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>");
                 myAudio.pause();
             }
         }

@@ -13,6 +13,7 @@ body {
   font-size: 1.2rem;
   min-height: 100%;
   background-image: repeating-linear-gradient();
+  
 }
 
 .grid-container>* {
@@ -50,9 +51,8 @@ body {
   grid-area: content;
   background-color: transparent;
   /* border: 1px solid green; */
-  grid-template: 
-    "framezone framezone framezone" 600px / auto auto auto
-    "navigation navigation navigation" auto / 120px auto 120px ;
+  grid-template:
+    "framezone framezone framezone"600px / auto auto auto "navigation navigation navigation"auto / 120px auto 120px;
 }
 
 .grid-container {
@@ -77,10 +77,7 @@ body {
   .grid-container {
     /* background-color: yellow; */
     grid-template:
-      "header header  header" 120px 
-      "menu menu menu" 80px
-      "content content content" auto
-      "sidebar sidebar sidebar" 80px / 200px auto 200px
+      "header header  header"120px "menu menu menu"80px "content content content"auto "sidebar sidebar sidebar"80px / 200px auto 200px
   }
 }
 
@@ -89,21 +86,25 @@ body {
   .grid-container {
     /* background-color: yellow; */
     grid-template:
-      "header header  header" 60px 
-      "menu   content sidebar" auto / 200px auto 200px
-      ;
-      z-index: 1;
+      "header header  header"60px "menu   content sidebar"auto / 200px auto 200px;
+    z-index: 1;
   }
 
   .header {
     display: grid;
     z-index: 1;
-    grid-template: 
-      "logo marca  usuario" 100px 100px auto
-      ;
+    grid-template:
+      "logo marca  usuario"100px 100px auto;
     background-color: rgba(213, 223, 66, 0.589);
     background-size: cover;
     background-attachment: fixed;
+  }
+
+  .sidebar {
+    display: grid;
+    z-index: 1;
+    grid-area: sidebar;
+    background-color: transparent;
   }
 
   .menu {
@@ -114,32 +115,34 @@ body {
     /* border: 1px solid red; */
     gap: 15px;
     grid-template:
-      "mn_1" 120px
-      "mn_2" 120px
-      "mn_3" 120px
-      "mn_4" 120px
-      "mn_5" 120px
+      "mn_1"120px "mn_2"120px "mn_3"120px "mn_4"120px "mn_5"120px
   }
+
   .mn_1 {
     animation: bounceInUp;
     animation-duration: 2s;
   }
+
   .mn_2 {
     animation: bounceInUp;
     animation-duration: 2.5s;
   }
+
   .mn_3 {
     animation: bounceInUp;
     animation-duration: 3s;
   }
+
   .mn_4 {
     animation: bounceInUp;
     animation-duration: 3.5s;
   }
+
   .mn_5 {
     animation: bounceInUp;
     animation-duration: 4s;
   }
+
   .mn_6 {
     height: 70px;
     width: 70px;
@@ -150,9 +153,8 @@ body {
     grid-area: content;
     background-color: transparent;
     /* border: 1px solid green; */
-    grid-template: 
-      "framezone " 780px
-      "navigation"  auto / auto ;
+    grid-template:
+      "framezone "780px "navigation"auto / auto;
   }
 }
 
@@ -164,24 +166,25 @@ body {
 }
 
 .btn-sonido {
-  animation: jackInTheBox ;
+  animation: jackInTheBox;
   animation-duration: 3s;
 }
 
 .img-menu {
   transition: transform 1s;
 }
+
 .img-menu:hover {
   transform: scale(1.2);
   background-color: rgba(59, 88, 252, 0.205);
 }
 
 .img-bnvd {
-  animation: fadeInDownBig ;
+  animation: fadeInDownBig;
   animation-duration: 2s;
 }
 
-.img-mundos { 
+.img-mundos {
   animation: flipInX;
   animation-duration: 3s;
   transition: scale(.7) 1s;

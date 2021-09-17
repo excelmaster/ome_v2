@@ -70,7 +70,7 @@
     </div>
     <div class="sidebar">
         <a class="button" onclick="sonido()" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.PNG'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
         </a>
         <audio id="myAudio" autoplay preload="auto" allow="autoplay">
             <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">

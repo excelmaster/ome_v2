@@ -43,6 +43,10 @@ $routes->get('/dict/(:any)/', 'Dict::index/$1');
 $routes->get('/letter/(:any)/(:any)/', 'Dict::letter/$1/$2');
 $routes->get('/scorm/(:any)/(:num)/(:num)/(:num)', 'Scorm::index/$1/$2/$3/$4');
 $routes->get('/faq/(:any)', 'Faq::index/$1');
+$routes->get('/pdfs/(:any)', 'Pdfs::index/$1');
+$routes->get('/pdfcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Pdfcontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
+$routes->get('/music/(:any)', 'Music::index/$1');
+$routes->get('/musicontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Musicontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

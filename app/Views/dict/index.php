@@ -17,7 +17,7 @@ $this->section('content');
                 <div class="col-sm-10 direct-chat-text bg-blue">Escoge la letra que quieres estudiar!</div>
             </div>
             <div class="col-sm-2">
-                <a href="<?php echo base_url('courses/' . $site); ?>"><img src="<?php echo base_url('public/img/'. $site . '/dict/volver_mundos.gif') ?>"></a>
+                <a href="<?php echo base_url('courses/' . $site); ?>"><img src="<?php echo base_url('public/img/' . $site . '/dict/volver_mundos.gif') ?>"></a>
             </div>
         </div>
         <!-- <div class="card-tools">
@@ -34,11 +34,11 @@ $this->section('content');
             <?php
             foreach ($dicts as $d) {
             ?>
-                <div class="col-sm-2">
-                    <div class="card text-white bg-yellow">
+                <div class="col-md-2">
+                    <div class="card text-white bg-yellow mb-4">
                         <h5 class="text-center"> <?php echo strtoupper($d['letra']); ?></h5>
                         <a href="<?php echo base_url('letter/' . $site . '/' . $d['letra']); ?>">
-                            <img src="<?php echo base_url('public/img/' . $site . '/dict/' . strtoupper( $d['letra']) . '/letra_' . $d['letra'] . '.png'); ?>" alt="" class="img-fluid" style="width: 100%;">
+                            <img src="<?php echo base_url('public/img/' . $site . '/dict/' . strtoupper($d['letra']) . '/letra_' . $d['letra'] . '.png'); ?>" alt="" class="img-fluid" style="width: 100%;">
                         </a>
                     </div>
                 </div>
@@ -46,7 +46,6 @@ $this->section('content');
                 $activos += 1;
             }
             ?>
-
         </div>
     </div>
     <!-- /.card-body -->

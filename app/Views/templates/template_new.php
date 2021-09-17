@@ -42,7 +42,7 @@
     </div>
     <div class="menu">
         <div class="mn_1">
-            <a href="<?php echo base_url('/pdfs'); ?>" >
+            <a href="<?php echo base_url('pdfs/'. $site); ?>" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu">
             </a>
         </div>
@@ -52,7 +52,7 @@
             </a>
         </div>
         <div class="mn_3">
-            <a href="https://www.colorear-online.com/" target="blank_">
+            <a href="<?php echo base_url('music/' . $site);  ?>" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu">
             </a>
         </div>

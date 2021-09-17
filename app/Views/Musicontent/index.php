@@ -29,10 +29,10 @@ $colvideo = array(
         ?>
       </div>
       <div class="col-md-<?php echo $colvideo['c'] ?>">
-        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: ' . $source; ?></div>
+        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'PDF Activity  - Activity ' . $activity ; ?></div>
       </div>
       <div class="col-md-<?php echo $colvideo['d'] ?>">
-        <a href="<?php echo base_url('activities/' . $site . '/' . $lessonId . '/' . $course . '/' . $lesson . '/' . $courseId); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
+        <a href="<?php echo base_url('music/' . $site ); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@ $colvideo = array(
 
           case 'resource':
             echo '<iframe src="' . $urlresource . '" width="900" height="580" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
-            echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
+            //echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 
           default:

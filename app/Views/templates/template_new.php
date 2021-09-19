@@ -72,7 +72,7 @@
         <a class="button" onclick="sonido()" style="width: 100px;">
             <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
         </a>
-        <audio id="myAudio" autoplay preload="auto" allow="autoplay">
+        <audio id="myAudio" autoplay preload="auto" allow="autoplay" allowfullscreen>
             <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio><br>
@@ -129,13 +129,14 @@
         }
         var myAudio = document.getElementById("myAudio");
         var icono = document.getElementById("volume");
-        myAudio.volume = .10;
+        myAudio.volume = .1;
         myAudio.play();
         myAudio.loop = true;
 
         function sonido() {
             if (myAudio.paused) {
                 icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
+                myAudio.volume = .1;
                 myAudio.play();
                 myAudio.loop = true;
             } else {
@@ -143,7 +144,7 @@
                 myAudio.pause();
             }
         }
-
+        
         var element = document.querySelector("body");
         //element.requestFullscreen();
     </script>

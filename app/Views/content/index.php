@@ -51,7 +51,7 @@ $colvideo = array(
         <?php
         switch ($tipo) {
           case 'hvp':
-            echo '<iframe class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900" height="400" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+            echo '<iframe class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900" height="600" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 

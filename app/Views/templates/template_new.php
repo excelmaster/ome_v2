@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRUEBA GRID</title>
+    <title>OME courses</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url('public/assets/plugins/fontawesome-free/css/all.min.css'); ?>">
@@ -41,29 +41,30 @@
 
     </div>
     <div class="menu">
+        <?php $clase = ($site=='teens') ? 'rounded bg-white': '' ; ?>
         <div class="mn_1">
             <a href="<?php echo base_url('pdfs/'. $site); ?>" >
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu rounded bg-white">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_2">
             <a href="<?php echo base_url('dict/' . $site);  ?>" >
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu rounded bg-white">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_3">
             <a href="<?php echo base_url('music/' . $site);  ?>" >
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu rounded bg-white">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_4">
             <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu rounded bg-white">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_5">
             <a href="<?php echo base_url('faq/' . $site); ?>" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu rounded bg-white">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
     </div>

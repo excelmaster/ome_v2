@@ -35,7 +35,7 @@ $this->section('content');
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center">World <?php echo $c['mundo']; ?></h5>
                         <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
-                            <img src="<?php echo base_url('public/img/' . $site . '/courses/' . $c['img']); ?>" alt="" class="img-fluid img-mundos" style="width: 100%;">
+                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . $c['mundo']  . '.png'); ?>" alt="" class="img-fluid img-mundos" style="width: 100%;">
                         </a>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ $this->section('content');
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center">World <?php echo $inactivos; ?></h5>
                         <a href="#">
-                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundo_' . ($i + 1) . '.png'); ?>" alt="" class="card-fluid fichas img-mundos" style="width:100%">
+                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . ($i + 1) . '.png'); ?>" alt="" class="card-fluid fichas img-mundos" style="width:100%">
                         </a>
                     </div>
                 </div>

@@ -61,7 +61,7 @@ $colvideo = array(
             break;
 
           case 'resource':
-            echo '<iframe src="' . $urlresource . '" width="900" height="580" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+            echo '<iframe class="embed-responsive-item" src="' . $urlresource . '" width="900" height="580" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 

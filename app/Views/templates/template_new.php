@@ -141,7 +141,8 @@
                 myAudio.play();
                 myAudio.loop = false;
             } else {
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>");
+                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.PNG
+                '); ?>");
                 myAudio.pause();
             }
         }

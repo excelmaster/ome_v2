@@ -18,7 +18,7 @@ $this->section('content');
                 <div class="col-sm-10 direct-chat-text bg-blue">CHOOSE THE COLOR ACTIVITY THAT YOU WANT TO DO!</div>
             </div>
             <div class="col-sm-2">
-                <a href="<?php echo base_url('course/' . $site ); ?>"><img src="<?php echo base_url('public/img/' . $site . '/dict/volver_mundos.gif'); ?>"></a>
+                <a href="<?php echo base_url('courses/' . $site ); ?>"><img src="<?php echo base_url('public/img/' . $site . '/dict/volver_mundos.gif'); ?>"></a>
             </div>
         </div>
         <!-- <div class="card-tools">

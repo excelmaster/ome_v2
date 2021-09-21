@@ -63,7 +63,7 @@
             </a>
         </div>
         <div class="mn_5">
-            <a href="<?php echo base_url('faq/' . $site); ?>" target="blank_">
+            <a href="<?php echo base_url('faq/' . $site); ?>" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>

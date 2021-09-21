@@ -9,14 +9,18 @@ $this->section('content');
 <!-- Default box -->
 <div class="card bg-transparent">
     <div class="card-header">
-        <div class="row mb-2">
+        <div class="row mb-12">
             <div class="col-sm-5">
                 <h3 class="bg bg-blue">PREGUNTAS FRECUENTES</h3>
             </div>
             <div class="col-sm-5">
                 <div class="col-sm-10 direct-chat-text bg-blue">Dé clic en la pregunta para ver la respuesta!</div>
             </div>
+            <div class="col-sm-2">
+                <a href="<?php echo base_url('courses/' . $site); ?>"><img src="<?php echo base_url('public/img/' . $site . '/dict/volver_mundos.gif'); ?>"></a>
+            </div>
         </div>
+
         <!-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>

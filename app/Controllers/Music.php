@@ -8,7 +8,7 @@ class Music extends BaseController
 	public function index($site)
 	{
 		$SongsInstance = new MusicModel($db);
-		$Songs = $SongsInstance->where('objectId',700)->orderBy('activityNumber','ASC')->findAll();
+		$Songs = $SongsInstance->where('objectId',700)->where('tipomusic','music_' . $site)->orderBy('activityNumber','ASC')->findAll();
 		$Songs = array(
 			'items' => $Songs,
 			'site' => $site

@@ -32,7 +32,7 @@ $colvideo = array(
       </div>
       <div class="col-md-<?php echo $colvideo['c'] ?>" <?php if ($activity == '1') echo 'hidden'; ?>>
         <button type="button" class="btn text-blue bg-transparent">
-          <h6>Previous Activity</h6>
+          <h6>Previous<br> Activity</h6>
           <a class="button float-none bg-transparent" style="width: 100px;" href="<?php $retVal = ($url_prev == '0') ? '#' : $url_prev;
                                                                                   echo $retVal; ?>">
             <img src="<?php echo base_url('public/img/' . $site . '/template/flecha_prev.png'); ?>" id="actv_prev" class="btn-sonido" style="width: 70px; height: 70px;  ">
@@ -41,7 +41,7 @@ $colvideo = array(
       </div>
       <div class="col-md-<?php echo $colvideo['c'] ?>" <?php if ($url_next == '0') echo 'hidden'; ?>>
         <button type="button" class="btn text-blue bg-transparent">
-          <h6>Next Activity</h6>
+          <h6>Next <br>Activity</h6>
           <a class="button float-none bg-transparent" style="width: 100px;" href="<?php echo $url_next; ?>">
             <img src="<?php echo base_url('public/img/' . $site . '/template/flecha_next.png'); ?>" id="actv_next" class="btn-sonido" style="width: 70px; height: 70px;  ">
           </a>

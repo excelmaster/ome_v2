@@ -39,7 +39,7 @@ $colvideo = array(
           </a>
         </button>
       </div>
-      <div class="col-md-<?php echo $colvideo['c'] ?>" <?php if ($url_next == '0') echo 'hidden'; ?>>
+      <div class="col-md-<?php echo $colvideo['d'] ?>" <?php if ($url_next == '0') echo 'hidden'; ?>>
         <button type="button" class="btn text-blue bg-transparent">
           <h6>Next <br>Activity</h6>
           <a class="button float-none bg-transparent" style="width: 100px;" href="<?php echo $url_next; ?>">

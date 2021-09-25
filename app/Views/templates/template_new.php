@@ -20,15 +20,15 @@
 
 <body class="grid-container" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <!-- video background -->
-    <?php 
-    if ($site == 'teens' || $site == 'kids' ){
+    <?php
+    if ($site == 'teens' || $site == 'kids') {
         echo '<video autoplay muted loop id="myVideo">';
         echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
         echo 'Your browser does not support HTML5 video.';
         echo '</video>';
     };
     ?>
-    
+
     <div class="header">
         <div class="container-fluid">
             <div class="logo">
@@ -41,30 +41,30 @@
 
     </div>
     <div class="menu">
-        <?php $clase = ($site=='teens') ? 'rounded bg-white': '' ; ?>
+        <?php $clase = ($site == 'teens') ? 'rounded bg-white' : ''; ?>
         <div class="mn_1">
-            <a href="<?php echo base_url('pdfs/'. $site); ?>" >
+            <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_2">
-            <a href="<?php echo base_url('dict/' . $site);  ?>" >
+            <a href="<?php echo base_url('dict/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_3">
-            <a href="<?php echo base_url('music/' . $site);  ?>" >
+            <a href="<?php echo base_url('music/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            </a>
+        </div>
+        <div class="mn_5">
+            <a href="<?php echo base_url('faq/' . $site); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_4">
             <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu <?php echo $clase; ?>">
-            </a>
-        </div>
-        <div class="mn_5">
-            <a href="<?php echo base_url('faq/' . $site); ?>" >
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
     </div>
@@ -145,7 +145,7 @@
                 myAudio.pause();
             }
         }
-        
+
         var element = document.querySelector("body");
         //element.requestFullscreen();
     </script>

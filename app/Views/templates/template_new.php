@@ -42,6 +42,11 @@
     </div>
     <div class="menu">
         <?php $clase = ($site == 'teens') ? 'rounded bg-white' : ''; ?>
+        <div class="mn_3">
+            <a href="<?php echo base_url('tutorial/' . $site);  ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            </a>
+        </div>
         <div class="mn_1">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu <?php echo $clase; ?>">

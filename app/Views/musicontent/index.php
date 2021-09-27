@@ -5,10 +5,10 @@ $inactivos = 0;
 $this->extend('templates/template_new');
 $this->section('content');
 $colvideo = array(
-  'a' => 4,
-  'b' => 5,
+  'a' => 5,
+  'b' => 1,
   'c' => 2,
-  'd' => 1
+  'd' => 2
 );
 ?>
 
@@ -37,7 +37,6 @@ $colvideo = array(
     </div>
   </div>
   <div class="card-body">
-
     <div class="row">
       <div class="col-xl-1" <?php if($activity=='1') echo 'hidden'; ?> >
         <button type="button" class="btn text-blue bg-transparent">

@@ -5,7 +5,7 @@ $inactivos = 0;
 $this->extend('templates/template_new');
 $this->section('content');
 $colvideo = array(
-  'a' => 4,
+  'a' => 5,
   'b' => 1,
   'c' => 2,
   'd' => 1,
@@ -21,7 +21,7 @@ $colvideo = array(
       <div class="col-md-<?php echo $colvideo['a'] ?>">
         <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="" style="height: 70%;width: 70%">
       </div>
-      <div class="col-md-<?php echo $colvideo['b'] ?>">
+      <!-- <div class="col-md-<?php echo $colvideo['b'] ?>">
         <?php
         if ($source == 'video') {
           echo '<a href="#"><img class="bg-gradient-white" src="' . base_url('public/img/' . $site . '/content/videos.gif') . '"></a>';
@@ -29,7 +29,7 @@ $colvideo = array(
           echo '<img></img>';
         };
         ?>
-      </div>
+      </div> -->
       <div class="col-md-<?php echo $colvideo['c'] ?>" <?php if ($activity == '1') echo 'hidden'; ?>>
         <button type="button" class="btn text-blue bg-transparent">
           <h6>Previous<br> Activity</h6>

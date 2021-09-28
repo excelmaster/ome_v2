@@ -47,6 +47,9 @@ $this->section('content');
                         <div id="collapse<?php echo $f['order']; ?>" class="collapse" data-parent="#accordion" style="">
                             <div class="card-body bg-white">
                                 <?php echo $f['answer']; ?>
+                                <div class="container-fluid">
+                                    <img src="<?php echo base_url('public/img/' . $site . '/faq/faq_'.$f['order'].'.png'); ?>" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,8 +63,8 @@ $this->section('content');
     <div class="card-footer">
         <!-- //Footer -->
         <div class="col-12 mt-3 text-center">
-            <p class="lead bg-black">
-                <a href="https://api.whatsapp.com/send/?phone=3228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="_blank">Contáctenos</a>,
+            <p class="lead bg-white">
+                <a href="https://api.whatsapp.com/send/?phone=3228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="_blank">Contáctanos</a>,
                 si no has encontrado la respuesta correcta o tienes otra pregunta?<br>
             </p>
         </div>

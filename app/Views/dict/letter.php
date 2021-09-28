@@ -14,7 +14,7 @@ $this->section('content');
                 <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.gif'); ?>" alt="">
             </div>
             <div class="col-sm-5">
-                <div class="col-sm-10 direct-chat-text bg-blue">Mira el vocabulario de la letra <?php echo strtoupper($letter) ;  ?>  </div>
+                <div class="col-sm-10 direct-chat-text bg-blue">check the vocabulary of the leter  <?php echo strtoupper($letter) ;  ?>  </div>
             </div>
             <div class="col-sm-2">
                 <a href="<?php echo base_url('dict/' . $site); ?>"><img src="<?php echo base_url('public/img/'. $site . '/dict/ir_dict.gif') ?>"></a>

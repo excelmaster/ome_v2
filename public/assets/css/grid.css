@@ -48,9 +48,14 @@ body {
   background-color: transparent;
   /* border: 1px solid red; */
   gap: 15px;
-  grid-template:
-    "mn_1 mn_2 mn_3 mn_4 mn_5" 120px / 40px 40px 40px 40px 40px
 }
+
+.mn_1 { grid-area: 1 / 1 / 2 / 2; }
+.mn_2 { grid-area: 1 / 2 / 2 / 3; }
+.mn_3 { grid-area: 1 / 3 / 2 / 4; }
+.mn_4 { grid-area: 2 / 1 / 3 / 2; }
+.mn_5 { grid-area: 2 / 2 / 3 / 3; }
+.mn_6 { grid-area: 2 / 3 / 3 / 4; }
 
 .sidebar {
   grid-area: sidebar;
@@ -70,7 +75,7 @@ body {
   display: grid;
   gap: 5px;
   grid-template:
-    "header header header header header"80px "menu   menu  menu  menu  menu"150px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
+    "header header header header header"80px "menu   menu  menu  menu  menu"250px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
 }
 
 .logo {
@@ -177,7 +182,7 @@ body {
     /* border: 1px solid red; */
     gap: 15px;
     grid-template:
-      "mn_1"120px "mn_2"120px "mn_3"120px "mn_4"120px "mn_5"120px
+      "mn_1"120px "mn_2"120px "mn_3"120px "mn_4"120px "mn_5"120px "mn_6"120px
   }
 
   .mn_1 {

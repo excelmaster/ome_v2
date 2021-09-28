@@ -49,10 +49,10 @@ $colvideo = array(
         <br><br>
       </div>
       <div class="col-md-<?php echo $colvideo['e'] ?>">
-        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'PDF Activity  - Activity ' . $activity ; ?></div>
+        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'PDF Activity  - Activity ' . $activity; ?></div>
       </div>
       <div class="col-md-<?php echo $colvideo['f'] ?>">
-        <a href="<?php echo base_url('pdfs/' . $site ); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
+        <a href="<?php echo base_url('pdfs/' . $site); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
       </div>
     </div>
   </div>

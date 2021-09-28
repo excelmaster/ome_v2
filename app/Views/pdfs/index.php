@@ -19,7 +19,7 @@ $this->section('content');
             </div>
             <div class="col-sm-2">
                 <a href="<?php echo base_url('courses/' . $site ); ?>"><img src="<?php echo base_url('public/img/' . $site . '/dict/volver_mundos.gif'); ?>"></a>
-            </div>
+            </div> 
         </div>
         <!-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

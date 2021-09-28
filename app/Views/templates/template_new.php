@@ -38,8 +38,6 @@
             </div>
         </div>
     </div>
-
-    </div>
     <div class="menu">
         <?php $clase = ($site == 'teens') ? 'rounded bg-white' : ''; ?>
         <div class="mn_3">
@@ -73,7 +71,6 @@
             </a>
         </div>
     </div>
-    </div>
     <div class="sidebar">
         <a class="button" onclick="sonido()" style="width: 100px;">
             <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
@@ -88,34 +85,35 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper bg-transparent">
                 <!-- Content Header (Page header) -->
-                <!-- <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="">
-            </div>
-            <div class="col-sm-6">
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-                <!-- Main content -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <img class="img-fluid" src="<?php //echo base_url('public/img/' . $site . '/template/bienvenidos.png'); 
+                                                            ?>" alt="">
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Main content  -->
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <?php $this->renderSection('content'); ?>
+                                <?php $this->renderSection('content'); 
+                                ?>
                             </div>
                         </div>
                 </section>
-                <!-- /.content -->
+                <!--  /.content  -->
             </div>
-            <!-- /.content-wrapper -->
+            <!-- /.content-wrapper --> 
         </div>
         <div class="navigation">
             <h6 hidden>nav</h6>
-        </div>
+        </div> 
     </div>
 
     <!-- jQuery -->

@@ -17,7 +17,7 @@ $colvideo = array(
   <div class="card-header">
     <div class="row">
       <div class="col-md-<?php echo $colvideo['a'] ?>">
-        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="" style="height: 70%;width: 70%">
+        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="">
       </div>
       <div class="col-md-<?php echo $colvideo['b'] ?>">
         <?php
@@ -32,7 +32,7 @@ $colvideo = array(
         <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'PDF Activity  - Activity ' . $activity ; ?></div>
       </div>
       <div class="col-md-<?php echo $colvideo['d'] ?>">
-        <a href="<?php echo base_url('music/' . $site ); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
+        <a href="<?php echo base_url('music/' . $site ); ?>"><img src="<?php echo base_url('public/img/' . $site . '/content/volver_actividad.gif'); ?>"></a>
       </div>
     </div>
   </div>

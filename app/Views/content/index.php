@@ -19,7 +19,7 @@ $colvideo = array(
   <div class="card-header">
     <div class="row">
       <div class="col-md-<?php echo $colvideo['a'] ?>">
-        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="" style="height: 70%;width: 70%">
+        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="" >
       </div>
       <!-- <div class="col-md-<?php echo $colvideo['b'] ?>">
         <?php
@@ -62,7 +62,7 @@ $colvideo = array(
         <?php
         switch ($tipo) {
           case 'hvp':
-            echo '<iframe class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900" height="600" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+            echo '<iframe class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900px" height="600px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 
@@ -72,7 +72,7 @@ $colvideo = array(
             break;
 
           case 'resource':
-            echo '<iframe class="embed-responsive-item" src="' . $urlresource . '" width="900" height="580" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+            echo '<iframe class="embed-responsive-item" src="' . $urlresource . '" width="900px" height="580px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
 

@@ -28,7 +28,7 @@ $this->section('content');
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                 <i class="fas fa-times"></i>
             </button>
-        </div> -->
+        </div> --> 
     </div>
     <div class="card-body bg-transparent">
         <div class="row">
@@ -37,12 +37,12 @@ $this->section('content');
             ?>
                 <div class="col-sm-3">
                     <div class="card text-blue bg-transparent">
-                        <h5 class="text-center"><?php echo $c['position'] .' - '. substr( $c['label'],0,30).'...'; ?></h5>
+                        <h5 class="text-center"><?php echo $c['activityNumber'] .' - '. substr( $c['img_path'],0,30).'...'; ?></h5>
                         <form action="contenido.html" method="post"></form>
                         <?php
-                        //echo '<a type="button" class="btn bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" href="'. base_url('musicontent/' . $site . '/' . $c['objectId'] . '/' . $c['lesson_id'] . '/' . $c['course_id'] . '/' . $c['lesson_id'] . '/' . $c['course_id'] . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
+                        echo '<a type="button" class="btn bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" href="'. base_url('tutorialcontent/' . $site . '/' . $c['objectId'] . '/' . $c['lesson_id'] . '/' . $c['course_id'] . '/' . $c['lesson_id'] . '/' . $c['course_id'] . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
-                        <img src="<?php echo base_url('public/img/' . $site . '/tutorials/tut_' . $c['position'] . '.png') ?>" alt="" class="img-fluid rounded">
+                        <img src="<?php echo base_url('public/img/' . $site . '/tutorials/tut_' . $c['activityNumber'] . '.PNG') ?>" alt="" class="img-fluid rounded">
                         </a>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ class Tutorial extends BaseController
 	public function index($site)
 	{
 		$TutInstance = new TutorialModel($db);
-		$Tuts = $TutInstance->where('tipo',$site)->orderBy('position','ASC')->findAll();
+		$Tuts = $TutInstance->where('tipotutorial','tutorial_'.$site)->orderBy('activityNumber','ASC')->findAll();
 		$Tuts = array(
 			'items' => $Tuts,
 			'site' => $site

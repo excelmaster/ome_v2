@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OME courses</title>
+    <title> OME courses</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url('public/assets/plugins/fontawesome-free/css/all.min.css'); ?>">
@@ -72,13 +72,18 @@
         </div>
     </div>
     <div class="sidebar">
-        <a class="button" onclick="sonido()" style="width: 100px;">
+        <div class="sb_1" onclick="sonido()" style="width: 100px;">
             <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
-        </a>
+        </div>
         <audio id="myAudio" autoplay preload="auto" allow="autoplay" allowfullscreen>
             <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio><br>
+        <div class="sb_2">
+            <a href="#" data-toggle="tooltip" title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            </a>
+        </div>
     </div>
     <div class="content">
         <div class="framezone">

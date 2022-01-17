@@ -167,6 +167,9 @@ body {
     z-index: 1;
     grid-area: sidebar;
     background-color: transparent;
+    gap: 15px;
+    grid-template:
+    "sb_1"120px "sb_2"120px "sb_3"120px "sb_4"120px "sb_5"120px
   }
 
   .menu {
@@ -177,7 +180,7 @@ body {
     /* border: 1px solid red; */
     gap: 15px;
     grid-template:
-      "mn_1"120px "mn_2"120px "mn_3"120px "mn_4"120px "mn_5"120px
+    "mn_6"120px "mn_1"120px "mn_2"120px "mn_3"120px "mn_4"120px "mn_5"120px
   }
 
   .mn_1 {

@@ -160,7 +160,7 @@
             </a>
           </div>
           <div class="col sm-3">
-            <audio id="myAudio" autoplay preload="auto" allow="autoplay">
+            <audio id="myAudio" >
               <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio><br>

@@ -58,7 +58,21 @@ $colvideo = array(
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-xl-1">
+        <div class="card" style="width: 18rem;">
+          <img src="<?php echo base_url('public/img/teens/content/monstruo.jfif'); ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hola! Soy Paco</h5>
+            <p class="card-text">Dá clic en el botón y te dire como hacer esta actividad</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Muéstrame como hacer esta actividad
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-11">
         <?php
         switch ($tipo) {
           case 'hvp':
@@ -94,6 +108,43 @@ $colvideo = array(
 </div>
 
 <!-- /.card -->
+<!-- Modal  -->
+<div class="modal fade" id="exampleModal" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: ' . $source; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card" style="width: 18rem;">
+          <img src="<?php echo base_url('public/img/teens/content/monstruo.jfif'); ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">En esta actividad debes arrastrar las imágenes ubicadas en la izquierda hacia el campo de la derecha</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Vamos a hacelo!</button>
+       <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function (){
+  alert("entra");
+  $("#exampleModal").modal('show');
+});
+
+
+</script>
 
 
 <?php

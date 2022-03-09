@@ -58,21 +58,21 @@ $colvideo = array(
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-xl-1">
+      <!-- <div class="col-xl-1">
         <div class="card" style="width: 18rem;">
           <img src="<?php echo base_url('public/img/teens/content/monstruo.jfif'); ?>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Hola! Soy Paco</h5>
-            <p class="card-text">Dá clic en el botón y te dire como hacer esta actividad</p>
+            <p class="card-text">Dá clic en el botón y te dire como hacer esta actividad</p> -->
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               Muéstrame como hacer esta actividad
             </button>
           </div>
         </div>
-      </div>
-      <div class="col-xl-11">
+      </div> -->
+      <div class="col-xl-12">
         <?php
         switch ($tipo) {
           case 'hvp':

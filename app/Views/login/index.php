@@ -37,7 +37,8 @@
 		<?php echo form_open('/users'); ?>
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO</p>
+				<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO
+				</p>
 				<div class="input-group mb-5">
 					<input type="text" name="username" id="username" class="form-control" placeholder="Nobre de usuario">
 					<div class="input-group-append">
@@ -68,7 +69,6 @@
 			<!-- /.login-card-body -->
 		</div>
 	</div>
-
 	<div class="row">
 		<?php
 		if (isset($validation)) : ?>

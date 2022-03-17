@@ -9,6 +9,6 @@ class Verbs extends BaseController
 		$verbos = array(
 			'site' => $site
 		);
-		return view('Verbs/index', $verbos) ;
+		return view('verbs/index', $verbos) ;
 	}
 }

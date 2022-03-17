@@ -90,7 +90,7 @@
             </a>
         </div>
         <div class="sb_4">
-            <a href="https://api.whatsapp.com/send/?phone=3228315698&text=Quiero+informacion+sobre+las+clases+personalizadas&app_absent=0" target="_blank" data-toggle="tooltip" data-placement="left" title="CLASES PERSONALIZADAS !">
+            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Quiero+informacion+sobre+las+clases+personalizadas&app_absent=0" target="_blank" data-toggle="tooltip" data-placement="left" title="CLASES PERSONALIZADAS !">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/clases.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>

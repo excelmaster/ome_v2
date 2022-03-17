@@ -17,7 +17,6 @@ class Users extends BaseController
                 'username' => 'required|min_length[6]|max_length[50]',
                 'password' => 'required|min_length[8]|max_length[255]|validateUser[email, password]',
             ];
-
             $errors = [
                 'password' => [
                     'validateUser' => 'El usuario o la contraseña no son válidos',
@@ -44,7 +43,7 @@ class Users extends BaseController
                 echo "<br>ACTIVO" . $activeMdl;
                 $vista = $activeMdl == false ? "logmdl" : "hub";
                 echo "<br>".$vista;
-                return redirect()->to($vista);
+                //return redirect()->to($vista);
             }
         }
 

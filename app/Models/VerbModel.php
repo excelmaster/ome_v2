@@ -12,7 +12,7 @@ class VerbModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['mundo', 'tipo','past','present','participle','significado'];
+    protected $allowedFields = ['mundo', 'tipo','past','present','participle','significado','position'];
     
     protected $useTimestamps = false;
 

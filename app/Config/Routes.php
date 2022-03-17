@@ -50,6 +50,7 @@ $routes->get('/musicontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:nu
 $routes->get('/tutorial/(:any)', 'Tutorial::index/$1');
 $routes->get('/tutorialcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Tutorialcontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
 $routes->get('/verbs/(:any)', 'Verbs::index/$1');
+$routes->get('/verblist/(:any)/(:any)', 'Verbs::list/$1/$2');
 
 /*
  * --------------------------------------------------------------------

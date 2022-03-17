@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\VerbModel;
 
 class Verbs extends BaseController
 {
@@ -10,5 +11,17 @@ class Verbs extends BaseController
 			'site' => $site
 		);
 		return view('verbs/index', $verbos) ;
+	}
+
+	public function list($site, $type){
+		$verbinstance = new VerbModel($db);
+		$criterios = [ 'mundo' => $site, 'tipo'=>substr($type, 0, 3) ];
+		$verbos = $verbinstance->where($criterios)->findAll();
+		$data = array (
+			'verbos' => $verbos,
+			'site' => $site,
+			'tipo' => $type
+		);
+		return view('verbs/list', $data);
 	}
 }

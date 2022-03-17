@@ -85,7 +85,7 @@
             </a>
         </div>
         <div class="sb_3">
-            <a href="<?php echo base_url('verbos') ?>"  data-toggle="tooltip" data-placement="left" title="APRENDE ESTOS IMPORTANTES VERBOS">
+            <a href="<?php echo base_url('verbs/' . $site)  ?>"  data-toggle="tooltip" data-placement="left" title="APRENDE ESTOS IMPORTANTES VERBOS">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/verbos.png'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>

@@ -24,4 +24,14 @@ class Verbs extends BaseController
 		);
 		return view('verbs/list', $data);
 	}
+	public function read($site){
+		$verbinstance = new  VerbModel($db);
+		$verbos = $verbinstance->findAll();
+		$data = array (
+			'verbos' => $verbos,
+			'site' => $site,			
+		);
+		return view('verbs/read', $data);
+	}
+
 }

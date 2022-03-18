@@ -14,7 +14,7 @@ $this->section('content');
             </div>
         </div>
         
-        <table class="table table-bordered table-light">
+        <table class="table table-bordered table-light table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">PAST</th>

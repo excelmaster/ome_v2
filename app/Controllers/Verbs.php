@@ -25,22 +25,33 @@ class Verbs extends BaseController
 		return view('verbs/list', $data);
 	}
 
-	public function read($site){
+	public function show(){
 		$verbinstance = new  VerbModel($db);
 		$verbos = $verbinstance->findAll();
 		$data = array (
 			'verbos' => $verbos,
-			'site' => $site,			
+			'site' => 'teens',			
 		);
-		return view('verbs/read', $data);
+		return view('verbs/show', $data);
 	}
 
-	public function create($site) {
-		
+	public function new() {
+		return view('verbs/new');
 	}
 
-	public function new($site){
-		print($_POST);
+	public function create(){
+		$verb = new VerbModel();
+		$verb->insert([
+			'mundo' => $this->request->getPost('mundo'),
+			'tipo' => $this->request->getPost('tipo'),
+			'past' => $this->request->getPost('past'),
+			'present' => $this->request->getPost('present'),
+			'participle' => $this->request->getPost('participle'),
+			'significado' => $this->request->getPost('significado'),
+			'position' => $this->request->getPost('position')			
+		]);
+		return redirect()->to('/verbs/index');
 	}
 
 }
+

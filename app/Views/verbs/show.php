@@ -22,11 +22,9 @@ $this->section('content');
     </div>
     <div class="row">
       <col-md-3>
-        <button class="mb-2 mr-2 btn btn-primary"><i class="pe-7s-plus"> </i>Nuevo </button>
+        <a class="btn btn-primary btn-sm " href="<?php echo base_url('verbs/new'); ?>"   role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nuevo verbo</a>
       </col-md-3>
     </div>
-
-
     <table id="omedata" class="table table-bordered table-light table-striped table-hover">
       <thead>
         <tr>

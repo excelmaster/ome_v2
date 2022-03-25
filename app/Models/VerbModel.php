@@ -19,4 +19,24 @@ class VerbModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function readVerbs(){
+        return $this->findAll();
+    }
+
+    public function readVerb($id){
+        return $this->find($id);
+    }
+
+    public function createVerb($data){
+        return $this->insert($data);
+    }
+
+    public function deleteVerb($id){
+        return $this->delete($id);
+    }
+
+    public function updateVerb($id, $data){
+        return $this->update($id, $data);
+    }
 }

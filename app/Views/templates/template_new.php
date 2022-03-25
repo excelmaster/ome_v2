@@ -13,12 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="<?php echo base_url('public/assets/css/grid.css'); ?>">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
 </head>
 
-<body class="grid-container" style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
+<body class="grid-container"
+    style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <!-- video background -->
     <?php
     if ($site == 'teens' || $site == 'kids') {
@@ -33,66 +37,82 @@
         <div class="container-fluid">
             <div class="logo">
                 <a href="<?php echo base_url('courses/' . $site); ?>">
-                    <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>" alt="AdminLTE Logo" class="logo-header">
+                    <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
+                        alt="AdminLTE Logo" class="logo-header">
                 </a>
             </div>
         </div>
     </div>
     <div class="menu">
-        <?php $clase = ($site == 'teens') ? 'rounded bg-white' : ''; ?>
+        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
         <div class="mn_6">
             <a href="<?php echo base_url('tutorial/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_1">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_2">
             <a href="<?php echo base_url('dict/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_3">
             <a href="<?php echo base_url('music/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu <?php echo $clase; ?>">
-            </a>
-        </div>
-        <div class="mn_5">
-            <a href="<?php echo base_url('faq/' . $site); ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_4">
-            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            <a href="<?php echo base_url('verbs/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
+                title="APRENDE ESTOS IMPORTANTES VERBOS">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
     </div>
-    <div class="sidebar">
-        <div class="sb_1" onclick="sonido()" data-placement="left" data-toggle="tooltip" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume" class="btn-sonido" style="width: 70px; height: 70px;  ">
-            <audio id="myAudio" allowfullscreen>
-                <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio><br>    
-        </div>        
+    <div class="sidebar">        
+        <div class="sb_1">
+            <a href="#" data-toggle="tooltip" data-placement="right"
+                title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
+            </a>
+        </div>
         <div class="sb_2">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Quiero+informacion+sobre+las+clases+personalizadas&app_absent=0"
+                target="_blank" data-toggle="tooltip" data-placement="left" title="CLASES PERSONALIZADAS !">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/clases.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="sb_3">
-            <a href="<?php echo base_url('verbs/' . $site)  ?>"  data-toggle="tooltip" data-placement="left" title="APRENDE ESTOS IMPORTANTES VERBOS">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/verbos.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            <a href="<?php echo base_url('faq/' . $site); ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/faq.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="sb_4">
-            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Quiero+informacion+sobre+las+clases+personalizadas&app_absent=0" target="_blank" data-toggle="tooltip" data-placement="left" title="CLASES PERSONALIZADAS !">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/clases.png'); ?>" class="img-menu <?php echo $clase; ?>">
+            <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0"
+                target="blank_">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/support.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
             </a>
+        </div>
+        <div class="sb_5" onclick="sonido()" data-placement="left" data-toggle="tooltip" style="width: 100px;">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume"
+                class="btn-sonido" style="width: 70px; height: 70px;  ">
+            <audio id="myAudio" allowfullscreen>
+                <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>"
+                    type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio><br>
         </div>
     </div>
     <div class="content">
@@ -125,11 +145,11 @@
                 </section>
                 <!--  /.content  -->
             </div>
-            <!-- /.content-wrapper --> 
+            <!-- /.content-wrapper -->
         </div>
         <div class="navigation">
             <h6 hidden>nav</h6>
-        </div> 
+        </div>
     </div>
 
     <!-- jQuery -->
@@ -149,18 +169,19 @@
         }
         var myAudio = document.getElementById("myAudio");
         var icono = document.getElementById("volume");
-        
+
         function sonido() {
             let ck = document.cookie;
-            
+
             if (localStorage.getItem("muted")) {
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
+                icono.setAttribute("src",
+                "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
                 myAudio.volume = .1;
                 myAudio.play();
                 myAudio.loop = false;
                 localStorage.removeItem("muted");
             } else {
-                localStorage.setItem("muted","on");
+                localStorage.setItem("muted", "on");
                 icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>");
                 myAudio.pause();
             }

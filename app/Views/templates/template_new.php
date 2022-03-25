@@ -44,13 +44,7 @@
         </div>
     </div>
     <div class="menu">
-        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
-        <div class="mn_6">
-            <a href="<?php echo base_url('tutorial/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
-                    class="img-menu <?php echo $clase; ?>">
-            </a>
-        </div>
+        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>        
         <div class="mn_1">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>"
@@ -73,6 +67,12 @@
             <a href="<?php echo base_url('verbs/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
                 title="APRENDE ESTOS IMPORTANTES VERBOS">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>"
+                    class="img-menu <?php echo $clase; ?>">
+            </a>
+        </div>
+        <div class="mn_5">
+            <a href="<?php echo base_url('tutorial/' . $site);  ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>

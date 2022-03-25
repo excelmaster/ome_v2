@@ -127,7 +127,7 @@ body {
 }
 
 /*tablets*/
-@media (min-width: 600px) {
+@media (min-width: 426px) {
   .grid-container {
     /* background-color: yellow; */
     grid-template:

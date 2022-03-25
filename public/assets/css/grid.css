@@ -213,6 +213,31 @@ body {
     animation-duration: 4s;
   }
 
+  .sb_1 {
+    animation: bounceInUp;
+    animation-duration: 2s;
+  }
+
+  .sb_2 {
+    animation: bounceInUp;
+    animation-duration: 2.5s;
+  }
+
+  .sb_3 {
+    animation: bounceInUp;
+    animation-duration: 3s;
+  }
+
+  .sb_4 {
+    animation: bounceInUp;
+    animation-duration: 3.5s;
+  }
+  
+  .sb_5 {
+    animation: bounceInUp;
+    animation-duration: 4s;
+  }
+
   .content {
     display: grid;
     grid-area: content;

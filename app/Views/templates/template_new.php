@@ -42,32 +42,32 @@
         <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
         <div class="mn_6">
             <a href="<?php echo base_url('tutorial/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_1">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_2">
             <a href="<?php echo base_url('dict/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_3">
             <a href="<?php echo base_url('music/' . $site);  ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_5">
             <a href="<?php echo base_url('faq/' . $site); ?>">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_4">
             <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Necesito+soporte+de+la+plataforma&app_absent=0" target="blank_">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/menu_5.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
     </div>

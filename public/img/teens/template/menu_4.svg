@@ -24,7 +24,7 @@
    inkscape:export-ydpi="60.306015"><metadata
      id="metadata3719"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs3717"><linearGradient
        inkscape:collect="always"
        id="linearGradient6671"><stop
@@ -606,7 +606,7 @@
      showgrid="false"
      inkscape:snap-others="false"
      inkscape:zoom="2.454"
-     inkscape:cx="149.17084"
+     inkscape:cx="73.987466"
      inkscape:cy="-13.353431"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -674,7 +674,8 @@
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.40000153px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#ffffff;fill-opacity:1;stroke-width:1.69872904"
      x="23.796106"
      y="-238.81293"
-     id="tspan6677">VERBOS</tspan></text>
+     id="tspan6677">VERBS</tspan></text>
+
 <g
    transform="matrix(1.040543,0,0,1.1014077,-29.784611,-190.9635)"
    id="g3771"><g
@@ -707,7 +708,7 @@
        height="117.35941"
        x="-47.269764"
        y="-25.206131" /></flowRegion><flowPara
-     id="flowPara3934"></flowPara></flowRoot><g
+     id="flowPara3934" /></flowRoot><g
    transform="matrix(0.93876819,0,0,0.99855339,-52.44681,-355.51055)"
    id="g3735-2"
    style="fill:#d40000" /></g></svg>

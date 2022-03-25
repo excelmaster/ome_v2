@@ -219,7 +219,7 @@ body {
     background-color: transparent;
     /* border: 1px solid green; */
     grid-template:
-      "framezone "780px "navigation"auto / auto;
+      "framezone "80fr "navigation"auto / auto;
   }
 }
 

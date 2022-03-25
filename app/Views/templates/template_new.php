@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="menu">
-        <?php $clase = ($site == 'teens') ? 'rounded bg-white' : ''; ?>
+        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
         <div class="mn_6">
             <a href="<?php echo base_url('tutorial/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.png'); ?>" class="img-menu <?php echo $clase; ?>">
@@ -81,17 +81,17 @@
         </div>        
         <div class="sb_2">
             <a href="#" data-toggle="tooltip" data-placement="right" title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="sb_3">
             <a href="<?php echo base_url('verbs/' . $site)  ?>"  data-toggle="tooltip" data-placement="left" title="APRENDE ESTOS IMPORTANTES VERBOS">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/verbos.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/verbos.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="sb_4">
             <a href="https://api.whatsapp.com/send/?phone=573228315698&text=Quiero+informacion+sobre+las+clases+personalizadas&app_absent=0" target="_blank" data-toggle="tooltip" data-placement="left" title="CLASES PERSONALIZADAS !">
-                <img src="<?php echo base_url('public/img/' . $site . '/template/clases.png'); ?>" class="img-menu <?php echo $clase; ?>">
+                <img src="<?php echo base_url('public/img/' . $site . '/template/clases.svg'); ?>" class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
     </div>

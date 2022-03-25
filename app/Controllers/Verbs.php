@@ -34,4 +34,8 @@ class Verbs extends BaseController
 		return view('verbs/read', $data);
 	}
 
+	public function new($site){
+		print($_POST);
+	}
+
 }

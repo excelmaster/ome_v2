@@ -52,6 +52,7 @@ $routes->get('/tutorialcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/
 $routes->get('/verbs/(:any)', 'Verbs::index/$1');
 $routes->get('/verblist/(:any)/(:any)', 'Verbs::list/$1/$2');
 $routes->get('/verbread/(:any)/', 'Verbs::read/$1');
+$routes->get('/verbcreate/(:any)/', 'Verbs::create/$1');
 
 /* IonAuth */
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {

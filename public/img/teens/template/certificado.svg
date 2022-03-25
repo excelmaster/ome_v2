@@ -390,7 +390,7 @@
      showgrid="false"
      inkscape:snap-others="false"
      inkscape:zoom="1.227"
-     inkscape:cx="327.38338"
+     inkscape:cx="177.01663"
      inkscape:cy="89.052972"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -408,7 +408,7 @@
 
 <g
    id="g4037"
-   transform="matrix(0.98322067,0,0,1,-248.51222,-38.875307)"><g
+   transform="matrix(0.98322067,0,0,1,-247.53422,-55.501224)"><g
      id="g4039"
      transform="matrix(255,0,0,114,238,237)"><image
        width="1"
@@ -420,7 +420,7 @@
        mask="url(#mask4041)"
        id="image4045" /></g></g><g
    id="g4047"
-   transform="translate(-251.95599,-35.819073)"><g
+   transform="matrix(0.95450389,0,0,0.99998682,-240.00794,-35.814751)"><g
      id="g4049"><g
        id="g4055"><g
          id="g4057"><path
@@ -429,7 +429,7 @@
            id="path4065"
            inkscape:connector-curvature="0" /></g></g></g></g><g
    id="g4067"
-   transform="translate(-251.95599,-35.819073)"><g
+   transform="matrix(0.65601234,0,0,1,-103.71639,-35.819073)"><g
      id="g4069"
      clip-path="url(#clipPath4073)"><g
        id="g4075"
@@ -439,14 +439,17 @@
          id="path4077"
          inkscape:connector-curvature="0" /></g></g></g><text
    transform="scale(1,-1)"
-   style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Varela Round';-inkscape-font-specification:VarelaRound-Regular;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.40000153px;font-family:'Tempus Sans ITC';-inkscape-font-specification:'Tempus Sans ITC';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
    id="text4081"
-   x="41.014717"
-   y="-262.88702"><tspan
+   x="14.698824"
+   y="-262.35303"><tspan
      sodipodi:role="line"
      id="tspan4079"
-     x="41.014717"
-     y="-262.88702">CERTIFICADO</tspan></text>
+     x="14.698824"
+     y="-262.35303"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.40000153px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic'">CERTIFICADO</tspan></text>
+
+
 
 
 <g

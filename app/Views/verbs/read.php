@@ -38,6 +38,8 @@ $this->section('content');
           <th scope="col">Participle</th>
           <th scope="col">Significado</th>
           <th scope="col">Posición</th>
+          <th scope="col" span="2">Acciones</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -51,6 +53,8 @@ $this->section('content');
             <td><?php echo strtoupper($item['participle']) ?></td>
             <td><?php echo strtoupper($item['significado']) ?></td>
             <td><?php echo strtoupper($item['position']) ?></td>
+            <td><a class="btn btn-success btn-sm " href="#" role="button">Editar </a></td>
+            <td><a class="btn btn-warning btn-sm " href="#" role="button">Eliminar </a></td>
           </tr>
         <?php } ?>
       </tbody>

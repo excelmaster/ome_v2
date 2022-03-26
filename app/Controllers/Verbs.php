@@ -35,8 +35,20 @@ class Verbs extends BaseController
 		return view('verbs/show', $data);
 	}
 
-	public function new() {
+	public function new() {		
 		return view('verbs/new');
+	}
+
+	public function edit($id) {		
+		$verbmodel = new verbmodel();
+		$verb = $verbmodel->asObject()->find($id);
+		if($verb == null) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		} 
+		$mundos = array('TEENS','KIDS');
+		$tipos = array('IRREGULAR','REGULAR','PHRASAL');
+		var_dump( substr($tipos[0],0,3));
+		return view('verbs/edit', ['verb' => $verb,'mundos' => $mundos,'tipos' => $tipos]);
 	}
 
 	public function create(){
@@ -50,6 +62,26 @@ class Verbs extends BaseController
 			'significado' => $this->request->getPost('significado'),
 			'position' => $this->request->getPost('position')			
 		]);
+		return redirect()->to('/verbs/index');
+	}
+
+	public function update($id){
+		$verbmodel = new VerbModel();
+		$verb = $verbmodel->asObject()->find($id);
+		if($verb == null) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		} 
+		var_dump($id);
+		$verbmodel->update($id, [
+			'mundo' => $this->request->getPost('mundo'),
+			'tipo' => $this->request->getPost('tipo'),
+			'past' => $this->request->getPost('past'),
+			'present' => $this->request->getPost('present'),
+			'participle' => $this->request->getPost('participle'),
+			'significado' => $this->request->getPost('significado'),
+			'position' => $this->request->getPost('position')			
+		]);
+		
 		return redirect()->to('/verbs/index');
 	}
 

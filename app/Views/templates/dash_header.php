@@ -219,7 +219,6 @@
                     </div>
                 </div>
             </div>
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
     <!-- jQuery -->

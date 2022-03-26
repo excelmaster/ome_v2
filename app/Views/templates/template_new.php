@@ -45,32 +45,32 @@
     </div>
     <div class="menu">
         <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>        
-        <div class="mn_1">
+        <div class="mn_4">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="mn_2">
+        <div class="mn_1">
             <a href="<?php echo base_url('dict/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="mn_3">
+        <div class="mn_2">
             <a href="<?php echo base_url('music/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="mn_4">
+        <div class="mn_3">
             <a href="<?php echo base_url('verbs/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
                 title="APRENDE ESTOS IMPORTANTES VERBOS">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="mn_5">
+        <div class="mn_6">
             <a href="<?php echo base_url('tutorial/' . $site);  ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">

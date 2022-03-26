@@ -85,5 +85,17 @@ class Verbs extends BaseController
 		return redirect()->to('/verbs/index');
 	}
 
+	public function delete($id){
+		$verbmodel = new VerbModel();
+		$verb = $verbmodel->asObject()->find($id);
+		var_dump($verb);
+		/*if($verb == null) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		} */		
+		$result = $verbmodel->delete($id);
+		var_dump($result);
+		return redirect()->to('verbs/index');
+	}
+
 }
 

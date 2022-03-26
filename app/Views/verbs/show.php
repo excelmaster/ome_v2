@@ -52,7 +52,11 @@ $this->section('content');
             <td><?php echo strtoupper($item['significado']) ?></td>
             <td><?php echo strtoupper($item['position']) ?></td>
             <td><a class="btn btn-success btn-sm " href="<?php echo base_url('verbs/'.$item['id'] . '/edit'); ?>" role="button">Editar </a></td>
-            <td><a class="btn btn-warning btn-sm " href="#" role="button">Eliminar </a></td>
+            <td>
+              <form action="<?php echo base_url('verbs/delete/'.$item['id']) ?>" method="post">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>              
+            </td>
           </tr>
         <?php } ?>
       </tbody>

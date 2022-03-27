@@ -13,6 +13,11 @@ class Verbs extends BaseController
 		return view('verbs/index', $verbos) ;
 	}
 
+	public function front($site){
+		$data = array('site'=>$site);
+		return view('verbs/front', $data);
+	}
+
 	public function list($site, $type){
 		$verbinstance = new VerbModel($db);
 		$criterios = [ 'mundo' => $site, 'tipo'=>substr($type, 0, 3) ];
@@ -62,7 +67,7 @@ class Verbs extends BaseController
 			'significado' => $this->request->getPost('significado'),
 			'position' => $this->request->getPost('position')			
 		]);
-		return redirect()->to('/verbs/index');
+		return redirect()->to('/verbs/show');
 	}
 
 	public function update($id){
@@ -71,7 +76,6 @@ class Verbs extends BaseController
 		if($verb == null) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 		} 
-		var_dump($id);
 		$verbmodel->update($id, [
 			'mundo' => $this->request->getPost('mundo'),
 			'tipo' => $this->request->getPost('tipo'),
@@ -82,7 +86,7 @@ class Verbs extends BaseController
 			'position' => $this->request->getPost('position')			
 		]);
 		
-		return redirect()->to('/verbs/index');
+		return redirect()->to('/verbs/show');
 	}
 
 	public function delete($id){
@@ -91,10 +95,10 @@ class Verbs extends BaseController
 		var_dump($verb);
 		/*if($verb == null) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-		} */		
+		} */
 		$result = $verbmodel->delete($id);
 		var_dump($result);
-		return redirect()->to('verbs/index');
+		return redirect()->to('verbs/show');
 	}
 
 }

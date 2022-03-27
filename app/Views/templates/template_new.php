@@ -64,7 +64,7 @@
             </a>
         </div>
         <div class="mn_3">
-            <a href="<?php echo base_url('verbs/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
+            <a href="<?php echo base_url('verbs/front/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
                 title="APRENDE ESTOS IMPORTANTES VERBOS">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">

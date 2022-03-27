@@ -50,10 +50,16 @@ $routes->get('/musicontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:nu
 $routes->get('/tutorial/(:any)', 'Tutorial::index/$1');
 $routes->get('/tutorialcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Tutorialcontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
 /*$routes->get('/verbs/(:any)', 'Verbs::index/$1');
-$routes->get('/verblist/(:any)/(:any)', 'Verbs::list/$1/$2');
 $routes->get('/verbread/(:any)/', 'Verbs::read/$1');
 $routes->get('/verbcreate/(:any)/', 'Verbs::create/$1');*/
-$routes->resource('verbs');
+$routes->get('/verbs/index/(:any)', 'Verbs::index/$1');
+$routes->get('/verbs/front/(:any)', 'Verbs::front/$1');
+$routes->get('/verbs/list/(:any)/(:any)', 'Verbs::list/$1/$2');
+$routes->get('/verbs/show', 'Verbs::show');
+$routes->get('/verbs/edit/(:int)', 'Verbs::edit/$1');
+$routes->get('/verbs/create', 'Verbs::create');
+$routes->get('/verbs/update/(:int)', 'Verbs::update/$1');
+$routes->get('/verbs/delete/(:int)', 'Verbs::delete/$1');
 
 /* IonAuth */
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {

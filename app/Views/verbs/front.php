@@ -12,7 +12,7 @@ $this->section('content');
                 <div class="card-body">
                     <h5 class="card-title">Verbos Regulares</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="<?php echo base_url('/verblist/' . $site . '/regulares'); ?>" class="btn btn-primary">Mira los verbos</a>
+                    <a href="<?php echo base_url('/verbs/list/' . $site . '/regulares'); ?>" class="btn btn-primary">Mira los verbos</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@ $this->section('content');
                 <div class="card-body">
                     <h5 class="card-title">Verbos Irregulares</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="<?php echo base_url('/verblist/' . $site . '/irregulares'); ?>" class="btn btn-primary">Mira los verbos</a>
+                    <a href="<?php echo base_url('/verbs/list/' . $site . '/irregulares'); ?>" class="btn btn-primary">Mira los verbos</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@ $this->section('content');
                 <div class="card-body">
                     <h5 class="card-title">Verbos Fraseales</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="<?php echo base_url('/verblist/' . $site . '/fraseales'); ?>" class="btn btn-primary">Mira los verbos</a>
+                    <a href="<?php echo base_url('/verbs/list/' . $site . '/fraseales'); ?>" class="btn btn-primary">Mira los verbos</a>
                 </div>
             </div>
         </div>

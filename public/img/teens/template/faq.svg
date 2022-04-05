@@ -24,7 +24,7 @@
    inkscape:export-ydpi="60.306015"><metadata
      id="metadata3719"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs3717"><linearGradient
        inkscape:collect="always"
        id="linearGradient6671"><stop
@@ -389,9 +389,9 @@
      id="namedview3715"
      showgrid="false"
      inkscape:snap-others="false"
-     inkscape:zoom="6.9409602"
-     inkscape:cx="67.355235"
-     inkscape:cy="40.893498"
+     inkscape:zoom="4.908"
+     inkscape:cx="25.184453"
+     inkscape:cy="36.408206"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -408,7 +408,7 @@
 
 <g
    id="g4037"
-   transform="matrix(0.98322067,0,0,1,-257.13422,-33.901224)"><g
+   transform="matrix(0.98322067,0,0,1,-252.33422,-60.301224)"><g
      id="g4039"
      transform="matrix(255,0,0,114,238,237)"><image
        width="1"
@@ -420,7 +420,7 @@
        mask="url(#mask4041)"
        id="image4045" /></g></g><g
    id="g4047"
-   transform="matrix(0.95450389,0,0,0.99998682,-240.18083,-35.814751)"><g
+   transform="matrix(0.95450389,0,0,1.5693396,-241.47493,-222.03986)"><g
      id="g4049"><g
        id="g4055"><g
          id="g4057"><path
@@ -430,7 +430,7 @@
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="sccccsccccs" /></g></g></g></g><g
    id="g4067"
-   transform="matrix(0.65601234,0,0,1,-103.71639,-35.819073)"><g
+   transform="matrix(0.65601234,0,0,1,-106.40588,-48.53301)"><g
      id="g4069"
      clip-path="url(#clipPath4073)"><g
        id="g4075"
@@ -439,21 +439,23 @@
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path4077"
          inkscape:connector-curvature="0" /></g></g></g><text
-   transform="scale(0.90989099,-1.0990328)"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.53923225px;font-family:'Tempus Sans ITC';-inkscape-font-specification:'Tempus Sans ITC';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.78300142"
+   transform="scale(0.83861134,-1.1924475)"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.78489494px;font-family:'Tempus Sans ITC';-inkscape-font-specification:'Tempus Sans ITC';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.83861136"
    id="text4081"
-   x="16.504179"
-   y="-250.30841"><tspan
+   x="17.79109"
+   y="-221.38844"><tspan
      sodipodi:role="line"
-     x="16.504179"
-     y="-250.30841"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.53923225px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-width:0.78300142"
-     id="tspan5745">FREQUENT ANSWER</tspan><tspan
+     x="17.79109"
+     y="-221.38844"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.78489494px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-width:0.83861136"
+     id="tspan919">FREQUENT ANSWER </tspan><tspan
      sodipodi:role="line"
-     x="16.504179"
-     y="-227.78603"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.53923225px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-width:0.78300142"
-     id="tspan922">AND QUESTIONS</tspan></text>
+     x="17.79109"
+     y="-197.26649"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.78489494px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-width:0.83861136"
+     id="tspan923">AND QUESTIONS</tspan></text>
+
+
 
 
 
@@ -462,7 +464,7 @@
 
 <g
    id="g4083"
-   transform="translate(-251.95599,-35.819073)"><g
+   transform="translate(-255.13447,-49.022007)"><g
      id="g4085"
      clip-path="url(#clipPath4089)"><g
        id="g4091"

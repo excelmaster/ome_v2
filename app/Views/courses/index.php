@@ -57,7 +57,6 @@ $this->section('content');
                 $inactivos += 1;
             }
             ?>
-
         </div>
     </div>
     <!-- /.card-body -->

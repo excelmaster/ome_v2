@@ -25,12 +25,12 @@
     style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <!-- video background -->
     <?php
-    if ($site == 'teens' || $site == 'kids') {
-        echo '<video autoplay muted loop id="myVideo">';
-        echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
-        echo 'Your browser does not support HTML5 video.';
-        echo '</video>';
-    };
+        if ($site == 'teens' || $site == 'kids') {
+            echo '<video autoplay muted loop id="myVideo">';
+            echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
+            echo 'Your browser does not support HTML5 video.';
+            echo '</video>';
+        };
     ?>
 
     <div class="header">

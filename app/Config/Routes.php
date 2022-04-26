@@ -32,8 +32,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index');
-//$routes->get('/login/auth', 'Auth::index');
+//$routes->get('/', 'Auth::index');
 $routes->get('/test/(:any)', 'Test::index/$1');
 $routes->get('/courses/(:any)/', 'Courses::index/$1');
 $routes->get('/lessons/(:any)/(:num)/(:num)', 'Lessons::index/$1/$2/$3');
@@ -61,13 +60,13 @@ $routes->get('/verbs/create', 'Verbs::create');
 $routes->get('/verbs/update/(:int)', 'Verbs::update/$1');
 $routes->get('/verbs/delete/(:int)', 'Verbs::delete/$1');
 
-/* IonAuth */
-$routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {
+// IonAuth 
+$routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {	
+	$routes->get('/', 'Auth::index');
 	$routes->add('login', 'Auth::login');
 	$routes->get('logout', 'Auth::logout');
 	$routes->add('forgot_password', 'Auth::forgot_password');
-	// $routes->get('/', 'Auth::index');
-	// $routes->add('create_user', 'Auth::create_user');
+	$routes->add('create_user', 'Auth::create_user');
 	// $routes->add('edit_user/(:num)', 'Auth::edit_user/$1');
 	// $routes->add('create_group', 'Auth::create_group');
 	// $routes->get('activate/(:num)', 'Auth::activate/$1');

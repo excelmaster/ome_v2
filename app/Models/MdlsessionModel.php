@@ -25,8 +25,12 @@ class MdlsessionModel extends Model
     ];
     
     protected $useTimestamps = false;
-
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    function getCountActiveSession($userid){
+       
+        
+    }
 }

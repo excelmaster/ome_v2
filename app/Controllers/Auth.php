@@ -1,11 +1,22 @@
-<?php namespace IonAuth\Controllers;
+<?php namespace App\Controllers;
 
 class Auth extends \IonAuth\Controllers\Auth
 {
-    /**
-     * If you want to customize the views,
-     *  - copy the ion-auth/Views/auth folder to your Views folder,
-     *  - remove comment
-     */
-    // protected $viewsFolder = 'auth';
+    public function index() {
+        if(!$this->ionAuth->loggedIn()){
+            //redirect then to the login page
+            return redirect()->to('/auth/login');
+        } else {
+            return view('/loginmoodle/index');
+        }
+    }
+
+    public function create_user(){
+        if(!$this->ionAuth->loggedIn()){
+            //redirect then to the login page
+            return redirect()->to('/auth/login');
+        } else {
+            return view('/login/create_user');
+        }
+    }
 }

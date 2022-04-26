@@ -33,12 +33,12 @@
 				<!-- /.login-logo -->
 			</div>
 			<div class="col-sm-8">
-				<div class="row align-content-center">
+				<div class="row">
 					<div class="card">
 						<div class="card-body login-card-body">
 							<p class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
-							<p class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma"</p>
-							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 300px;" id="ifrLogin" class="float-center"></iframe>
+							<p class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma :<b> "<?php echo md5('KU7b.j5)fQY2"d7y'); ?></b></p>
+							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 500px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
 						</div>
 						<!-- /.login-card-body -->
 					</div>
@@ -58,20 +58,12 @@
 			console.log(cookies[1]);
 		}
 
-		function getIframeContent(frameId) {
-			var frameObj =
-				document.getElementById(frameId);
-
-			var frameContent = frameObj.
-			contentWindow.document.body.innerHTML;
-
-			alert("frame content : " + frameContent);
+		function hasActiveSession(user_id) {
+			alert("hasActiveSession : " + user_id);
 		}
 
-		
-
 		var i = setInterval(function() {
-			getIframeContent('ifrLogin');
+			hasActiveSession($_SESSION['user_id']);
 		}, 2000);
 	</script>
 </body>

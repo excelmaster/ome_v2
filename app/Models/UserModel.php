@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table      = 'mdl_user';
+    protected $table      = 'user';
     protected $primaryKey = 'id';    
 
     protected $returnType     = 'array';
@@ -43,6 +43,10 @@ class UserModel extends Model
             $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
 
         return $data;
+    }
+
+    private function hasActiveSession($user_id){
+
     }
 
 }

@@ -14,7 +14,7 @@ $this->section('content');
                 <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.svg'); ?>" alt="">
             </div>
             <div class="col-sm-6">
-                <div class="row">
+                <div class="row" hidden>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-primary"><i>jshdf</i></button>
                         <button type="button" class="btn btn-outline-primary">2</button>
@@ -26,7 +26,7 @@ $this->section('content');
                         <button type="button" class="btn btn-outline-primary">2</button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" hidden>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-primary">1</button>
                         <button type="button" class="btn btn-primary">2</button>

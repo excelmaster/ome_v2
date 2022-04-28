@@ -5,7 +5,7 @@ $inactivos = 0;
 $this->extend('templates/template_new');
 $this->section('content');
 $colvideo = array(
-  'a' => 5,
+  'a' => 4,
   'b' => 1,
   'c' => 2,
   'd' => 1,
@@ -19,7 +19,7 @@ $colvideo = array(
   <div class="card-header">
     <div class="row">
       <div class="col-md-<?php echo $colvideo['a'] ?>">
-        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="" >
+        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="" >
       </div>
       <!-- <div class="col-md-<?php echo $colvideo['b'] ?>">
         <?php

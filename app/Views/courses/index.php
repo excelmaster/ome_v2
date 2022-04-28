@@ -10,21 +10,39 @@ $this->section('content');
 <div class="card bg-transparent">
     <div class="card-header">
         <div class="row mb-2">
-            <div class="col-sm-5">
-                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.png'); ?>" alt="">
+            <div class="col-sm-4">
+                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.svg'); ?>" alt="">
             </div>
-            <div class="col-sm-5">
-            <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/mensaje_mundo.svg'); ?>" alt="">
+            <div class="col-sm-6">
+                <div class="row" hidden>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-outline-primary"><i>jshdf</i></button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                    </div>
+                </div>
+                <div class="row" hidden>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-primary">1</button>
+                        <button type="button" class="btn btn-primary">2</button>
+                        <button type="button" class="btn btn-secondary" disabled>3</button>
+                        <button type="button" class="btn btn-secondary" disabled>4</button>
+                        <button type="button" class="btn btn-secondary" disabled>5</button>
+                        <button type="button" class="btn btn-secondary" disabled>6</button>
+                        <button type="button" class="btn btn-secondary" disabled>7</button>
+                        <button type="button" class="btn btn-secondary" disabled>8</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/mensaje_mundo.svg'); ?>" alt="">
             </div>
         </div>
-        <!-- <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div> -->
     </div>
     <div class="card-body">
         <div class="row">

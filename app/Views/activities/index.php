@@ -9,11 +9,11 @@ $this->section('content');
 <div class="card bg-transparent">
     <div class="card-header">
         <div class="row mb-2">
-            <div class="col-sm-5">
-                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.png'); ?>" alt="">
+            <div class="col-sm-3">
+                <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="">
                 
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-7">
                 <div class="direct-chat-msg">
                     <div class="direct-chat-text text-primary"><b> <?php echo 'WORLD ' . $course . '   >>   LESSON ' . $lesson; ?></b></div>
                 </div>

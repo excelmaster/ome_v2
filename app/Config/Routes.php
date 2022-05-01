@@ -48,6 +48,8 @@ $routes->get('/music/(:any)', 'Music::index/$1');
 $routes->get('/musicontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Musicontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
 $routes->get('/tutorial/(:any)', 'Tutorial::index/$1');
 $routes->get('/tutorialcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/(:num)/(:any)', 'Tutorialcontent::index/$1/$2/$3/$4/$5/$6/$7/$8/$9');
+$routes->get('/hub', 'Hub::index');
+$routes->get('/loginmoodle', 'Loginmoodle::index');
 /*$routes->get('/verbs/(:any)', 'Verbs::index/$1');
 $routes->get('/verbread/(:any)/', 'Verbs::read/$1');
 $routes->get('/verbcreate/(:any)/', 'Verbs::create/$1');*/

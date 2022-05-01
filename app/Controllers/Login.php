@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+defined('BASEPATH') OR exit('No direct script access allowed');
 use App\Models\UserModel;
 
 class Login extends BaseController

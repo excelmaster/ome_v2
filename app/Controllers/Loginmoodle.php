@@ -1,6 +1,6 @@
 <?php 
 namespace App\Controllers;
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Loginmoodle extends \IonAuth\Controllers\Auth {
     public function index (){

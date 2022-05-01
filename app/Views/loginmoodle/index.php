@@ -59,11 +59,11 @@
 		}
 
 		function hasActiveSession(user_id) {
-			alert("hasActiveSession : " + user_id);
+			console.log("hasActiveSession : " + user_id);
 		}
 
 		var i = setInterval(function() {
-			hasActiveSession($_SESSION['user_id']);
+			hasActiveSession(2);
 		}, 2000);
 	</script>
 </body>

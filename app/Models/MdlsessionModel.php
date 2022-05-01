@@ -29,12 +29,17 @@ class MdlsessionModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
-    function getCountActiveSession($userid, $ip){
+    function deleteActiveSession($userid, $ip){
        
-       $db = \config\Database::connect();
-       $builder = $db->table('mdl_user_sessions');
-       $criterios = [ 'userid' => $userid, 'firstip' => $ip];
-       $builder->where($criterios);
-       return $builder->countAllResults();
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);
+        $criterios = [ 'userid' => $userid, 'firstip' => $ip];
+        $builder->where($criterios);
+        $numeroSesiones = $builder->countAllResults();
+        if($numeroSesiones > 0){
+            $builder->where($criterios);
+            echo $builder->getCompiledDelete();
+        }
+        return 0;
     }
 }

@@ -61,6 +61,7 @@ $routes->get('/verbs/edit/(:int)', 'Verbs::edit/$1');
 $routes->get('/verbs/create', 'Verbs::create');
 $routes->get('/verbs/update/(:int)', 'Verbs::update/$1');
 $routes->get('/verbs/delete/(:int)', 'Verbs::delete/$1');
+$routes->get('/loginmoodle/countsessions', 'Loginmoodle::countSessions');
 
 // IonAuth 
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {	

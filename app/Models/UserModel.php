@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'mdl_user';
     protected $primaryKey = 'id';    
 
     protected $returnType     = 'array';
@@ -14,6 +14,8 @@ class UserModel extends Model
 
     protected $allowedFields = 
     [
+        'id',
+        'auth',
         'deleted',
         'suspended',
         'username',
@@ -23,13 +25,17 @@ class UserModel extends Model
         'email',
         'phone1',
         'phone2',
+        'address',
         'city',
         'country',
         'firstaccess',
         'lastaccess',
         'lastlogin',
         'currentlogin',
-        'lastip'
+        'lastip',
+        'picture',
+        'url',
+        'timecreated'
     ];
     
     protected $useTimestamps = false;

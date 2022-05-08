@@ -51,8 +51,6 @@ class UserModel extends Model
         return $data;
     }
 
-    private function hasActiveSession($user_id){
-
-    }
+    
 
 }

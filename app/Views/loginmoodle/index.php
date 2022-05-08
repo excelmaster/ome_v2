@@ -35,11 +35,23 @@
 			</div>
 			<div class="col-sm-8">
 				<div class="row">
-					<div class="card">
+					<div class="card" id="logincard">
 						<div class="card-body login-card-body">
-							<p class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
-							<p class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma :
-							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 280px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
+							<p id="titulo" class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
+							<p id="subtitulo" class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma :
+								<div>
+								<iframe  src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
+								</div>							
+						</div>
+						<!-- /.login-card-body -->
+					</div>
+					<div class="card" id="successcard">
+						<div class="card-body login-card-body">
+							<p id="titulo" class="login-box-msg">YA PUEDES DISFRUTAR DE NUESTRO CONTENIDO</p>
+							<p id="subtitulo" class="login-box-msg">DÁ CLIC EN EL BOTÓN PARA CONTINUAR
+								<div id="logincard">
+									<a class="btn btn-primary btn-sm " href="<?php echo base_url('hub'); ?>" role="button"> Vamos al curso!</a>
+								</div>							
 						</div>
 						<!-- /.login-card-body -->
 					</div>
@@ -53,9 +65,13 @@
 			$.get("<?php echo base_url('loginmoodle/countsessions' ) ?>",
 				function(data,status) {
 					console.log('logueado en moodle: ' + data + '  status : ' +  status);
-					if(data == '1'){
-						clearInterval();
-						window.location.href = "<?php echo base_url('hub'); ?>";						
+					console.log(data == "1");
+					if(data == "1"){
+						console.log("ok");
+						$('#logincard').hide();
+						$('#successcard').show();						
+					} else {
+						console.log("falso");
 					}
 				}
 			)
@@ -63,6 +79,7 @@
 		var i = setInterval(function() {
 			hasActiveSession(2);
 		}, 4000);
+		$('#successcard').hide();
 	</script>
 </body>
 

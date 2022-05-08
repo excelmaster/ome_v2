@@ -41,11 +41,20 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-
+		
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		$db= \Config\Database::connect();
+
 		//--------------------------------------------------------------------
-		// E.g.: $this->session = \Config\Services::session();
+		$this->session = \Config\Services::session();
+
+		//--------------------------------------------------------------------
+		// load ionauth library
+		$this->ionAuth = new \IonAuth\Libraries\IonAuth();
+		if(!$this->ionAuth->loggedIn()){
+			redirect()->to('/auth/login');
+		}
 	}
+
 }

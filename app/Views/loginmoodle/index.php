@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('public/assets/css/intro.css'); ?>">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">
@@ -33,12 +34,24 @@
 				<!-- /.login-logo -->
 			</div>
 			<div class="col-sm-8">
-				<div class="row align-content-center">
-					<div class="card">
+				<div class="row">
+					<div class="card" id="logincard">
 						<div class="card-body login-card-body">
-							<p class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
-							<p class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma"</p>
-							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 300px;" id="ifrLogin" class="float-center"></iframe>
+							<p id="titulo" class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
+							<p id="subtitulo" class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma :
+								<div>
+								<iframe  src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
+								</div>							
+						</div>
+						<!-- /.login-card-body -->
+					</div>
+					<div class="card" id="successcard">
+						<div class="card-body login-card-body">
+							<p id="titulo" class="login-box-msg">YA PUEDES DISFRUTAR DE NUESTRO CONTENIDO</p>
+							<p id="subtitulo" class="login-box-msg">DÁ CLIC EN EL BOTÓN PARA CONTINUAR
+								<div id="logincard">
+									<a class="btn btn-primary btn-sm " href="<?php echo base_url('hub'); ?>" role="button"> Vamos al curso!</a>
+								</div>							
 						</div>
 						<!-- /.login-card-body -->
 					</div>
@@ -47,32 +60,26 @@
 		</div>
 	</div>
 	<script>
-		function checkCookies() {
-			var cookies = document.cookie.split(';');
-			var ret = '';
-			/* for (var i= 1; i<= cookies.length; i++){
-				ret += i + ' - ' + cookies[i-1] + '<br>';
-				alert("cookies : " + cookies[i+1]);
-			}
-			var_dump(cookies); */
-			console.log(cookies[1]);
+		function hasActiveSession(user_id) {
+			console.log("hasActiveSession : " + user_id);
+			$.get("<?php echo base_url('loginmoodle/countsessions' ) ?>",
+				function(data,status) {
+					console.log('logueado en moodle: ' + data + '  status : ' +  status);
+					console.log(data == "1");
+					if(data == "1"){
+						console.log("ok");
+						$('#logincard').hide();
+						$('#successcard').show();						
+					} else {
+						console.log("falso");
+					}
+				}
+			)
 		}
-
-		function getIframeContent(frameId) {
-			var frameObj =
-				document.getElementById(frameId);
-
-			var frameContent = frameObj.
-			contentWindow.document.body.innerHTML;
-
-			alert("frame content : " + frameContent);
-		}
-
-		
-
 		var i = setInterval(function() {
-			getIframeContent('ifrLogin');
-		}, 2000);
+			hasActiveSession(2);
+		}, 4000);
+		$('#successcard').hide();
 	</script>
 </body>
 

@@ -7,13 +7,16 @@ helper('cookie');
 class Hub extends BaseController {
 
     public function index (){        
-        $user = model(UserModel::class);
-        $user->where('id', $_SESSION['user_id']);
-        $actualUser = $user->findAll();
+        $user = model(UserModel::class);        
+        $actualUser = $user->getUserData($_SESSION['user_id']);
         $data = array(
             'actualUser' => $actualUser
         );
-        var_dump($data);
-        return view('hub/index', $data);
+        $isSuspended = $actualUser[0]['suspended'];
+        If($isSuspended == 1 ){
+            return view('hub/suspendido', $data);
+        } else  {
+            return view('hub/index', $data);
+        }
     }        
 }

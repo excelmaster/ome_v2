@@ -29,7 +29,7 @@
 	</video> -->
 	<div class="row">
 		<div class="col-md-6">
-			<div class="login-logo">
+			<div class="login-logo bg-transparent">
 				<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
 					<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
 				</a></h1>
@@ -41,14 +41,9 @@
 				<div class="card">
 					<div class="card-body login-card-body">
 						<div class="row">
-							<div class="col-6">
-							</div>
 							<!-- /.col -->
-							<div class="col-6">
-								<h1>hello, <?= session()->get('id') ?></h1>
-								<h1>id : <?= session()->get('sid') ?></h1>
-								<h5>suspended : <?= session()->get('suspended') ?></h5>
-								<a href="users/logout">salir >></a>
+							<div class="col-12">
+								<div class="jumbotron">Hola, te damos la bienvenida a nuestros cursos dá clic para comenzar</div>				
 							</div>
 							<!-- /.col -->
 						</div>

@@ -47,8 +47,14 @@ class UserModel extends Model
     protected function passwordHash(array $data){
         if(!isset($data['data']['password']))
             $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
-
         return $data;
+    }
+
+    public function getUserData($userId) {
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->where('id', $_SESSION['user_id']);
+        return $builder->get()->getResultArray();       
     }
 
     

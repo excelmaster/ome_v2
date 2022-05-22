@@ -22,54 +22,69 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
-<body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">
+<body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/mdl_img/fondo_hub.jpg'); ?>');">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
-				<div class="row">
-					<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
-						<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
-					</a></h1>
+			<div class="col-md-5">
+				<div class="d-flex justify-content-center align-items-center p-2 bd-highlight">
+					<div class="p-2 bd-highlight">
+						<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
+							<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
+						</a></h1>
+					</div>
 				</div>
-				<!-- /.login-logo -->
 			</div>
-			<div class="col-sm-8">
-				<div class="row">
-					<div class="card" id="logincard">
-						<div class="card-body login-card-body">
-							<p id="titulo" class="login-box-msg">Su usuario no se encuentra logueado en la plataforma de contenido, por favor diligencie de nuevo sus datos de acceso y luego dé clic en el botón "Acceder"</p>
-							<p id="subtitulo" class="login-box-msg">A continuación dé clic en el botón ingresar a la plataforma :
-								<div>
-								<iframe  src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
-								</div>							
-						</div>
-						<!-- /.login-card-body -->
-					</div>
-					<div class="card" id="successcard">
-						<div class="card-body login-card-body">
-							<p id="titulo" class="login-box-msg">YA PUEDES DISFRUTAR DE NUESTRO CONTENIDO</p>
-							<p id="subtitulo" class="login-box-msg">DÁ CLIC EN EL BOTÓN PARA CONTINUAR
-								<div id="logincard">
-									<a class="btn btn-primary btn-sm " href="<?php echo base_url('hub'); ?>" role="button"> Vamos al curso!</a>
-								</div>							
-						</div>
-						<!-- /.login-card-body -->
+			<div class="col-md-6">
+				<div class="d-flex p-2 justify-content-center bd-highlight">
+					<div class="p-2 bd-highlight">
+						<img src="<?php echo base_url('public/img/mdl_img/titulo-mdlLogin.svg'); ?>" alt="" id="titulo">
 					</div>
 				</div>
+				<div class="d-flex justify-content-center p-2 bd-highlight">
+					<div class="p-2 bd-highlight">
+						<div id="logincard">
+							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="d-flex justify-content-center p-2 bd-highlight">
+					<div class="p-2 bd-highlight" id="successcard">
+						<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt="">
+					</div>
+				</div> -->
+				<div class="d-flex justify-content-center p-2 bd-highlight">
+					<div class="p-2 bd-highlight" id="btn">
+						<div>
+							<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center p-2 bd-highlight">
+					<div class="p-2 bd-highlight" id="btn">
+						<div>
+							<a class="btn btn-success btn-lg" href="<?php echo base_url('hub'); ?>" role="button"> VAMOS AL CURSO!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1">				
 			</div>
 		</div>
+	</div>
 	</div>
 	<script>
 		function hasActiveSession(user_id) {
 			console.log("hasActiveSession : " + user_id);
-			$.get("<?php echo base_url('loginmoodle/countsessions' ) ?>",
-				function(data,status) {
-					console.log('logueado en moodle: ' + data + '  status : ' +  status);
+			$.get("<?php echo base_url('loginmoodle/countsessions') ?>",
+				function(data, status) {
+					console.log('logueado en moodle: ' + data + '  status : ' + status);
 					console.log(data == "1");
-					if(data == "1"){
+					if (data == "1") {
 						console.log("ok");
 						$('#logincard').hide();
-						$('#successcard').show();						
+						$('#titulo').hide();
+						$('#subtitulo').hide();
+						$('#successcard').show();
 					} else {
 						console.log("falso");
 					}
@@ -78,7 +93,7 @@
 		}
 		var i = setInterval(function() {
 			hasActiveSession(2);
-		}, 4000);
+		}, 2000);
 		$('#successcard').hide();
 	</script>
 </body>

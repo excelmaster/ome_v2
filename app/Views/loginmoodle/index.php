@@ -53,16 +53,16 @@
 					</div>
 				</div> -->
 				<div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight" id="btn">
+					<div class="p-2 bd-highlight">
 						<div>
-							<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt="">
+							<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt=""  id="texto_subtitulo">
 						</div>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight" id="btn">
+					<div class="p-2 bd-highlight" >
 						<div>
-							<a class="btn btn-success btn-lg" href="<?php echo base_url('hub'); ?>" role="button"> VAMOS AL CURSO!</a>
+							<a class="btn btn-success btn-lg" href="<?php echo base_url('hub'); ?>" role="button" id="btn"> VAMOS AL CURSO!</a>
 						</div>
 					</div>
 				</div>
@@ -82,9 +82,14 @@
 					if (data == "1") {
 						console.log("ok");
 						$('#logincard').hide();
-						$('#titulo').hide();
-						$('#subtitulo').hide();
+						$('#titulo').hide();						
 						$('#successcard').show();
+						$('#texto_subtitulo').show();
+						$('#btn').show();
+						
+
+
+
 					} else {
 						console.log("falso");
 					}
@@ -95,6 +100,8 @@
 			hasActiveSession(2);
 		}, 2000);
 		$('#successcard').hide();
+		$('#btn').hide();
+		$('#texto_subtitulo').hide();
 	</script>
 </body>
 

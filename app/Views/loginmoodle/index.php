@@ -62,7 +62,7 @@
 				<div class="d-flex justify-content-center p-2 bd-highlight">
 					<div class="p-2 bd-highlight" >
 						<div>
-							<a class="btn btn-success btn-lg" href="<?php echo base_url('hub'); ?>" role="button" id="btn"> VAMOS AL CURSO!</a>
+							<a class="btn btn-success btn-lg" href="<?php echo base_url('courses/'. $_SESSION['course']); ?>" role="button" id="btn"> VAMOS AL CURSO!</a>
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 	<script>
 		function hasActiveSession(user_id) {
 			console.log("hasActiveSession : " + user_id);
-			$.get("<?php echo base_url('loginmoodle/countsessions') ?>",
+			$.get("<?php echo base_url('loginmoodle/countSessions') ?>",
 				function(data, status) {
 					console.log('logueado en moodle: ' + data + '  status : ' + status);
 					console.log(data == "1");
@@ -87,9 +87,6 @@
 						$('#texto_subtitulo').show();
 						$('#btn').show();
 						
-
-
-
 					} else {
 						console.log("falso");
 					}

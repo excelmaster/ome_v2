@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <a href="<?php echo base_url('logout'); ?>" >
+                    <a href="<?php echo base_url('auth/logout'); ?>" >
                         <img src="<?php echo base_url('public/img/mdl_img/power-off-min.png'); ?>"
                             alt="Logout" class="logo-header">
                     </a>

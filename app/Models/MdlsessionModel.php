@@ -49,6 +49,7 @@ class MdlsessionModel extends Model
             $builder->where($criterios);
             $builder->Delete();
         }
+        
         return 0;
     }
 }

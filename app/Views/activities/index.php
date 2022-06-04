@@ -45,17 +45,16 @@ $this->section('content');
                         <?php
                         echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
-                        <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded">
+                        <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded " style="width:185px;height: 150px;">
                         </a>
                     </div>
                 </div>
-            <?php
+            <?php   
                 $activos += 1;
             }
             $inactivos = $activos + 1;
             ?>
         </div>
-
     </div>
 
     <!-- /.card-body -->

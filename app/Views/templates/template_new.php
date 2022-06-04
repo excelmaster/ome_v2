@@ -35,16 +35,24 @@
 
     <div class="header">
         <div class="container-fluid">
-            <div class="logo">
-                <a href="<?php echo base_url('courses/' . $site); ?>">
-                    <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
-                        alt="AdminLTE Logo" class="logo-header">
-                </a>
+            <div class="d-flex bd-highlight justify-content-between align-content-center mb-3">
+                <div class="p-2 bd-highlight">
+                    <a href="<?php echo base_url('courses/' . $site); ?>" >
+                        <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
+                            alt="AdminLTE Logo" class="logo-header">
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="<?php echo base_url('auth/logout'); ?>" >
+                        <img src="<?php echo base_url('public/img/mdl_img/power-off-min.png'); ?>"
+                            alt="Logout" class="logo-header">
+                    </a>
+                </div>                
             </div>
         </div>
     </div>
     <div class="menu">
-        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>        
+        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
         <div class="mn_4">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>"
@@ -77,7 +85,7 @@
             </a>
         </div>
     </div>
-    <div class="sidebar">        
+    <div class="sidebar">
         <div class="sb_1">
             <a href="#" data-toggle="tooltip" data-placement="right"
                 title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
@@ -175,7 +183,7 @@
 
             if (localStorage.getItem("muted")) {
                 icono.setAttribute("src",
-                "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
+                    "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
                 myAudio.volume = .1;
                 myAudio.play();
                 myAudio.loop = false;

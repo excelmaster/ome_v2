@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+// Contdefined('BASEPATH') OR exit('No direct script access allowed');
 use App\Models\CourseModel;
 
 class Courses extends BaseController

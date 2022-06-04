@@ -1,5 +1,5 @@
 <?php
-namespace IonAuth\Config;
+namespace IonAuth\Controllers;
 
 /**
  * Name:    Ion Auth
@@ -26,7 +26,7 @@ namespace IonAuth\Config;
  *
  * @package CodeIgniter-Ion-Auth
  */
-class IonAuth extends \CodeIgniter\Config\BaseConfig
+class IonAuth extends \IonAuth\Config\IonAuth
 {
 
 	/**

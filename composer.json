@@ -7,7 +7,8 @@
 	"require": {
 		"php": "^7.3||^8.0",
 		"codeigniter4/framework": "^4",
-		"myth/auth": "^1.0"
+		"myth/auth": "^1.0",
+		"benedmunds/codeigniter-ion-auth": "4.x-dev"
 	},
 	"require-dev": {
 		"fakerphp/faker": "^1.9",
@@ -43,7 +44,7 @@
 	"repositories": {
 		"ionAuth": {
 			"type": "vcs",
-			"url": "git@github.com:benedmunds/CodeIgniter-Ion-Auth.git01"
+			"url": "git@github.com:benedmunds/codeigniter-ion-auth.git"
 		}
 	}
 }

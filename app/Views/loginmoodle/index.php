@@ -22,52 +22,34 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
-<body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/mdl_img/fondo_hub.jpg'); ?>');">
+<body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-5">
-				<div class="d-flex justify-content-center align-items-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight">
-						<a href="www.mundoeducativodigital.com" target="_blank" class="text-white">
-							<img src="<?php echo base_url('public/img/kids/template/logo.PNG'); ?>" alt="" class="login-img">
-						</a></h1>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="d-flex p-2 justify-content-center bd-highlight">
-					<div class="p-2 bd-highlight">
-						<img src="<?php echo base_url('public/img/mdl_img/titulo-mdlLogin.svg'); ?>" alt="" id="titulo">
-					</div>
-				</div>
-				<div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight">
-						<div id="logincard">
-							<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight" id="successcard">
-						<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt="">
-					</div>
-				</div> -->
-				<div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight">
-						<div>
-							<img src="<?php echo base_url('public/img/mdl_img/subtitulo-mdlLogin.svg'); ?>" alt=""  id="texto_subtitulo">
-						</div>
-					</div>
-				</div>
-				<div class="d-flex justify-content-center p-2 bd-highlight">
-					<div class="p-2 bd-highlight" >
-						<div>
-							<a class="btn btn-success btn-lg" href="<?php echo base_url('courses/'. $_SESSION['course']); ?>" role="button" id="btn"> VAMOS AL CURSO!</a>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 d-flex justify-content-center align-content-center">
+					<div class="d-flex justify-content-start align-content-center">
+						<div style="weigth:180px;heigth: 150px;">
+							<img src="<?php echo base_url('public/img/kids/template/logo_transparent.png'); ?>" alt="" class="">
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1">				
+			<div id="login" class="row">
+				<div class="col-md-6 d-flex align-content-end justify-content-center">
+					<div id="quote_loginmdl" style="weigth:180px;heigth: 150px;">
+						<img src="<?php echo base_url('public/img/mdl_img/quote_loginmdl.svg'); ?>" alt="" class="">
+					</div>
+				</div>
+				<div class="col-md-6 d-flex justify-content-center align-content-start">
+					<div id="logincard">
+						<iframe src="https://mdl.mundoeducativodigital.com/login/index.php" style="width:400px;height: 350px;" id="ifrLogin" class=" d-flex justify-content-center"></iframe>
+					</div>
+				</div>
+				<div class="col-md-12 d-flex justify-content-center align-content-start">
+					<div id="confirmation" style="weigth:180px;heigth: 150px;">
+						<a href="<?php echo base_url('courses/'. $_SESSION['course']); ?>"><img src="<?php echo base_url('public/img/mdl_img/banner_loginmdl.png'); ?>" alt="" class=""></a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -82,23 +64,20 @@
 					if (data == "1") {
 						console.log("ok");
 						$('#logincard').hide();
-						$('#titulo').hide();						
-						$('#successcard').show();
-						$('#texto_subtitulo').show();
+						$('#quote_loginmdl').hide();
+						$('#confirmation').show();
 						$('#btn').show();
-						
 					} else {
-						console.log("falso");
+						console.log("falsso");
 					}
 				}
 			)
 		}
 		var i = setInterval(function() {
 			hasActiveSession(2);
+			s
 		}, 2000);
-		$('#successcard').hide();
-		$('#btn').hide();
-		$('#texto_subtitulo').hide();
+		$('#confirmation').hide();
 	</script>
 </body>
 

@@ -44,7 +44,7 @@
                 </div>
                 <div class="p-2 bd-highlight">
                     <a href="<?php echo base_url('auth/logout'); ?>" >
-                        <img src="<?php echo base_url('public/img/mdl_img/power-off-min.png'); ?>"
+                        <img src="<?php echo base_url('public/img/mdl_img/logout.svg'); ?>"
                             alt="Logout" class="logo-header">
                     </a>
                 </div>                
@@ -113,8 +113,8 @@
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="sb_5" onclick="sonido()" data-placement="left" data-toggle="tooltip" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume"
+        <div class="sb_5 d-flex justify-content-center" onclick="sonido()" data-placement="left" data-toggle="tooltip">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.svg'); ?>" id="volume"
                 class="btn-sonido" style="width: 70px; height: 70px;  ">
             <audio id="myAudio" allowfullscreen>
                 <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>"
@@ -183,14 +183,14 @@
 
             if (localStorage.getItem("muted")) {
                 icono.setAttribute("src",
-                    "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
+                    "<?php echo base_url('public/img/' . $site . '/template/volume_off.svg'); ?>");
                 myAudio.volume = .1;
                 myAudio.play();
                 myAudio.loop = false;
                 localStorage.removeItem("muted");
             } else {
                 localStorage.setItem("muted", "on");
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>");
+                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.svg'); ?>");
                 myAudio.pause();
             }
         }

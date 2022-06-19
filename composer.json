@@ -44,7 +44,7 @@
 	"repositories": {
 		"ionAuth": {
 			"type": "vcs",
-			"url": "git@github.com:benedmunds/codeigniter-ion-auth.git"
+			"url": "git@github.com:benedmunds/CodeIgniter-Ion-Auth.git"
 		}
 	}
 }

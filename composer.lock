@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f3a1a9219ced7d7a9b88b8c5aee88d6",
+    "content-hash": "04ff5b91d11334dc20a6b73275ba3093",
     "packages": [
         {
             "name": "benedmunds/codeigniter-ion-auth",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/benedmunds/CodeIgniter-Ion-Auth.git",
-                "reference": "5f595e26763fb8b5d6ffe07954f432fc3ea952aa"
+                "reference": "2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/benedmunds/CodeIgniter-Ion-Auth/zipball/5f595e26763fb8b5d6ffe07954f432fc3ea952aa",
-                "reference": "5f595e26763fb8b5d6ffe07954f432fc3ea952aa",
+                "url": "https://api.github.com/repos/benedmunds/CodeIgniter-Ion-Auth/zipball/2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456",
+                "reference": "2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456",
                 "shasum": ""
             },
             "require-dev": {
@@ -53,7 +53,7 @@
                 "source": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4",
                 "issues": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues"
             },
-            "time": "2022-03-21T12:28:34+00:00"
+            "time": "2022-04-26T12:46:32+00:00"
         },
         {
             "name": "codeigniter4/framework",
@@ -2773,5 +2773,5 @@
         "php": "^7.3||^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.0.0"
 }

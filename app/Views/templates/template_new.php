@@ -35,16 +35,24 @@
 
     <div class="header">
         <div class="container-fluid">
-            <div class="logo">
-                <a href="<?php echo base_url('courses/' . $site); ?>">
-                    <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
-                        alt="AdminLTE Logo" class="logo-header">
-                </a>
+            <div class="d-flex bd-highlight justify-content-between align-content-center mb-3">
+                <div class="p-2 bd-highlight">
+                    <a href="<?php echo base_url('courses/' . $site); ?>" >
+                        <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
+                            alt="AdminLTE Logo" class="logo-header">
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="<?php echo base_url('auth/logout'); ?>" >
+                        <img src="<?php echo base_url('public/img/mdl_img/logout.svg'); ?>"
+                            alt="Logout" class="logo-header">
+                    </a>
+                </div>                
             </div>
         </div>
     </div>
     <div class="menu">
-        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>        
+        <?php $clase = ($site == 'teens') ? 'rounded float-left' : ''; ?>
         <div class="mn_4">
             <a href="<?php echo base_url('pdfs/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_1.svg'); ?>"
@@ -77,7 +85,7 @@
             </a>
         </div>
     </div>
-    <div class="sidebar">        
+    <div class="sidebar">
         <div class="sb_1">
             <a href="#" data-toggle="tooltip" data-placement="right"
                 title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
@@ -105,8 +113,8 @@
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="sb_5" onclick="sonido()" data-placement="left" data-toggle="tooltip" style="width: 100px;">
-            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>" id="volume"
+        <div class="sb_5 d-flex justify-content-center" onclick="sonido()" data-placement="left" data-toggle="tooltip">
+            <img src="<?php echo base_url('public/img/' . $site . '/template/volume_off.svg'); ?>" id="volume"
                 class="btn-sonido" style="width: 70px; height: 70px;  ">
             <audio id="myAudio" allowfullscreen>
                 <source src="<?php echo base_url('public/sound/' . $site . '/sound_body_rdc.mp3'); ?>"
@@ -175,14 +183,14 @@
 
             if (localStorage.getItem("muted")) {
                 icono.setAttribute("src",
-                "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>");
+                    "<?php echo base_url('public/img/' . $site . '/template/volume_off.svg'); ?>");
                 myAudio.volume = .1;
                 myAudio.play();
                 myAudio.loop = false;
                 localStorage.removeItem("muted");
             } else {
                 localStorage.setItem("muted", "on");
-                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>");
+                icono.setAttribute("src", "<?php echo base_url('public/img/' . $site . '/template/volume_on.svg'); ?>");
                 myAudio.pause();
             }
         }

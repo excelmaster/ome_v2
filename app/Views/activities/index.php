@@ -20,7 +20,7 @@ $this->section('content');
                 <div class="col-sm-10 direct-chat-text bg-blue">CHOOSE THE ACTIVITY THAT YOU WANT TO STUDY!</div>
             </div>
             <div class="col-sm-2">
-                <a href="<?php echo base_url('lessons/' . $site . '/' . $courseId . '/' . $course); ?>"><img src="<?php echo base_url('public/img/' . $site . '/activities/volver_leccion.gif'); ?>"></a>
+                <a href="<?php echo base_url('lessons/' . $site . '/' . $courseId . '/' . $course); ?>"><img src="<?php echo base_url('public/img/' . $site . '/activities/back_lessons.svg'); ?>"></a>
             </div>
         </div>
         <!-- <div class="card-tools">
@@ -45,17 +45,16 @@ $this->section('content');
                         <?php
                         echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
-                        <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded">
+                        <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded " style="width:185px;height: 150px;">
                         </a>
                     </div>
                 </div>
-            <?php
+            <?php   
                 $activos += 1;
             }
             $inactivos = $activos + 1;
             ?>
         </div>
-
     </div>
 
     <!-- /.card-body -->

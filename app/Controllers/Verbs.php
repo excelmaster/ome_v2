@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+//defined('BASEPATH') OR exit('No direct script access allowed');
 use App\Models\VerbModel;
 
 class Verbs extends BaseController
@@ -20,7 +21,7 @@ class Verbs extends BaseController
 
 	public function list($site, $type){
 		$verbinstance = new VerbModel($db);
-		$criterios = [ 'mundo' => $site, 'tipo'=>substr($type, 0, 3) ];
+		$criterios = [ 'mundo' => strtoupper($site), 'tipo'=>substr($type, 0, 3) ];
 		$verbos = $verbinstance->where($criterios)->findAll();
 		$data = array (
 			'verbos' => $verbos,

@@ -1,0 +1,911 @@
+[1mdiff --cc public/img/teens/activities/cards/Drag the text.png[m
+[1mindex edef1eb,05063f0..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/crossword.png[m
+[1mindex ea293d7,82c333f..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/drag the pahtner.png[m
+[1mindex 397e44d,cd9896e..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/drag the picture.png[m
+[1mindex 1676995,38adb1d..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/lectura.png[m
+[1mindex 8511089,0d6ebd1..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/memocarta.png[m
+[1mindex 471f5fa,81045a1..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/memory.png[m
+[1mindex c19575e,105d96f..0000000[m
+Binary files differ
+[1mdiff --cc public/img/teens/activities/cards/pdf.png[m
+[1mindex e5b2884,f764681..0000000[m
+Binary files differ
+[1mdiff --git a/CodeIgniter-Ion-Auth/Controllers/Auth.php b/CodeIgniter-Ion-Auth/Controllers/Auth.php[m
+[1mindex 4b9db90..1d0da47 100644[m
+[1m--- a/CodeIgniter-Ion-Auth/Controllers/Auth.php[m
+[1m+++ b/CodeIgniter-Ion-Auth/Controllers/Auth.php[m
+[36m@@ -1,6 +1,11 @@[m
+ <?php[m
+[32m+[m
+ namespace IonAuth\Controllers;[m
+ [m
+[32m+[m[32muse App\Models\MdlsessionModel;[m
+[32m+[m[32muse App\models\EnrolmentModel;[m
+[32m+[m
+[32m+[m
+ /**[m
+  * Class Auth[m
+  *[m
+[36m@@ -10,6 +15,7 @@[m [mnamespace IonAuth\Controllers;[m
+  * @author   Benoit VRIGNAUD <benoit.vrignaud@zaclys.net>[m
+  * @license  https://opensource.org/licenses/MIT	MIT License[m
+  */[m
+[32m+[m
+ class Auth extends \CodeIgniter\Controller[m
+ {[m
+ [m
+[36m@@ -63,6 +69,11 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	protected $viewsFolder = 'IonAuth\Views\auth';[m
+ [m
+[32m+[m	[32m/*[m
+[32m+[m	[32mapp views folder[m
+[32m+[m	[32m*/[m
+[32m+[m	[32mprotected $appViewsFolder = 'App\views';[m
+[32m+[m
+ 	/**[m
+ 	 * Constructor[m
+ 	 *[m
+[36m@@ -76,8 +87,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$this->configIonAuth = config('IonAuth');[m
+ 		$this->session       = \Config\Services::session();[m
+ [m
+[31m-		if (! empty($this->configIonAuth->templates['errors']['list']))[m
+[31m-		{[m
+[32m+[m		[32mif (!empty($this->configIonAuth->templates['errors']['list'])) {[m
+ 			$this->validationListTemplate = $this->configIonAuth->templates['errors']['list'];[m
+ 		}[m
+ 	}[m
+[36m@@ -89,27 +99,22 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	public function index()[m
+ 	{[m
+[31m-		if (! $this->ionAuth->loggedIn())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn()) {[m
+ 			// redirect them to the login page[m
+ 			return redirect()->to('/auth/login');[m
+[31m-		}[m
+[31m-		else if (! $this->ionAuth->isAdmin()) // remove this elseif if you want to enable this for non-admins[m
+[32m+[m		[32m} else if (!$this->ionAuth->isAdmin()) // remove this elseif if you want to enable this for non-admins[m
+ 		{[m
+ 			// redirect them to the home page because they must be an administrator to view this[m
+ 			//show_error('You must be an administrator to view this page.');[m
+ 			throw new \Exception('You must be an administrator to view this page.');[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			$this->data['title'] = lang('Auth.index_heading');[m
+ [m
+ 			// set the flash data error message if there is one[m
+ 			$this->data['message'] = $this->validation->getErrors() ? $this->validation->listErrors($this->validationListTemplate) : $this->session->getFlashdata('message');[m
+ 			//list the users[m
+ 			$this->data['users'] = $this->ionAuth->users()->result();[m
+[31m-			foreach ($this->data['users'] as $k => $user)[m
+[31m-			{[m
+[32m+[m			[32mforeach ($this->data['users'] as $k => $user) {[m
+ 				$this->data['users'][$k]->groups = $this->ionAuth->getUsersGroups($user->id)->getResult();[m
+ 			}[m
+ 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'index', $this->data);[m
+[36m@@ -129,30 +134,49 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$this->validation->setRule('identity', str_replace(':', '', lang('Auth.login_identity_label')), 'required');[m
+ 		$this->validation->setRule('password', str_replace(':', '', lang('Auth.login_password_label')), 'required');[m
+ [m
+[31m-		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())[m
+[31m-		{[m
+[32m+[m		[32mif ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {[m
+ 			// check to see if the user is logging in[m
+ 			// check for "remember me"[m
+ 			$remember = (bool)$this->request->getVar('remember');[m
+ [m
+[31m-			if ($this->ionAuth->login($this->request->getVar('identity'), $this->request->getVar('password'), $remember))[m
+[31m-			{[m
+[32m+[m			[32mif ($this->ionAuth->login($this->request->getVar('identity'), $this->request->getVar('password'), $remember)) {[m
+ 				//if the login is successful[m
+ 				//redirect them back to the home page[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+[31m-				return redirect()->to('/')->withCookies();[m
+[31m-			}[m
+[31m-			else[m
+[31m-			{[m
+[32m+[m				[32m// get userid and verify if have an active moodle's session[m
+[32m+[m				[32m$userId = $_SESSION['user_id'];[m
+[32m+[m				[32m$ipAddress = $this->request->getPost('ip');[m
+[32m+[m				[32m$this->session->set('ipaddress', $ipAddress);[m
+[32m+[m				[32m$mdlSession = model(MdlsessionModel::class);[m
+[32m+[m				[32m$numberOfSessions = $mdlSession->deleteActiveSessions($userId, $ipAddress);[m
+[32m+[m				[32m$this->session->set('numberOfSessions', $numberOfSessions);[m
+[32m+[m
+[32m+[m				[32m// verify course enrolmentModel[m
+[32m+[m				[32m$course = $this->request->getPost('curso');[m
+[32m+[m				[32m$enrolment = model(EnrolmentModel::class);[m
+[32m+[m				[32m$isEnroled = $enrolment->isEnroled($course, $userId);[m
+[32m+[m
+[32m+[m				[32mif ($isEnroled) {[m
+[32m+[m					[32m$this->session->set('course', $course);[m
+[32m+[m					[32mreturn view('loginmoodle/index');[m
+[32m+[m				[32m} else {[m
+[32m+[m					[32m// if the user has not a course[m
+[32m+[m					[32m// redirect them back to the login page[m
+[32m+[m					[32m$this->session->setFlashdata('message', 'No tiene este curso asignado a su usuario');[m
+[32m+[m					[32m// use redirects instead of loading views for compatibility with MY_Controller libraries[m
+[32m+[m					[32mreturn redirect()->back()->withInput();[m
+[32m+[m				[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m				[32mecho "es valido";[m
+[32m+[m			[32m} else {[m
+ 				// if the login was un-successful[m
+ 				// redirect them back to the login page[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 				// use redirects instead of loading views for compatibility with MY_Controller libraries[m
+ 				return redirect()->back()->withInput();[m
+ 			}[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// the user is not logging in so display the login page[m
+ 			// set the flash data error message if there is one[m
+ 			$this->data['message'] = $this->validation->getErrors() ? $this->validation->listErrors($this->validationListTemplate) : $this->session->getFlashdata('message');[m
+[36m@@ -182,13 +206,16 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	public function logout()[m
+ 	{[m
+ 		$this->data['title'] = 'Logout';[m
+[31m-[m
+[32m+[m		[32m//logout from moodle session[m
+[32m+[m		[32m$mdlSession = model(MdlsessionModel::class);[m
+[32m+[m		[32m$numberOfSessions = $mdlSession->deleteActiveSessions($_SESSION['user_id'], $_SESSION['ipaddress']);[m
+ 		// log the user out[m
+ 		$this->ionAuth->logout();[m
+[31m-[m
+ 		// redirect them to the login page[m
+ 		$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+[32m+[m		[32mecho $numberOfSessions;[m
+ 		return redirect()->to('/auth/login')->withCookies();[m
+[32m+[m
+ 	}[m
+ [m
+ 	/**[m
+[36m@@ -198,19 +225,17 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	public function change_password()[m
+ 	{[m
+[31m-		if (! $this->ionAuth->loggedIn())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn()) {[m
+ 			return redirect()->to('/auth/login');[m
+ 		}[m
+[31m-		[m
+[32m+[m
+ 		$this->validation->setRule('old', lang('Auth.change_password_validation_old_password_label'), 'required');[m
+ 		$this->validation->setRule('new', lang('Auth.change_password_validation_new_password_label'), 'required|min_length[' . $this->configIonAuth->minPasswordLength . ']|matches[new_confirm]');[m
+ 		$this->validation->setRule('new_confirm', lang('Auth.change_password_validation_new_password_confirm_label'), 'required');[m
+ [m
+ 		$user = $this->ionAuth->user()->row();[m
+ [m
+[31m-		if (! $this->request->getPost() || $this->validation->withRequest($this->request)->run() === false)[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->request->getPost() || $this->validation->withRequest($this->request)->run() === false) {[m
+ 			// display the form[m
+ 			// set the flash data error message if there is one[m
+ 			$this->data['message'] = ($this->validation->getErrors()) ? $this->validation->listErrors($this->validationListTemplate) : $this->session->getFlashdata('message');[m
+[36m@@ -242,21 +267,16 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ [m
+ 			// render[m
+ 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'change_password', $this->data);[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			$identity = $this->session->get('identity');[m
+ [m
+ 			$change = $this->ionAuth->changePassword($identity, $this->request->getPost('old'), $this->request->getPost('new'));[m
+ [m
+[31m-			if ($change)[m
+[31m-			{[m
+[32m+[m			[32mif ($change) {[m
+ 				//if the password was successfully changed[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 				return $this->logout();[m
+[31m-			}[m
+[31m-			else[m
+[31m-			{[m
+[32m+[m			[32m} else {[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 				return redirect()->to('/auth/change_password');[m
+ 			}[m
+[36m@@ -273,17 +293,13 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$this->data['title'] = lang('Auth.forgot_password_heading');[m
+ [m
+ 		// setting validation rules by checking whether identity is username or email[m
+[31m-		if ($this->configIonAuth->identity !== 'email')[m
+[31m-		{[m
+[32m+[m		[32mif ($this->configIonAuth->identity !== 'email') {[m
+ 			$this->validation->setRule('identity', lang('Auth.forgot_password_identity_label'), 'required');[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			$this->validation->setRule('identity', lang('Auth.forgot_password_validation_email_label'), 'required|valid_email');[m
+ 		}[m
+ [m
+[31m-		if (! ($this->request->getPost() && $this->validation->withRequest($this->request)->run()))[m
+[31m-		{[m
+[32m+[m		[32mif (!($this->request->getPost() && $this->validation->withRequest($this->request)->run())) {[m
+ 			$this->data['type'] = $this->configIonAuth->identity;[m
+ 			// setup the input[m
+ 			$this->data['identity'] = [[m
+[36m@@ -291,32 +307,23 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 				'id'   => 'identity',[m
+ 			];[m
+ [m
+[31m-			if ($this->configIonAuth->identity !== 'email')[m
+[31m-			{[m
+[32m+[m			[32mif ($this->configIonAuth->identity !== 'email') {[m
+ 				$this->data['identity_label'] = lang('Auth.forgot_password_identity_label');[m
+[31m-			}[m
+[31m-			else[m
+[31m-			{[m
+[32m+[m			[32m} else {[m
+ 				$this->data['identity_label'] = lang('Auth.forgot_password_email_identity_label');[m
+ 			}[m
+ [m
+ 			// set any errors and display the form[m
+ 			$this->data['message'] = $this->validation->getErrors() ? $this->validation->listErrors($this->validationListTemplate) : $this->session->getFlashdata('message');[m
+ 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'forgot_password', $this->data);[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			$identityColumn = $this->configIonAuth->identity;[m
+ 			$identity = $this->ionAuth->where($identityColumn, $this->request->getPost('identity'))->users()->row();[m
+ [m
+[31m-			if (empty($identity))[m
+[31m-			{[m
+[31m-				if ($this->configIonAuth->identity !== 'email')[m
+[31m-				{[m
+[32m+[m			[32mif (empty($identity)) {[m
+[32m+[m				[32mif ($this->configIonAuth->identity !== 'email') {[m
+ 					$this->ionAuth->setError('Auth.forgot_password_identity_not_found');[m
+[31m-				}[m
+[31m-				else[m
+[31m-				{[m
+[32m+[m				[32m} else {[m
+ 					$this->ionAuth->setError('Auth.forgot_password_email_not_found');[m
+ 				}[m
+ [m
+[36m@@ -327,14 +334,11 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 			// run the forgotten password method to email an activation code to the user[m
+ 			$forgotten = $this->ionAuth->forgottenPassword($identity->{$this->configIonAuth->identity});[m
+ [m
+[31m-			if ($forgotten)[m
+[31m-			{[m
+[32m+[m			[32mif ($forgotten) {[m
+ 				// if there were no errors[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 				return redirect()->to('/auth/login'); //we should display a confirmation page here instead of the login page[m
+[31m-			}[m
+[31m-			else[m
+[31m-			{[m
+[32m+[m			[32m} else {[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 				return redirect()->to('/auth/forgot_password');[m
+ 			}[m
+[36m@@ -350,8 +354,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	public function reset_password($code = null)[m
+ 	{[m
+[31m-		if (! $code)[m
+[31m-		{[m
+[32m+[m		[32mif (!$code) {[m
+ 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();[m
+ 		}[m
+ [m
+[36m@@ -359,15 +362,13 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ [m
+ 		$user = $this->ionAuth->forgottenPasswordCheck($code);[m
+ [m
+[31m-		if ($user)[m
+[31m-		{[m
+[32m+[m		[32mif ($user) {[m
+ 			// if the code is valid then display the password reset form[m
+ [m
+ 			$this->validation->setRule('new', lang('Auth.reset_password_validation_new_password_label'), 'required|min_length[' . $this->configIonAuth->minPasswordLength . ']|matches[new_confirm]');[m
+ 			$this->validation->setRule('new_confirm', lang('Auth.reset_password_validation_new_password_confirm_label'), 'required');[m
+ [m
+[31m-			if (! $this->request->getPost() || $this->validation->withRequest($this->request)->run() === false)[m
+[31m-			{[m
+[32m+[m			[32mif (!$this->request->getPost() || $this->validation->withRequest($this->request)->run() === false) {[m
+ 				// display the form[m
+ [m
+ 				// set the flash data error message if there is one[m
+[36m@@ -396,40 +397,30 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ [m
+ 				// render[m
+ 				return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'reset_password', $this->data);[m
+[31m-			}[m
+[31m-			else[m
+[31m-			{[m
+[32m+[m			[32m} else {[m
+ 				$identity = $user->{$this->configIonAuth->identity};[m
+ [m
+ 				// do we have a valid request?[m
+[31m-				if ($user->id != $this->request->getPost('user_id'))[m
+[31m-				{[m
+[32m+[m				[32mif ($user->id != $this->request->getPost('user_id')) {[m
+ 					// something fishy might be up[m
+ 					$this->ionAuth->clearForgottenPasswordCode($identity);[m
+ [m
+ 					throw new \Exception(lang('Auth.error_security'));[m
+[31m-				}[m
+[31m-				else[m
+[31m-				{[m
+[32m+[m				[32m} else {[m
+ 					// finally change the password[m
+ 					$change = $this->ionAuth->resetPassword($identity, $this->request->getPost('new'));[m
+ [m
+[31m-					if ($change)[m
+[31m-					{[m
+[32m+[m					[32mif ($change) {[m
+ 						// if the password was successfully changed[m
+ 						$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 						return redirect()->to('/auth/login');[m
+[31m-					}[m
+[31m-					else[m
+[31m-					{[m
+[32m+[m					[32m} else {[m
+ 						$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 						return redirect()->to('/auth/reset_password/' . $code);[m
+ 					}[m
+ 				}[m
+ 			}[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// if the code is invalid then send them back to the forgot password page[m
+ 			$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 			return redirect()->to('/auth/forgot_password');[m
+[36m@@ -448,23 +439,17 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	{[m
+ 		$activation = false;[m
+ [m
+[31m-		if ($code)[m
+[31m-		{[m
+[32m+[m		[32mif ($code) {[m
+ 			$activation = $this->ionAuth->activate($id, $code);[m
+[31m-		}[m
+[31m-		else if ($this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32m} else if ($this->ionAuth->isAdmin()) {[m
+ 			$activation = $this->ionAuth->activate($id);[m
+ 		}[m
+ [m
+[31m-		if ($activation)[m
+[31m-		{[m
+[32m+[m		[32mif ($activation) {[m
+ 			// redirect them to the auth page[m
+ 			$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 			return redirect()->to('/auth');[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// redirect them to the forgot password page[m
+ 			$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 			return redirect()->to('/auth/forgot_password');[m
+[36m@@ -482,8 +467,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	public function deactivate(int $id = 0)[m
+ 	{[m
+[31m-		if (! $this->ionAuth->loggedIn() || ! $this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn() || !$this->ionAuth->isAdmin()) {[m
+ 			// redirect them to the home page because they must be an administrator to view this[m
+ 			throw new \Exception('You must be an administrator to view this page.');[m
+ 			// TODO : I think it could be nice to have a dedicated exception like '\IonAuth\Exception\NotAllowed[m
+[36m@@ -492,25 +476,19 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$this->validation->setRule('confirm', lang('Auth.deactivate_validation_confirm_label'), 'required');[m
+ 		$this->validation->setRule('id', lang('Auth.deactivate_validation_user_id_label'), 'required|integer');[m
+ [m
+[31m-		if (! $this->validation->withRequest($this->request)->run())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->validation->withRequest($this->request)->run()) {[m
+ 			$this->data['user'] = $this->ionAuth->user($id)->row();[m
+ 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// do we really want to deactivate?[m
+[31m-			if ($this->request->getPost('confirm') === 'yes')[m
+[31m-			{[m
+[32m+[m			[32mif ($this->request->getPost('confirm') === 'yes') {[m
+ 				// do we have a valid request?[m
+[31m-				if ($id !== $this->request->getPost('id', FILTER_VALIDATE_INT))[m
+[31m-				{[m
+[32m+[m				[32mif ($id !== $this->request->getPost('id', FILTER_VALIDATE_INT)) {[m
+ 					throw new \Exception(lang('Auth.error_security'));[m
+ 				}[m
+ [m
+ 				// do we have the right userlevel?[m
+[31m-				if ($this->ionAuth->loggedIn() && $this->ionAuth->isAdmin())[m
+[31m-				{[m
+[32m+[m				[32mif ($this->ionAuth->loggedIn() && $this->ionAuth->isAdmin()) {[m
+ 					$message = $this->ionAuth->deactivate($id) ? $this->ionAuth->messages() : $this->ionAuth->errors($this->validationListTemplate);[m
+ 					$this->session->setFlashdata('message', $message);[m
+ 				}[m
+[36m@@ -530,8 +508,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	{[m
+ 		$this->data['title'] = lang('Auth.create_user_heading');[m
+ [m
+[31m-		if (! $this->ionAuth->loggedIn() || ! $this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn() || !$this->ionAuth->isAdmin()) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ [m
+[36m@@ -542,13 +519,10 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		// validate form input[m
+ 		$this->validation->setRule('first_name', lang('Auth.create_user_validation_fname_label'), 'trim|required');[m
+ 		$this->validation->setRule('last_name', lang('Auth.create_user_validation_lname_label'), 'trim|required');[m
+[31m-		if ($identityColumn !== 'email')[m
+[31m-		{[m
+[32m+[m		[32mif ($identityColumn !== 'email') {[m
+ 			$this->validation->setRule('identity', lang('Auth.create_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identityColumn . ']');[m
+ 			$this->validation->setRule('email', lang('Auth.create_user_validation_email_label'), 'trim|required|valid_email');[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			$this->validation->setRule('email', lang('Auth.create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');[m
+ 		}[m
+ 		$this->validation->setRule('phone', lang('Auth.create_user_validation_phone_label'), 'trim');[m
+[36m@@ -556,8 +530,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$this->validation->setRule('password', lang('Auth.create_user_validation_password_label'), 'required|min_length[' . $this->configIonAuth->minPasswordLength . ']|matches[password_confirm]');[m
+ 		$this->validation->setRule('password_confirm', lang('Auth.create_user_validation_password_confirm_label'), 'required');[m
+ [m
+[31m-		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())[m
+[31m-		{[m
+[32m+[m		[32mif ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {[m
+ 			$email    = strtolower($this->request->getPost('email'));[m
+ 			$identity = ($identityColumn === 'email') ? $email : $this->request->getPost('identity');[m
+ 			$password = $this->request->getPost('password');[m
+[36m@@ -569,15 +542,12 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 				'phone'      => $this->request->getPost('phone'),[m
+ 			];[m
+ 		}[m
+[31m-		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run() && $this->ionAuth->register($identity, $password, $email, $additionalData))[m
+[31m-		{[m
+[32m+[m		[32mif ($this->request->getPost() && $this->validation->withRequest($this->request)->run() && $this->ionAuth->register($identity, $password, $email, $additionalData)) {[m
+ 			// check to see if we are creating the user[m
+ 			// redirect them back to the admin page[m
+ 			$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 			return redirect()->to('/auth');[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// display the create user form[m
+ 			// set the flash data error message if there is one[m
+ 			$this->data['message'] = $this->validation->getErrors() ? $this->validation->listErrors($this->validationListTemplate) : ($this->ionAuth->errors($this->validationListTemplate) ? $this->ionAuth->errors($this->validationListTemplate) : $this->session->getFlashdata('message'));[m
+[36m@@ -642,8 +612,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	 */[m
+ 	public function redirectUser()[m
+ 	{[m
+[31m-		if ($this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32mif ($this->ionAuth->isAdmin()) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ 		return redirect()->to('/');[m
+[36m@@ -660,8 +629,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	{[m
+ 		$this->data['title'] = lang('Auth.edit_user_heading');[m
+ [m
+[31m-		if (! $this->ionAuth->loggedIn() || (! $this->ionAuth->isAdmin() && ! ($this->ionAuth->user()->row()->id == $id)))[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn() || (!$this->ionAuth->isAdmin() && !($this->ionAuth->user()->row()->id == $id))) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ [m
+[36m@@ -669,8 +637,7 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		$groups        = $this->ionAuth->groups()->resultArray();[m
+ 		$currentGroups = $this->ionAuth->getUsersGroups($id)->getResult();[m
+ [m
+[31m-		if (! empty($_POST))[m
+[31m-		{[m
+[32m+[m		[32mif (!empty($_POST)) {[m
+ 			// validate form input[m
+ 			$this->validation->setRule('first_name', lang('Auth.edit_user_validation_fname_label'), 'trim|required');[m
+ 			$this->validation->setRule('last_name', lang('Auth.edit_user_validation_lname_label'), 'trim|required');[m
+[36m@@ -678,21 +645,18 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 			$this->validation->setRule('company', lang('Auth.edit_user_validation_company_label'), 'trim|required');[m
+ [m
+ 			// do we have a valid request?[m
+[31m-			if ($id !== $this->request->getPost('id', FILTER_VALIDATE_INT))[m
+[31m-			{[m
+[32m+[m			[32mif ($id !== $this->request->getPost('id', FILTER_VALIDATE_INT)) {[m
+ 				//show_error(lang('Auth.error_security'));[m
+ 				throw new \Exception(lang('Auth.error_security'));[m
+ 			}[m
+ [m
+ 			// update the password if it was posted[m
+[31m-			if ($this->request->getPost('password'))[m
+[31m-			{[m
+[32m+[m			[32mif ($this->request->getPost('password')) {[m
+ 				$this->validation->setRule('password', lang('Auth.edit_user_validation_password_label'), 'required|min_length[' . $this->configIonAuth->minPasswordLength . ']|matches[password_confirm]');[m
+ 				$this->validation->setRule('password_confirm', lang('Auth.edit_user_validation_password_confirm_label'), 'required');[m
+ 			}[m
+ [m
+[31m-			if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())[m
+[31m-			{[m
+[32m+[m			[32mif ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {[m
+ 				$data = [[m
+ 					'first_name' => $this->request->getPost('first_name'),[m
+ 					'last_name'  => $this->request->getPost('last_name'),[m
+[36m@@ -701,35 +665,28 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 				];[m
+ [m
+ 				// update the password if it was posted[m
+[31m-				if ($this->request->getPost('password'))[m
+[31m-				{[m
+[32m+[m				[32mif ($this->request->getPost('password')) {[m
+ 					$data['password'] = $this->request->getPost('password');[m
+ 				}[m
+ [m
+ 				// Only allow updating groups if user is admin[m
+[31m-				if ($this->ionAuth->isAdmin())[m
+[31m-				{[m
+[32m+[m				[32mif ($this->ionAuth->isAdmin()) {[m
+ 					// Update the groups user belongs to[m
+ 					$groupData = $this->request->getPost('groups');[m
+ [m
+[31m-					if (! empty($groupData))[m
+[31m-					{[m
+[32m+[m					[32mif (!empty($groupData)) {[m
+ 						$this->ionAuth->removeFromGroup('', $id);[m
+ [m
+[31m-						foreach ($groupData as $grp)[m
+[31m-						{[m
+[32m+[m						[32mforeach ($groupData as $grp) {[m
+ 							$this->ionAuth->addToGroup($grp, $id);[m
+ 						}[m
+ 					}[m
+ 				}[m
+ [m
+ 				// check to see if we are updating the user[m
+[31m-				if ($this->ionAuth->update($user->id, $data))[m
+[31m-				{[m
+[32m+[m				[32mif ($this->ionAuth->update($user->id, $data)) {[m
+ 					$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+[31m-				}[m
+[31m-				else[m
+[31m-				{[m
+[32m+[m				[32m} else {[m
+ 					$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 				}[m
+ 				// redirect them back to the admin page if admin, or to the base url if non admin[m
+[36m@@ -795,27 +752,22 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	{[m
+ 		$this->data['title'] = lang('Auth.create_group_title');[m
+ [m
+[31m-		if (! $this->ionAuth->loggedIn() || ! $this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn() || !$this->ionAuth->isAdmin()) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ [m
+ 		// validate form input[m
+ 		$this->validation->setRule('group_name', lang('Auth.create_group_validation_name_label'), 'trim|required|alpha_dash');[m
+ [m
+[31m-		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())[m
+[31m-		{[m
+[32m+[m		[32mif ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {[m
+ 			$newGroupId = $this->ionAuth->createGroup($this->request->getPost('group_name'), $this->request->getPost('description'));[m
+[31m-			if ($newGroupId)[m
+[31m-			{[m
+[32m+[m			[32mif ($newGroupId) {[m
+ 				// check to see if we are creating the group[m
+ 				// redirect them back to the admin page[m
+ 				$this->session->setFlashdata('message', $this->ionAuth->messages());[m
+ 				return redirect()->to('/auth');[m
+ 			}[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			// display the create group form[m
+ 			// set the flash data error message if there is one[m
+ 			$this->data['message'] = $this->validation->getErrors() ? $this->validation->listErrors($this->validationListTemplate) : ($this->ionAuth->errors($this->validationListTemplate) ? $this->ionAuth->errors($this->validationListTemplate) : $this->session->getFlashdata('message'));[m
+[36m@@ -847,15 +799,13 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 	public function edit_group(int $id = 0)[m
+ 	{[m
+ 		// bail if no group id given[m
+[31m-		if (! $id)[m
+[31m-		{[m
+[32m+[m		[32mif (!$id) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ [m
+ 		$this->data['title'] = lang('Auth.edit_group_title');[m
+ [m
+[31m-		if (! $this->ionAuth->loggedIn() || ! $this->ionAuth->isAdmin())[m
+[31m-		{[m
+[32m+[m		[32mif (!$this->ionAuth->loggedIn() || !$this->ionAuth->isAdmin()) {[m
+ 			return redirect()->to('/auth');[m
+ 		}[m
+ [m
+[36m@@ -864,18 +814,13 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ 		// validate form input[m
+ 		$this->validation->setRule('group_name', lang('Auth.edit_group_validation_name_label'), 'required|alpha_dash');[m
+ [m
+[31m-		if ($this->request->getPost())[m
+[31m-		{[m
+[31m-			if ($this->validation->withRequest($this->request)->run())[m
+[31m-			{[m
+[32m+[m		[32mif ($this->request->getPost()) {[m
+[32m+[m			[32mif ($this->validation->withRequest($this->request)->run()) {[m
+ 				$groupUpdate = $this->ionAuth->updateGroup($id, $this->request->getPost('group_name'), ['description' => $this->request->getPost('group_description')]);[m
+ [m
+[31m-				if ($groupUpdate)[m
+[31m-				{[m
+[32m+[m				[32mif ($groupUpdate) {[m
+ 					$this->session->setFlashdata('message', lang('Auth.edit_group_saved'));[m
+[31m-				}[m
+[31m-				else[m
+[31m-				{[m
+[32m+[m				[32m} else {[m
+ 					$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));[m
+ 				}[m
+ 				return redirect()->to('/auth');[m
+[36m@@ -922,12 +867,9 @@[m [mclass Auth extends \CodeIgniter\Controller[m
+ [m
+ 		$viewHtml = view($view, $viewdata);[m
+ [m
+[31m-		if ($returnHtml)[m
+[31m-		{[m
+[32m+[m		[32mif ($returnHtml) {[m
+ 			return $viewHtml;[m
+[31m-		}[m
+[31m-		else[m
+[31m-		{[m
+[32m+[m		[32m} else {[m
+ 			echo $viewHtml;[m
+ 		}[m
+ 	}[m
+[1mdiff --git a/CodeIgniter-Ion-Auth/Views/auth/login.php b/CodeIgniter-Ion-Auth/Views/auth/login.php[m
+[1mindex a269aed..8b95f1f 100644[m
+[1m--- a/CodeIgniter-Ion-Auth/Views/auth/login.php[m
+[1m+++ b/CodeIgniter-Ion-Auth/Views/auth/login.php[m
+[36m@@ -1,28 +1,137 @@[m
+[31m-<h1><?php echo lang('Auth.login_heading');?></h1>[m
+[31m-<p><?php echo lang('Auth.login_subheading');?></p>[m
+[31m-[m
+[31m-<div id="infoMessage"><?php echo $message;?></div>[m
+[31m-[m
+[31m-<?php echo form_open('auth/login');?>[m
+[31m-[m
+[31m-  <p>[m
+[31m-    <?php echo form_label(lang('Auth.login_identity_label'), 'identity');?>[m
+[31m-    <?php echo form_input($identity);?>[m
+[31m-  </p>[m
+[31m-[m
+[31m-  <p>[m
+[31m-    <?php echo form_label(lang('Auth.login_password_label'), 'password');?>[m
+[31m-    <?php echo form_input($password);?>[m
+[31m-  </p>[m
+[31m-[m
+[31m-  <p>[m
+[31m-    <?php echo form_label(lang('Auth.login_remember_label'), 'remember');?>[m
+[31m-    <?php echo form_checkbox('remember', '1', false, 'id="remember"');?>[m
+[31m-  </p>[m
+[31m-[m
+[31m-[m
+[31m-  <p><?php echo form_submit('submit', lang('Auth.login_submit_btn'));?></p>[m
+[31m-[m
+[31m-<?php echo form_close();?>[m
+[31m-[m
+[31m-<p><a href="forgot_password"><?php echo lang('Auth.login_forgot_password');?></a></p>[m
+[32m+[m[32m<!DOCTYPE html>[m[41m[m
+[32m+[m[32m<html>[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m<head>[m[41m[m
+[32m+[m	[32m<meta charset="utf-8">[m[41m[m
+[32m+[m	[32m<meta http-equiv="X-UA-Compatible" content="IE=edge">[m[41m[m
+[32m+[m	[32m<title>AdminLTE 3 | Log in</title>[m[41m[m
+[32m+[m	[32m<!-- Tell the browser to be responsive to screen width -->[m[41m[m
+[32m+[m	[32m<meta name="viewport" content="width=device-width, initial-scale=1">[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m<!-- Font Awesome -->[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="<?php[m[41m[m
+[32m+[m[41m[m
+[32m+[m									[32muse PhpParser\Node\Expr\Isset_;[m[41m[m
+[32m+[m[41m[m
+[32m+[m									[32mecho base_url('public/assets/plugins/fontawesome-free/css/all.min.css'); ?>">[m[41m[m
+[32m+[m	[32m<!-- Ionicons -->[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">[m[41m[m
+[32m+[m	[32m<!-- icheck bootstrap -->[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="<?php echo base_url('public/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>">[m[41m[m
+[32m+[m	[32m<!-- Theme style -->[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="<?php echo base_url('public/assets/dist/css/adminlte.min.css'); ?>">[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="<?php echo base_url('public/assets/css/intro.css'); ?>">[m[41m[m
+[32m+[m	[32m<link rel="stylesheet" href="<?php echo base_url('public/assets/css/login.css'); ?>">[m[41m[m
+[32m+[m	[32m<!-- Google Font: Source Sans Pro -->[m[41m[m
+[32m+[m	[32m<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">[m[41m[m
+[32m+[m	[32m<!-- CSS only -->[m[41m[m
+[32m+[m	[32m<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">[m[41m[m
+[32m+[m	[32m<!-- JavaScript Bundle with Popper -->[m[41m[m
+[32m+[m	[32m<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">[m[41m[m
+[32m+[m	[32m</script>[m[41m[m
+[32m+[m[32m</head>[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m<body class="hold-transition login-page" style="background-image: url('<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>');">[m[41m[m
+[32m+[m	[32m<!-- video background -->[m[41m[m
+[32m+[m	[32m<!-- <video class="login-video" playsinline autoplay muted loop poster="<?php echo base_url('public/img/teens/template/bcg_template.jpg'); ?>" id="loginVideo">[m[41m[m
+[32m+[m		[32m<source src="<?php echo base_url('public/img/mdl_img/login.mp4'); ?>" type="video/mp4" style="width:900px;heigth: 500px">[m[41m[m
+[32m+[m		[32mYour browser does not support HTML5 video.[m[41m[m
+[32m+[m	[32m</video> -->[m[41m[m
+[32m+[m	[32m<div class="container">[m[41m[m
+[32m+[m		[32m<div class="container-fluid">[m[41m[m
+[32m+[m			[32m<div class="row">[m[41m[m
+[32m+[m				[32m<div class="col-md-12 d-flex justify-content-center align-content-center">[m[41m[m
+[32m+[m					[32m<div class="d-flex justify-content-start align-content-center">[m[41m[m
+[32m+[m						[32m<div style="weigth:180px;heigth: 150px;">[m[41m[m
+[32m+[m							[32m<img src="<?php echo base_url('public/img/kids/template/logo_transparent.png'); ?>" alt="" class="">[m[41m[m
+[32m+[m						[32m</div>[m[41m[m
+[32m+[m					[32m</div>[m[41m[m
+[32m+[m				[32m</div>[m[41m[m
+[32m+[m			[32m</div>[m[41m[m
+[32m+[m			[32m<div class="row">[m[41m[m
+[32m+[m				[32m<div class="col-md-6 d-flex align-content-end justify-content-center">[m[41m[m
+[32m+[m					[32m<div style="weigth:180px;heigth: 150px;">[m[41m[m
+[32m+[m						[32m<img src="<?php echo base_url('public/img/mdl_img/quote_login.svg'); ?>" alt="" class="">[m[41m[m
+[32m+[m					[32m</div>[m[41m[m
+[32m+[m				[32m</div>[m[41m[m
+[32m+[m				[32m<div class="col-md-6 d-flex align-content-start justify-content-center">[m[41m[m
+[32m+[m					[32m<div class="login-box bluebox">[m[41m[m
+[32m+[m						[32m<!-- /.login-logo -->[m[41m[m
+[32m+[m						[32m<?php echo form_open('auth/login'); ?>[m[41m[m
+[32m+[m						[32m<div class="card">[m[41m[m
+[32m+[m							[32m<div class="card-body login-card-body bg-light">[m[41m[m
+[32m+[m								[32m<p class="login-box-msg">DIGITE SUS DATOS DE INGRESO[m[41m[m
+[32m+[m								[32m</p>[m[41m[m
+[32m+[m								[32m<input id="ip" name="ip" type="text" class="login-box-msg" hidden></input>[m[41m[m
+[32m+[m								[32m<div class="input-group mb-2">[m[41m[m
+[32m+[m									[32m<input type="text" name="identity" id="identity" class="form-control" placeholder="Nombre de usuario" required>[m[41m[m
+[32m+[m									[32m<div class="input-group-append">[m[41m[m
+[32m+[m										[32m<div class="input-group-text">[m[41m[m
+[32m+[m											[32m<span class="fas fa-envelope"></span>[m[41m[m
+[32m+[m										[32m</div>[m[41m[m
+[32m+[m									[32m</div>[m[41m[m
+[32m+[m								[32m</div>[m[41m[m
+[32m+[m								[32m<div class="input-group mb-2">[m[41m[m
+[32m+[m									[32m<input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>[m[41m[m
+[32m+[m									[32m<div class="input-group-append">[m[41m[m
+[32m+[m										[32m<div class="input-group-text">[m[41m[m
+[32m+[m											[32m<span class="fas fa-lock"></span>[m[41m[m
+[32m+[m										[32m</div>[m[41m[m
+[32m+[m									[32m</div>[m[41m[m
+[32m+[m								[32m</div>[m[41m[m
+[32m+[m								[32m<div class="input-group mb-2">[m[41m[m
+[32m+[m									[32m<select id="curso" name="curso" class="form-select form-select-sm" required>[m[41m[m
+[32m+[m										[32m<option value="">Selecciona el curso</option>[m[41m[m
+[32m+[m										[32m<option value="kids">for kids</option>[m[41m[m
+[32m+[m										[32m<option value="teens">for teenagers</option>[m[41m[m
+[32m+[m									[32m</select>[m[41m[m
+[32m+[m								[32m</div>[m[41m[m
+[32m+[m								[32m<div class="row">[m[41m[m
+[32m+[m									[32m<div class="col-6">[m[41m[m
+[32m+[m									[32m</div>[m[41m[m
+[32m+[m									[32m<!-- /.col -->[m[41m[m
+[32m+[m									[32m<div class="col-6">[m[41m[m
+[32m+[m										[32m<button type="submit" class="btn btn-primary btn-block" id="loginbtn">INGRESAR</button>[m[41m[m
+[32m+[m									[32m</div>[m[41m[m
+[32m+[m									[32m<!-- /.col -->[m[41m[m
+[32m+[m								[32m</div>[m[41m[m
+[32m+[m								[32m<?php echo form_close(); ?>[m[41m[m
+[32m+[m							[32m</div>[m[41m[m
+[32m+[m							[32m<!-- /.login-card-body -->[m[41m[m
+[32m+[m						[32m</div>[m[41m[m
+[32m+[m					[32m</div>[m[41m[m
+[32m+[m				[32m</div>[m[41m[m
+[32m+[m			[32m</div>[m[41m[m
+[32m+[m		[32m</div>[m[41m[m
+[32m+[m	[32m</div>[m[41m[m
+[32m+[m	[32m<div class="row">[m[41m[m
+[32m+[m		[32m<?php[m[41m[m
+[32m+[m		[32mif (isset($message)) {[m[41m[m
+[32m+[m			[32mif (substr($message, 0, 1) != "<") {[m[41m[m
+[32m+[m				[32mecho '<div class="alert alert-primary" role="alert"><ul><li>' . $message . '</li></ul></div>';[m[41m[m
+[32m+[m			[32m} else {[m[41m[m
+[32m+[m				[32mecho  $message;[m[41m[m
+[32m+[m			[32m};[m[41m[m
+[32m+[m		[32m}[m[41m[m
+[32m+[m		[32m?>[m[41m[m
+[32m+[m	[32m</div>[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m<!-- <iframe src="https://omedev.mundoeducativodigital.com/content/kids/223/1/1/1/5/hvp/4/memoria" style="width:700px;height: 400px;" id="ifrLogin"></iframe> -->[m[41m[m
+[32m+[m	[32m<!-- /.login-box -->[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m<!-- jQuery -->[m[41m[m
+[32m+[m	[32m<script src="<?php echo base_url('public/assets/plugins/jquery/jquery.min.js'); ?>"></script>[m[41m[m
+[32m+[m	[32m<!-- Bootstrap 4 -->[m[41m[m
+[32m+[m	[32m<script src="<?php echo base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>[m[41m[m
+[32m+[m	[32m<!-- AdminLTE App -->[m[41m[m
+[32m+[m	[32m<script src="<?php echo base_url('public/assets/dist/js/adminlte.min.js'); ?>"></script>[m[41m[m
+[32m+[m	[32m<script>[m[41m[m
+[32m+[m		[32m$.get("https://ipinfo.io", function(response) {[m[41m[m
+[32m+[m			[32m$('#ip').val(response.ip);[m[41m[m
+[32m+[m		[32m}, "json")[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32m$('#tutorial').click();[m[41m[m
+[32m+[m	[32m</script>[m[41m[m
+[32m+[m[32m</body>[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m</html>[m[41m[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex a52d990..2506d92 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -44,7 +44,7 @@[m
+ 	"repositories": {[m
+ 		"ionAuth": {[m
+ 			"type": "vcs",[m
+[31m-			"url": "git@github.com:benedmunds/CodeIgniter-Ion-Auth.git"[m
+[32m+[m			[32m"url": "git@github.com:benedmunds/CodeIgniter-Ion-Auth"[m
+ 		}[m
+ 	}[m
+ }[m
+[1mdiff --git a/composer.lock b/composer.lock[m
+[1mindex 15c1636..c95c11d 100644[m
+[1m--- a/composer.lock[m
+[1m+++ b/composer.lock[m
+[36m@@ -4,7 +4,7 @@[m
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",[m
+         "This file is @generated automatically"[m
+     ],[m
+[31m-    "content-hash": "04ff5b91d11334dc20a6b73275ba3093",[m
+[32m+[m[32m    "content-hash": "70ed2431b10744383ec1985b9fda38f8",[m
+     "packages": [[m
+         {[m
+             "name": "benedmunds/codeigniter-ion-auth",[m
+[36m@@ -12,12 +12,12 @@[m
+             "source": {[m
+                 "type": "git",[m
+                 "url": "https://github.com/benedmunds/CodeIgniter-Ion-Auth.git",[m
+[31m-                "reference": "2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456"[m
+[32m+[m[32m                "reference": "6ebcd542011dbc35045466acad0172d2b68ae051"[m
+             },[m
+             "dist": {[m
+                 "type": "zip",[m
+[31m-                "url": "https://api.github.com/repos/benedmunds/CodeIgniter-Ion-Auth/zipball/2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456",[m
+[31m-                "reference": "2e335e1c56a64a9b7c7dcbaf9cd56ae6077d8456",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/benedmunds/CodeIgniter-Ion-Auth/zipball/6ebcd542011dbc35045466acad0172d2b68ae051",[m
+[32m+[m[32m                "reference": "6ebcd542011dbc35045466acad0172d2b68ae051",[m
+                 "shasum": ""[m
+             },[m
+             "require-dev": {[m
+[36m@@ -53,7 +53,7 @@[m
+                 "source": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4",[m
+                 "issues": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues"[m
+             },[m
+[31m-            "time": "2022-04-26T12:46:32+00:00"[m
+[32m+[m[32m            "time": "2022-06-01T22:58:23+00:00"[m
+         },[m
+         {[m
+             "name": "codeigniter4/framework",[m

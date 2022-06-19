@@ -13,12 +13,12 @@ $this->section('content');
             <div class="col-sm-4">
                 <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-2">
                 <div class="col-sm-10 direct-chat-text bg-blue">
                     <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/lessons/mensaje_lecciones_kids.svg'); ?>" alt="">
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-6">
                 <a href="<?php echo base_url('courses/' . $site); ?>"><img src="<?php echo base_url('public/img/' . $site . '/lessons/back_button.svg'); ?>"></a>
             </div>
         </div>

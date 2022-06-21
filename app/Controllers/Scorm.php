@@ -14,6 +14,6 @@ class Scorm extends BaseController
 			'lesson' => $lesson,
 			'activity' => $activity
 		];
-		return view('scorm/index', $data);
+		//return view('scorm/index', $data);
 	}
 }

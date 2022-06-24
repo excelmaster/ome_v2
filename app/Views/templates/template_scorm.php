@@ -23,7 +23,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-            <h1>hola perros</h1>
+            <!-- <h1>hola perros</h1> -->
               <?php $this->renderSection('content'); ?>
             </div>
           </div>

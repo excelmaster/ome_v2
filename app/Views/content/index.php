@@ -81,8 +81,8 @@ $colvideo = array(
             break;
 
           case 'scorm':
-            //$ruta = 'scorm/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity . '/index.html';
-            $ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
+            $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
+            //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
             //echo $ruta;
             echo '<iframe src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 900px;height:530px;"></iframe>';
             break;

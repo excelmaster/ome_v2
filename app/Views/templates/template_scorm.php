@@ -22,8 +22,7 @@
       <section class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-12">
-            <!-- <h1>hola perros</h1> -->
+            <div class="col-12 d-flex justify-content-center">
               <?php $this->renderSection('content'); ?>
             </div>
           </div>

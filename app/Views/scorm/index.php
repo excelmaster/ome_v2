@@ -25,7 +25,7 @@ $this->section('content');
     <div class="row">
       <div class="col-xl-12">
         <?php
-        echo '<iframe src="' . base_url() . '/public/scorm_' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity . '" class="embed-responsive-item" style="width: 900px;height:550px;"></iframe>';
+        echo '<iframe src="' . base_url() . '/public/scorm_' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity . '/index.html" class="embed-responsive-item" style="width: 900px;height:550px;"></iframe>';
         //echo 'dibuja sitio';
         //return view('../m4/l1/1_3');
         ?>

@@ -52,10 +52,17 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// load ionauth library
 		$this->ionAuth = new \IonAuth\Libraries\IonAuth();
+
 		if($this->ionAuth->loggedIn() != 1){
 			$this->session->set('logged',0);	
 		} else {
-			$this->session->set('logged',1);	
+			$this->session->set('logged',1);			
+		}
+
+		if($this->ionAuth->isAdmin() == 1){
+			$this->session->set('mando',1);
+		} else {
+			$this->session->set('mando',0);
 		}
 	}
 

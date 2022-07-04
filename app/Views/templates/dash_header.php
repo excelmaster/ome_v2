@@ -168,7 +168,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Contenido</li>
                             <li>
-                                <a href="<?php echo site_url('/verbs/index'); ?>" class="mm-active">
+                                <a href="<?php echo site_url('/verbs/show'); ?>" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Verbos
                                 </a>

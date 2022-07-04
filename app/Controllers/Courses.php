@@ -19,4 +19,19 @@ class Courses extends BaseController
 			return redirect()->to('/auth/login');
 		}
 	}
+
+	public function list(){
+		echo 'lista';
+		if ($_SESSION['logged'] == 1) {
+			$courseInstance = new  CourseModel($db);
+			$worlds = $courseInstance->readCourses();
+			$data = array(
+				'worlds' => $worlds,
+			);
+			return view('courses/list', $data);
+		} else {
+			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
+			return redirect()->to('/auth/login');
+		}
+	}
 }

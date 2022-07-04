@@ -19,4 +19,9 @@ class CourseModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function readCourses(){
+        return $this->findAll();
+    }
+
 }

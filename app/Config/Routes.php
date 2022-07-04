@@ -84,6 +84,11 @@ $routes->get('/verbs/delete/(:int)', 'Verbs::delete/$1');
 //worlds
 $routes->get('/admin/courses','Courses::list');
 
+//lessons
+$routes->get('/admin/lessons/(:int)/(:any)','Lessons::list/$1/$2');
+
+// activities
+$routes->get('/admin/activities/(:int)/(:any)/(:int)/(:int)', 'Activities::list/$1/$2/$3/$4');
 
 
 

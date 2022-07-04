@@ -19,4 +19,8 @@ class LessonModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function readLessonsxCourse($courseId){
+        return $this->where('courseId',$courseId)->orderBy('lesson_number','asc')->findAll();
+    }
 }

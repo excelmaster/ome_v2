@@ -19,4 +19,8 @@ class ActivityModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function readActivitiesxLesson($lessonId){
+        return $this->where('lessonId',$lessonId)->orderBy('activityNumber','asc')->findAll();
+    }
 }

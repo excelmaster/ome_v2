@@ -48,12 +48,14 @@ class BaseController extends Controller
 
 		//--------------------------------------------------------------------
 		$this->session = \Config\Services::session();
-
+		
 		//--------------------------------------------------------------------
 		// load ionauth library
 		$this->ionAuth = new \IonAuth\Libraries\IonAuth();
-		if(!$this->ionAuth->loggedIn()){
-			redirect()->to('/auth/login');
+		if($this->ionAuth->loggedIn() != 1){
+			$this->session->set('logged',0);	
+		} else {
+			$this->session->set('logged',1);	
 		}
 	}
 

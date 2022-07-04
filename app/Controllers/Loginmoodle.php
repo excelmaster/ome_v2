@@ -1,6 +1,5 @@
 <?php 
 namespace App\Controllers;
-//defined('BASEPATH') OR exit('No direct script access allowed');
 use App\Models\MdlsessionModel;
 
 class Loginmoodle extends \IonAuth\Controllers\Auth {

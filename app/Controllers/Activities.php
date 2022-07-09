@@ -34,8 +34,22 @@ class Activities extends BaseController
 				'mundo' => $mundo,
 				'leccion' => $leccion,
 				'mundoId' => $mundoId,
+				'lessonId' => $lessonId,
 			);
 			return view('activities/list', $data);
+		} else {
+			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
+			return redirect()->to('/auth/login');
+		}
+	}
+
+	public function new($lessonId)
+	{
+		if ($_SESSION['logged'] == 1) {
+			$data = array(
+				'lessonId' => $lessonId,
+			);
+			return view('activities/new', $data);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
 			return redirect()->to('/auth/login');

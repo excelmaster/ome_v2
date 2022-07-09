@@ -22,7 +22,7 @@ $this->section('content');
     </div>
     <div class="row">
       <div class="d-flex justify-content-around">
-        <a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/new'); ?>"   role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva actividad</a>
+        <a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/new/'.$lessonId); ?>"   role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva actividad</a>
         <a class="btn btn-primary btn-sm " href="<?php echo base_url('lessons/list/'.$mundoId.'/'. $mundo); ?>"   role="button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Volver al listado de lecciones</a>
       </div>
     </div>

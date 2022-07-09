@@ -3,6 +3,7 @@ $activos = 0;
 $inactivos = 0;
 $this->extend('templates/dash_header');
 $this->section('content');
+$session = session();
 ?>
 <div class="container">
   <div class="row d-flex">
@@ -13,7 +14,7 @@ $this->section('content');
             <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
             </i>
           </div>
-          <div>listado de lecciones para mundo <?php echo $mundo; ?>
+          <div>listado de lecciones para mundo <?php echo $session->get('mundo') ; ?>
             <div class="page-title-subheading">Administre cada uno de los elementos y su posición en los listados
             </div>
           </div>
@@ -44,12 +45,12 @@ $this->section('content');
         <?php foreach ($lessons as $item) { ?>
           <tr>
             <td><?php echo $item['id'] ?></td>
-            <td><?php echo $mundo ?></td>
+            <td><?php echo $session->get('mundo') ?></td>
             <td><?php echo $item['lesson_number'] ?></td>
             <td><?php echo $item['descripcion'] ?></td>
             <td><?php echo $item['img_url'] ?></td>
             <td><?php echo $item['deleted_at'] ?></td>
-            <td><a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/list/' . $item['id'] . '/' . $mundo . '/' . $item['lesson_number'] . '/' . $courseId); ?>" role="button">Ver actividades </a></td>
+            <td><a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/list/' . $item['id'] . '/' . $session->get('mundo'). '/' . $item['lesson_number'] . '/' . $session->get('courseId')); ?>" role="button">Ver actividades </a></td>
             <td><a class="btn btn-info btn-sm txt-black" href="<?php echo base_url('lessons/edit/' . $item['id']); ?>" role="button">Editar </a></td>
             <td>
               <form action="<?php echo base_url('lessons/delete/' . $item['id']) ?>" method="post">

@@ -23,10 +23,11 @@ class Lessons extends BaseController
 		if ($_SESSION['logged'] == 1) {
 			$lessonInstance = new  LessonModel($db);
 			$lessons = $lessonInstance->readLessonsxCourse($courseId);
+			//variables de sesion
+			$this->session->set('courseId', $courseId);
+			$this->session->set('mundo', $mundo);
 			$data = array(
-				'lessons' => $lessons,
-				'courseId' => $courseId,
-				'mundo' => $mundo,
+				'lessons' => $lessons,				
 			);
 			return view('lessons/list', $data);
 		} else {

@@ -89,6 +89,7 @@ $routes->get('/admin/lessons/(:int)/(:any)','Lessons::list/$1/$2');
 
 // activities
 $routes->get('/admin/activities/(:int)/(:any)/(:int)/(:int)', 'Activities::list/$1/$2/$3/$4');
+$routes->get('/admin/activities/(:int)/(:any)/(:int)/(:int)', 'Activities::list/$1/$2/$3/$4');
 
 
 

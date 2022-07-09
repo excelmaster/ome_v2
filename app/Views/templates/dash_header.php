@@ -241,7 +241,7 @@
         $(document).ready(function () {
             $('#omedata').DataTable({
                     language: {
-                        url: 'dataTables.spanish.json'
+                        {% comment %} url: 'dataTables.spanish.json' {% endcomment %}
                     }
                 }
 

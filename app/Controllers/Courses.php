@@ -28,6 +28,8 @@ class Courses extends BaseController
 			$data = array(
 				'worlds' => $worlds,
 			);
+			$items = array('lessonId','lesson','course','courseId','mundo','mundoName');
+			$this->session->remove($items);
 			return view('courses/list', $data);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

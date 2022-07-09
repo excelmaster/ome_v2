@@ -14,7 +14,7 @@ $session = session();
             <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
             </i>
           </div>
-          <div>listado de lecciones para mundo <?php echo $session->get('mundo') ; ?>
+          <div>listado de lecciones para mundo <?php echo $session->get('mundoName') ; ?>
             <div class="page-title-subheading">Administre cada uno de los elementos y su posición en los listados
             </div>
           </div>
@@ -45,12 +45,12 @@ $session = session();
         <?php foreach ($lessons as $item) { ?>
           <tr>
             <td><?php echo $item['id'] ?></td>
-            <td><?php echo $session->get('mundo') ?></td>
+            <td><?php echo $session->get('mundoName') ?></td>
             <td><?php echo $item['lesson_number'] ?></td>
             <td><?php echo $item['descripcion'] ?></td>
             <td><?php echo $item['img_url'] ?></td>
             <td><?php echo $item['deleted_at'] ?></td>
-            <td><a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/list/' . $item['id'] . '/' . $session->get('mundo'). '/' . $item['lesson_number'] . '/' . $session->get('courseId')); ?>" role="button">Ver actividades </a></td>
+            <td><a class="btn btn-primary btn-sm " href="<?php echo base_url('activities/list/' . $item['id'] . '/' . $item['lesson_number'] ); ?>" role="button">Ver actividades </a></td>
             <td><a class="btn btn-info btn-sm txt-black" href="<?php echo base_url('lessons/edit/' . $item['id']); ?>" role="button">Editar </a></td>
             <td>
               <form action="<?php echo base_url('lessons/delete/' . $item['id']) ?>" method="post">

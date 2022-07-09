@@ -18,14 +18,16 @@ class Lessons extends BaseController
 		return view('lessons/index',$lessons) ;
 	}
 
-	public function list($courseId, $mundo){
+	public function list($courseId, $mundoName){
 		echo 'lecciones para mundo ' . $courseId;
 		if ($_SESSION['logged'] == 1) {
 			$lessonInstance = new  LessonModel($db);
 			$lessons = $lessonInstance->readLessonsxCourse($courseId);
 			//variables de sesion
 			$this->session->set('courseId', $courseId);
-			$this->session->set('mundo', $mundo);
+			$this->session->set('mundoName', $mundoName);
+			//$items = array('le','mundoName');
+			//$this->session->remove($items);
 			$data = array(
 				'lessons' => $lessons,				
 			);

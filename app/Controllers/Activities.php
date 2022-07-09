@@ -25,17 +25,16 @@ class Activities extends BaseController
 		}
 	}
 
-	public function list($lessonId, $mundo, $leccion, $mundoId){
+	public function list($lessonId,  $leccion){
 		if ($_SESSION['logged'] == 1) {
+			echo $this->session->get('mundoName');
 			$activityInstance = new  ActivityModel($db);
 			$activities = $activityInstance->readActivitiesxLesson($lessonId);
+			$this->session->set('lessonId',$lessonId);
+			$this->session->set('lesson',$leccion);
 			$data = array(
-				'activities' => $activities,
-				'mundo' => $mundo,
-				'leccion' => $leccion,
-				'mundoId' => $mundoId,
-				'lessonId' => $lessonId,
-			);
+				'activities' => $activities,				
+			);			
 			return view('activities/list', $data);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

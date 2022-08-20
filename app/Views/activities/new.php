@@ -3,6 +3,7 @@ $activos = 0;
 $inactivos = 0;
 $this->extend('templates/dash_header');
 $this->section('content');
+$session = session();
 ?>
 <div class="container">
   <div class="row d-flex">
@@ -13,14 +14,30 @@ $this->section('content');
             <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
             </i>
           </div>
-          <div>Nuevo Verbo
+          <div><?php echo 'Nueva Actividad para lección ' . $session->get('lesson') . ' :: Mundo ' . $session->get('mundoName'); ?>
             <div class="page-title-subheading">Administre cada uno de los elementos y su posición en los listados
             </div>
           </div>
         </div>
       </div>
     </div>
-    <form action="<?php echo base_url('verbs/create'); ?>" method="post" class="row g-3">
+    <form action="<?php echo base_url('activities/create'); ?>" method="post" class="row g-3">
+      <!-- lessonid hidden -->
+      <input type="number" class="form-control" id="lessonId" name="lessonId" value="<?php echo $session->get('lessonId'); ?>" hidden>
+      <div class="col-md-4">
+        <label for="activityNumber" class="form-label">Actividad No.</label>
+        <input type="number" class="form-control" id="activityNumber" name="activityNumber" min="1" required>
+        <div class="invalid-feedback">
+          Por favor digite el número de actividad.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="activityNumber" class="form-label">Actividad No.</label>
+        <input type="number" class="form-control" id="activityNumber" name="activityNumber" min="1" required>
+        <div class="invalid-feedback">
+          Por favor digite el número de actividad.
+        </div>
+      </div>
       <div class="col-md-4">
         <label for="mundo" class="form-label">Plataforma</label>
         <select class="form-select" id="mundo" name="mundo" required>
@@ -43,42 +60,42 @@ $this->section('content');
         <div class="valid-feedback">
           Please select a valid state.
         </div>
-      </div> 
+      </div>
       <div class="col-md-4">
         <label for="position" class="form-label">Posicion en el listado</label>
         <input type="number" class="form-control" id="position" name="position" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
-      </div>           
+      </div>
       <div class="col-md-3">
         <label for="past" class="form-label">Pasado del verbo</label>
         <input type="text" class="form-control" id="past" name="past" placeholder="Pasado del verbo" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
-      </div>           
+      </div>
       <div class="col-md-3">
         <label for="present" class="form-label">Presente del verbo</label>
         <input type="text" class="form-control" id="present" name="present" placeholder="presente del verbo" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
-      </div>           
+      </div>
       <div class="col-md-3">
         <label for="participle" class="form-label">Participio del verbo</label>
-        <input type="text" class="form-control" id="participle" name="participle" placeholder="participio del verbo"required>
+        <input type="text" class="form-control" id="participle" name="participle" placeholder="participio del verbo" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
-      </div>  
+      </div>
       <div class="col-md-3">
         <label for="significado" class="form-label">Significado en español</label>
-        <input type="text" class="form-control" id="significado" name="significado" placeholder="significado en español"required>
+        <input type="text" class="form-control" id="significado" name="significado" placeholder="significado en español" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
-      </div>               
+      </div>
       <div class="col-12">
         <button class="btn btn-primary" type="submit">Guardar</button>
       </div>

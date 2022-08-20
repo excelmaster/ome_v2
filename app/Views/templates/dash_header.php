@@ -240,8 +240,8 @@
     <script>
         $(document).ready(function () {
             $('#omedata').DataTable({
-                    language: {
-                        {% comment %} url: 'dataTables.spanish.json' {% endcomment %}
+                    'language': {
+                        'sUrl': 'dataTables.spanish.json'
                     }
                 }
 

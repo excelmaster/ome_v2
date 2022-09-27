@@ -23,4 +23,9 @@ class ActivityModel extends Model
     public function readActivitiesxLesson($lessonId){
         return $this->where('lessonId',$lessonId)->orderBy('activityNumber','asc')->findAll();
     }
+
+    public function getActivityImage(){
+    $tipos = ['hvp','resources'];
+       return $this->distinct()->select('img_path')->orWhereIn('tipo', $tipos)->findAll();
+    }
 }

@@ -15,16 +15,16 @@ $session = session();
             </i>
           </div>
           <div><?php echo 'Nueva Actividad para lección ' . $session->get('lesson') . ' :: Mundo ' . $session->get('mundoName'); ?>
-            <div class="page-title-subheading">Administre cada uno de los elementos y su posición en los listados
+            <div class="page-title-subheading">Administre cada uno de las actividades y su posición en los listados
             </div>
           </div>
         </div>
       </div>
     </div>
-    <form action="<?php echo base_url('activities/create'); ?>" method="post" class="row g-3">
+    <form action="activities/store" method="post" class="row g-3">
       <!-- lessonid hidden -->
       <input type="number" class="form-control" id="lessonId" name="lessonId" value="<?php echo $session->get('lessonId'); ?>" hidden>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label for="activityNumber" class="form-label">Actividad No.</label>
         <input type="number" class="form-control" id="activityNumber" name="activityNumber" min="1" required>
         <div class="invalid-feedback">
@@ -32,66 +32,47 @@ $session = session();
         </div>
       </div>
       <div class="col-md-4">
-        <label for="activityNumber" class="form-label">Actividad No.</label>
-        <input type="number" class="form-control" id="activityNumber" name="activityNumber" min="1" required>
-        <div class="invalid-feedback">
-          Por favor digite el número de actividad.
-        </div>
-      </div>
-      <div class="col-md-4">
-        <label for="mundo" class="form-label">Plataforma</label>
-        <select class="form-select" id="mundo" name="mundo" required>
+        <label for="img" class="form-label">Imagen asociada</label>
+        <select class="form-select" id="image" name="image" required>
           <option selected disabled value="">Escoja...</option>
-          <option value="TEENS">TEENS</option>
-          <option value="KIDS">KIDS</option>
+          <?php 
+          foreach($images as $img){
+            echo "<option value='".$img['img_path']."'>".$img['img_path']."</option>;";
+          }
+          ?>          
         </select>
         <div class="valid-feedback">
           Please select a valid state.
         </div>
       </div>
+      <div class="col-md-2">
+        <label for="objectId" class="form-label">ID objeto Moodle</label>
+        <input type="number" class="form-control" id="objectId" name="objectId" min="1" required>
+        <div class="invalid-feedback">
+          Por favor digite el id de moodle.
+        </div>
+      </div>
       <div class="col-md-4">
-        <label for="mundo" class="form-label">Tipo de verbo</label>
+        <label for="tipo" class="form-label">Tipo</label>
         <select class="form-select" id="tipo" name="tipo" required>
           <option selected disabled value="">Escoja...</option>
-          <option value="reg">Regulares</option>
-          <option value="irr">Irregulares</option>
-          <option value="phr">Fraseales</option>
+          <option value="hvp">HVP</option>
+          <option value="pdf">PDF</option>
         </select>
         <div class="valid-feedback">
           Please select a valid state.
         </div>
       </div>
-      <div class="col-md-4">
-        <label for="position" class="form-label">Posicion en el listado</label>
-        <input type="number" class="form-control" id="position" name="position" required>
+      <div class="col-md-12">
+        <label for="descripcion" class="form-label">Descripción de la actividad</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>
       </div>
-      <div class="col-md-3">
-        <label for="past" class="form-label">Pasado del verbo</label>
-        <input type="text" class="form-control" id="past" name="past" placeholder="Pasado del verbo" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="present" class="form-label">Presente del verbo</label>
-        <input type="text" class="form-control" id="present" name="present" placeholder="presente del verbo" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="participle" class="form-label">Participio del verbo</label>
-        <input type="text" class="form-control" id="participle" name="participle" placeholder="participio del verbo" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="significado" class="form-label">Significado en español</label>
-        <input type="text" class="form-control" id="significado" name="significado" placeholder="significado en español" required>
+      <div class="col-md-12">
+        <label for="url_resources" class="form-label">URL del recurso (Solo si es PDF)</label>
+        <input type="text" class="form-control" id="url_resources" name="url_resources" placeholder="-" >
         <div class="invalid-feedback">
           Please provide a valid city.
         </div>

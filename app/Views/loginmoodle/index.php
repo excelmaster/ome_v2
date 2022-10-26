@@ -63,10 +63,15 @@
 					console.log(data == "1");
 					if (data == "1") {
 						console.log("ok");
+						/*
 						$('#logincard').hide();
 						$('#quote_loginmdl').hide();
 						$('#confirmation').show();
 						$('#btn').show();
+						*/						
+						var ruta = window.location.origin + '/courses/' + '<?php echo $_SESSION['course']; ?>';
+						console.log('ruta: ' + ruta);						
+						$(window).attr('location',ruta );
 					} else {
 						console.log("falsso");
 					}
@@ -75,7 +80,6 @@
 		}
 		var i = setInterval(function() {
 			hasActiveSession(2);
-			s
 		}, 2000);
 		$('#confirmation').hide();
 	</script>

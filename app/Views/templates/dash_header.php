@@ -244,7 +244,6 @@
                         'sUrl': 'dataTables.spanish.json'
                     }
                 }
-
             );
         });
     </script>

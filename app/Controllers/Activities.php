@@ -27,7 +27,7 @@ class Activities extends BaseController
 
 	public function list($lessonId,  $leccion){
 		if ($_SESSION['logged'] == 1) {
-			echo $this->session->get('mundoName');
+			/* echo $this->session->get('mundoName'); */
 			$activityInstance = new  ActivityModel($db);
 			$activities = $activityInstance->readActivitiesxLesson($lessonId);
 			$this->session->set('lessonId',$lessonId);

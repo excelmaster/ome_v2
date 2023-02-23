@@ -296,6 +296,9 @@ body {
     grid-template:
       "framezone "80fr "navigation"auto / auto;
   }
+  .card {
+    border: 0px;
+  }
 }
 
 

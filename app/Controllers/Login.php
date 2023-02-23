@@ -29,7 +29,7 @@ class Login extends BaseController
 			'password' => $request->getIPAddress(),
 			'idsession' => $idSession
 		);
-		return view('login/index', $data);
+		//return view('login/index', $data);
 	}
 
 }

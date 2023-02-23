@@ -4,28 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CourseModel extends Model
+class EnabledCoursesModel extends Model
 {
-    protected $table      = 'ome_courses';
+    protected $table      = 'enabledcourses';
     protected $primaryKey = 'id';    
-
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['category', 'fullname','idnumber','label'];
+    protected $allowedFields = [
+        'category',         
+  ];
     
     protected $useTimestamps = false;
-
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-
-    public function readCourses(){
-        return $this->findAll();
-    }
-
-    public function loginCourses(){
-        
-    }
-
 }

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 3 | Log in</title>
+	<title>Cursos - Mundo Educativo Digital</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -82,8 +82,8 @@
 								<div class="input-group mb-2">
 									<select id="curso" name="curso" class="form-select form-select-sm" required>
 										<option value="">Selecciona el curso</option>
-										<option value="kids">for kids</option>
-										<option value="teens">for teenagers</option>
+										<option value="kids">English for kids</option>
+										<option value="teens">English for teenagers</option>
 									</select>
 								</div>
 								<div class="row">

@@ -4,6 +4,9 @@ namespace IonAuth\Controllers;
 
 use App\Models\MdlsessionModel;
 use App\models\EnrolmentModel;
+use App\models\EnabledCoursesModel;
+use App\Models\UserModel;
+
 
 
 /**
@@ -100,8 +103,16 @@ class Auth extends \CodeIgniter\Controller
 	public function index()
 	{
 		if (!$this->ionAuth->loggedIn()) {
+			// get all the enabled courses
+			$enabledCoursesInstance = model(EnabledCoursesModel::class);
+			$enabledCourses = $enabledCoursesInstance->findAll();
+			$this->data = [
+				'enabledCourses' => $enabledCourses,
+			];
+			var_dump($this->data);
+
 			// redirect them to the login page
-			return redirect()->to('/auth/login');
+			return view('/auth/login', $this->data);
 		} else if (!$this->ionAuth->isAdmin()) // remove this elseif if you want to enable this for non-admins
 		{
 			// redirect them to the home page because they must be an administrator to view this
@@ -117,6 +128,13 @@ class Auth extends \CodeIgniter\Controller
 			foreach ($this->data['users'] as $k => $user) {
 				$this->data['users'][$k]->groups = $this->ionAuth->getUsersGroups($user->id)->getResult();
 			}
+			// get all the enabled courses
+			$enabledCoursesInstance = model(EnabledCoursesModel::class);
+			$enabledCourses = $enabledCoursesInstance->findAll();
+			$this->data['enabledcourses'] = [
+				'data' => $enabledCourses,
+			];
+			var_dump($this->data);
 			return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'index', $this->data);
 		}
 	}
@@ -133,6 +151,7 @@ class Auth extends \CodeIgniter\Controller
 		// validate form input
 		$this->validation->setRule('identity', str_replace(':', '', lang('Auth.login_identity_label')), 'required');
 		$this->validation->setRule('password', str_replace(':', '', lang('Auth.login_password_label')), 'required');
+		echo 'header';
 
 		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {
 			// check to see if the user is logging in
@@ -151,10 +170,13 @@ class Auth extends \CodeIgniter\Controller
 				$numberOfSessions = $mdlSession->deleteActiveSessions($userId, $ipAddress);
 				$this->session->set('numberOfSessions', $numberOfSessions);
 
-				// verify course enrolmentModel
+				// verify course enrolment
 				$course = $this->request->getPost('curso');
 				$enrolment = model(EnrolmentModel::class);
 				$isEnroled = $enrolment->isEnroled($course, $userId);
+
+				// Verify that the user subscription not expired
+				$isExpired = $enrolment->hasExpiredTime($course, $userId);
 
 				if ($isEnroled) {
 					$this->session->set('course', $course);
@@ -167,8 +189,6 @@ class Auth extends \CodeIgniter\Controller
 					return redirect()->back()->withInput();
 				}
 
-
-				echo "es valido";
 			} else {
 				// if the login was un-successful
 				// redirect them back to the login page

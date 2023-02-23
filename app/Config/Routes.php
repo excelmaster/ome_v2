@@ -19,7 +19,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Auth');
-$routes->setDefaultMethod('index');
+$routes->setDefaultMethod('login');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -54,7 +54,7 @@ $routes->get('/loginmoodle/countsessions', 'Loginmoodle::countSessions');
 
 // IonAuth 
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {	
-	$routes->get('/', 'Auth::index');
+	$routes->get('/', 'Auth::login');
 	$routes->add('login', 'Auth::login');
 	$routes->get('logout', 'Auth::logout');
 	$routes->add('forgot_password', 'Auth::forgot_password');

@@ -70,7 +70,7 @@ body {
   display: grid;
   gap: 5px;
   grid-template:
-    "header header header header header"80px "menu   menu  menu  menu  menu"150px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
+    "header header header header header"80px "menu   menu  menu  menu  menu"250px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
 }
 
 .logo {
@@ -140,7 +140,7 @@ body {
   display: grid;
   gap: 5px;
   grid-template:
-    "header header header header header"80px "menu   menu  menu  menu  menu"200px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
+    "header header header header header"80px "menu   menu  menu  menu  menu"300px "content content content content content"auto "sidebar sidebar sidebar sidebar sidebar"200px;
 }
 
 .header {

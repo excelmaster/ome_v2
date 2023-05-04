@@ -41,7 +41,7 @@ $this->section('content');
                         <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
                         <form action="contenido.html" method="post"></form>
                         <?php
-                        echo '<a type="button" class="btn bg-transparent" href="'. base_url('pdfcontent/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $c['course_id'] . '/' . $c['lesson_id'] . '/' . $c['course_id'] . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
+                        echo '<a type="button" class="btn bg-transparent" href="'. base_url('pdfcontent/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $c['course_id'] . '/' . $c['lessonId'] . '/' . $c['course_id'] . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
                         <img src="<?php echo base_url('public/img/' . $site . '/pdf/pdf' . $c['activityNumber'] . '.png') ?>" alt="" class="img-fluid rounded">
                         </a>

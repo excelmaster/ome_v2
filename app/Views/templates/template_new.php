@@ -123,7 +123,7 @@
             </audio><br>
             <audio id="AudioToolTip" allowfullscreen>
                 <source
-                    src="<?php echo base_url('public/sound/' . $site . '/podcast/teenagers_activiti_iseazy_l04_podcast.mp3'); ?>"
+                    src="<?php echo base_url('public/sound/' . $site . '/podcast/'.$_SESSION['podcastName']); ?>"
                     type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio><br>
@@ -212,7 +212,5 @@
             //alert('podcast')
         })
     </script>
-
 </body>
-
 </html>

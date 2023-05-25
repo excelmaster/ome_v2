@@ -17,7 +17,7 @@ class Activities extends BaseController
 				'lesson'=>$lessonNumber, 
 				'courseId'=>$courseId,
 				'site' => $site
-			);			
+			);							
 			return view('activities/index',$activities) ;
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

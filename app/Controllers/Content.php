@@ -11,7 +11,7 @@ class Content extends BaseController
 			$previous = '0';
 			$next = '0';
 			$resInstance = new ActivityModel($db);
-			$contentData = $resInstance->select('url_resources, activityNumber')->where('activityNumber', $activity)->where('lessonId', $lessonId)->first();
+			$contentData = $resInstance->select('url_resources, activityNumber,descripcion,podcastName')->where('activityNumber', $activity)->where('lessonId', $lessonId)->first();
 			$prevData = $resInstance->select('url_resources, activityNumber,img_path,objectId,tipo,lessonId')->where('activityNumber', $activity - 1)->where('lessonId', $lessonId)->first();
 
 			$maxData = $resInstance->select('activityNumber')->where('lessonId', $lessonId)->orderBy('activityNumber', 'DESC')->first();
@@ -40,12 +40,14 @@ class Content extends BaseController
 				'activity' => $activity,
 				'site' => $site,
 				'source' => $Source,
+				'descripcion' => $contentData['descripcion'],
+				'podcastName' => $contentData['podcastName'],
 				'urlresource' => $contentData['url_resources'],
 				'url_prev' => $previous,
 				'url_next' => $next
 			);
 			//var_dump($contentData);
-
+			$this->session->set('podcastName', $contentData['podcastName']);
 			return view('content/index', $contentData);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

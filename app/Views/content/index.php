@@ -49,7 +49,7 @@ $colvideo = array(
         <br><br>
       </div>
       <div class="col-md-<?php echo $colvideo['e'] ?>">
-        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: ' . $source; ?></div>
+        <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: <b class="h4">' . $descripcion.'</b>'; ?></div>
       </div>
       <div class="col-md-<?php echo $colvideo['f'] ?>">
         <a href="<?php echo base_url('activities/' . $site . '/' . $lessonId . '/' . $course . '/' . $lesson . '/' . $courseId); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/back_activities.svg'); ?>"></a>
@@ -102,7 +102,10 @@ $colvideo = array(
   </div>
 
   <!-- /.card-body -->
-  <div class="card-footer">    
+  <div class="card-footer">
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Vamos a hacelo!</button>
+    </div>
     <!-- Footer -->
   </div>
 
@@ -129,12 +132,7 @@ $colvideo = array(
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
           </div>
         </div>
-
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Vamos a hacelo!</button>
-        <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>      
     </div>
   </div>
 </div>

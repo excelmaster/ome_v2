@@ -37,7 +37,7 @@ $this->section('content');
                         </a>
                     </div> -->
                     <div style="padding:20px"> 
-                        <img src="<?php echo base_url('public/img/' . $site . '/lessons/title_lessons.png'); ?>" style="width:100px; height: 35px;">                       
+                        <p class="h4"><?php echo $c['descripcion']; ?></p>
                         <a type="button" href="<?php echo base_url('activities/' . $site . '/' . $c['id'] . '/' . $course . '/' . $c['lesson_number'] . '/' . $courseId); ?>">
                             <img src="<?php echo base_url('public/img/' . $site . '/lessons/' . $c['img_url']); ?>" alt="" class="img-fluid rounded">
                         </a>

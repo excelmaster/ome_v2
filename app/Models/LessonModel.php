@@ -12,7 +12,7 @@ class LessonModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['courseId', 'lesson_number','img_url'];
+    protected $allowedFields = ['courseId', 'lesson_number','img_url','descripcion'];
     
     protected $useTimestamps = false;
 

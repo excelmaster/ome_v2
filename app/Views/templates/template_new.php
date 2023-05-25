@@ -18,7 +18,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-    </script>
+        </script>
 </head>
 
 <body class="grid-container"
@@ -37,17 +37,17 @@
         <div class="container-fluid">
             <div class="d-flex bd-highlight justify-content-between align-content-center mb-3">
                 <div class="p-2 bd-highlight">
-                    <a href="<?php echo base_url('courses/' . $site); ?>" >
+                    <a href="<?php echo base_url('courses/' . $site); ?>">
                         <img src="<?php echo base_url('public/img/' . $site . '/template/texto_logo.png'); ?>"
                             alt="AdminLTE Logo" class="logo-header">
                     </a>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <a href="<?php echo base_url('auth/logout'); ?>" >
-                        <img src="<?php echo base_url('public/img/mdl_img/logout.svg'); ?>"
-                            alt="Logout" class="logo-header">
+                    <a href="<?php echo base_url('auth/logout'); ?>">
+                        <img src="<?php echo base_url('public/img/mdl_img/logout.svg'); ?>" alt="Logout"
+                            class="logo-header">
                     </a>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
@@ -121,9 +121,15 @@
                     type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio><br>
+            <audio id="AudioToolTip" allowfullscreen>
+                <source
+                    src="<?php echo base_url('public/sound/' . $site . '/podcast/teenagers_activiti_iseazy_l04_podcast.mp3'); ?>"
+                    type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio><br>
         </div>
     </div>
-    <div class="content">
+    <div class="content" id="content">
         <div class="framezone">
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper bg-transparent">
@@ -166,8 +172,10 @@
     <script src="<?php echo base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url('public/assets/dist/js/demo.js'); ?>"></script>
-
+    <!-- podcast -->
+    <script src="<?php echo base_url('public/sound/js/podcast.js'); ?>"></script>
     <script>
+        localStorage.setItem('podcastPlayed', 0)
         function openNav() {
             document.getElementById("mySidepanel").style.width = "330px";
         }
@@ -177,6 +185,7 @@
         }
         var myAudio = document.getElementById("myAudio");
         var icono = document.getElementById("volume");
+        
 
         function sonido() {
             let ck = document.cookie;
@@ -197,6 +206,11 @@
 
         var element = document.querySelector("body");
         //element.requestFullscreen();
+
+        // play podcast
+        $(window).on('load', function () {
+            //alert('podcast')
+        })
     </script>
 
 </body>

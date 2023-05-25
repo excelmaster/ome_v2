@@ -11,7 +11,7 @@ $this->section('content');
         <div class="row mb-2">
             <div class="col-sm-3">
                 <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="">
-                
+
             </div>
             <div class="col-sm-7">
                 <div class="direct-chat-msg">
@@ -43,18 +43,18 @@ $this->section('content');
                         <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
                         <form action="contenido.html" method="post"></form>
                         <?php
-                        echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
+                        echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) . '/' . str_replace('.png', '', $c['img_path']) . '">';
                         ?>
                         <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded " style="width:185px;height: 150px;">
                         </a>
                     </div>
                 </div>
-            <?php   
+            <?php
                 $activos += 1;
             }
             $inactivos = $activos + 1;
             ?>
-        </div>
+        </div>        
     </div>
 
     <!-- /.card-body -->

@@ -19,7 +19,7 @@ $colvideo = array(
   <div class="card-header">
     <div class="row">
       <div class="col-md-<?php echo $colvideo['a'] ?>">
-        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="" >
+        <img class="img-fluid" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos_' . $course . '.svg'); ?>" alt="">
       </div>
       <!-- <div class="col-md-<?php echo $colvideo['b'] ?>">
         <?php
@@ -64,9 +64,9 @@ $colvideo = array(
           <div class="card-body">
             <h5 class="card-title">Hola! Soy Paco</h5>
             <p class="card-text">Dá clic en el botón y te dire como hacer esta actividad</p> -->
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            <!-- Button trigger modal -->
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               Muéstrame como hacer esta actividad
             </button>
           </div>
@@ -102,7 +102,7 @@ $colvideo = array(
   </div>
 
   <!-- /.card-body -->
-  <div class="card-footer">
+  <div class="card-footer">    
     <!-- Footer -->
   </div>
 
@@ -111,7 +111,7 @@ $colvideo = array(
 
 <!-- /.card -->
 <!-- Modal  -->
-<div class="modal fade" id="exampleModal" >
+<div class="modal fade" id="exampleModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -129,26 +129,15 @@ $colvideo = array(
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
           </div>
         </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Vamos a hacelo!</button>
-       <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
+        <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>      
     </div>
   </div>
 </div>
-
-<script>
-$(document).ready(function (){
-  alert("entra");
-  $("#exampleModal").modal('show');
-});
-
-
-</script>
-
-
 <?php
 $this->endSection();
 ?>

@@ -186,7 +186,6 @@
         var myAudio = document.getElementById("myAudio");
         var icono = document.getElementById("volume");
         
-
         function sonido() {
             let ck = document.cookie;
 

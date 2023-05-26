@@ -108,7 +108,7 @@ $colvideo = array(
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close closeActivity" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         ...
@@ -117,7 +117,7 @@ $colvideo = array(
             <?php
             switch ($tipo) {
               case 'hvp':
-                echo '<iframe class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900px" height="600px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+                echo '<iframe id="modalIframe" class="embed-responsive-item" src="https://mdl.mundoeducativodigital.com/mod/hvp/embed.php?id=' . $objectId . '" width="900px" height="600px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
                 echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
                 break;
 
@@ -125,11 +125,11 @@ $colvideo = array(
                 $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
                 //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
                 //echo $ruta;
-                echo '<iframe src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
+                echo '<iframe id="modalIframe"  src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
                 break;
 
               case 'resource':
-                echo '<iframe class="embed-responsive-item" src="' . $urlresource . '" width="900px" height="580px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+                echo '<iframe  id="modalIframe" class="embed-responsive-item" src="' . $urlresource . '" width="900px" height="580px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
                 echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
                 break;
 
@@ -142,8 +142,7 @@ $colvideo = array(
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-primary closeActivity" data-bs-dismiss="modal">Cerrar la actividad</button>        
       </div>
     </div>
   </div>

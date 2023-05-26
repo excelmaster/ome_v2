@@ -176,6 +176,9 @@
     <script src="<?php echo base_url('public/sound/js/podcast.js'); ?>"></script>
     <script>
         localStorage.setItem('podcastPlayed', 0)
+        localStorage.setItem('objectId', '<?php echo $_SESSION["objectId"]; ?>')
+        localStorage.setItem('tipo', '<?php echo $_SESSION["tipo"]; ?>')
+
         function openNav() {
             document.getElementById("mySidepanel").style.width = "330px";
         }

@@ -48,6 +48,8 @@ class Content extends BaseController
 			);
 			//var_dump($contentData);
 			$this->session->set('podcastName', $contentData['podcastName']);
+			$this->session->set('objectId', $contentData['objectId']);
+			$this->session->set('tipo', $contentData['tipo']);
 			return view('content/index', $contentData);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

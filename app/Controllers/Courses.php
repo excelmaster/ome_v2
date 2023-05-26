@@ -14,6 +14,8 @@ class Courses extends BaseController
 			$courses = array('courses'=>$courses, 'courseId'=>'1', 'site' => $site);
 			echo $_SESSION['user_id'];
 			$this->session->set('podcastName','');
+			$this->session->set('objectId','');
+			$this->session->set('tipo','');
 			return view('courses/index',$courses);
 		} else { 
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

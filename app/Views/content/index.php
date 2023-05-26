@@ -107,11 +107,10 @@ $colvideo = array(
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: <b class="h4">' . $descripcion . '</b>'; ?></h5>
         <button type="button" class="btn-close closeActivity" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body">        
         <div class="row">
           <div class="col-xl-12">
             <?php

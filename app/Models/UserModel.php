@@ -57,6 +57,16 @@ class UserModel extends Model
         return $builder->get()->getResultArray();       
     }
 
+    public function subscriptionExpired($userId) {
+        $db = \config\Database::connect();
+        $isExpired = "0";
+        $builder = $db->table($this->table);        
+        $builder->select('timestampdiff(MONTH,FROM_UNIXTIME(timecreated),CURDATE()) AS LAPSO', false);
+        $builder->where('id', $userId);
+        $result = $builder->get()->getResultArray();       
+        return $result[0]['LAPSO'];            
+    }
+
     
 
 }

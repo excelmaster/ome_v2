@@ -166,18 +166,55 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="tourVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <p id="userVisits" hidden><?php echo $_SESSION['tourVisits'] ?></p>
+                <div class="modal-body">
+                    <p class="h5">Antes de empezar mira este importante video !</p>
+                    <button id="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">                        
+                        <iframe width="1903" height="768" src="https://www.youtube.com/embed/ZIs8s6ZG5bs" title="VID INTRO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- jQuery -->
     <script src="<?php echo base_url('public/assets/plugins/jquery/jquery.min.js'); ?>"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- <script src="<?php echo base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script> -->
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url('public/assets/dist/js/demo.js'); ?>"></script>
     <!-- podcast -->
     <script src="<?php echo base_url('public/sound/js/podcast.js'); ?>"></script>
+    <!-- JS Sound interaction -->
+    <script src="<?php echo base_url('public/assets/sound/js/ome_sound.js'); ?>"></script>
+    <!-- Tour visits -->
+    <script src="<?php echo base_url('public/assets/tour/js/tourVisit.js'); ?>"></script>
+    <!-- background music  -->
+    <script src="<?php echo base_url('public/assets/sound/js/backgroundmusic.js'); ?>"></script>
+    <!-- shepherd tour -->
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+
     <script>
+        // podcast
         localStorage.setItem('podcastPlayed', 0)
         localStorage.setItem('objectId', '<?php echo $_SESSION["objectId"]; ?>')
         localStorage.setItem('tipo', '<?php echo $_SESSION["tipo"]; ?>')
+
+        // tour 
+        localStorage.setItem("bgMusicLogoOn", "<?php echo base_url('public/img/' . $site . '/template/volume_on.png'); ?>")    
+        localStorage.setItem("bgMusicLogoOff", "<?php echo base_url('public/img/' . $site . '/template/volume_off.png'); ?>")    
+        localStorage.setItem("getVisits", "<?php echo base_url('/users/getVisitsbyuser'); ?>")
+        localStorage.setItem("setVisit", "<?php echo base_url('/users/setuservisit'); ?>")
+        localStorage.setItem("manualTutorial", 0);
 
         function openNav() {
             document.getElementById("mySidepanel").style.width = "330px";
@@ -209,9 +246,9 @@
         var element = document.querySelector("body");
         //element.requestFullscreen();
 
-        // play podcast
-        $(window).on('load', function () {
-            //alert('podcast')
+        // tour
+        $(window).on('load', function () { 
+            tourVisitsRegistered()
         })
     </script>
 </body>

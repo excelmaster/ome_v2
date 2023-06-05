@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\CourseModel;
-
+use App\Models\UserModel;
 class Courses extends BaseController
 {	
 
@@ -11,8 +11,17 @@ class Courses extends BaseController
 		if($_SESSION['logged']==1){
 			$courseInstance = new CourseModel($db);
 			$courses = $courseInstance->like('idnumber',$site,'after')->findAll();
-			$courses = array('courses'=>$courses, 'courseId'=>'1', 'site' => $site);
+			$courses = array(
+				'courses'=>$courses, 
+				'courseId'=>'1', 
+				'site' => $site,
+				'tourvisit' => '99',
+			);
 			echo $_SESSION['user_id'];
+			$userId =  $_SESSION['user_id'];
+			$userInfo = new UserModel($db);
+			$tourVisits = $userInfo->getTourVisits($userId);
+			$this->session->set('tourVisits', $tourVisits[0]['tourvisits']);
 			$this->session->set('podcastName','');
 			$this->session->set('objectId','');
 			$this->session->set('tipo','');

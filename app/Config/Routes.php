@@ -51,6 +51,8 @@ $routes->get('/tutorialcontent/(:any)/(:num)/(:num)/(:num)/(:num)/(:num)/(:any)/
 $routes->get('/hub', 'Hub::index');
 $routes->get('/loginmoodle', 'Loginmoodle::index');
 $routes->get('/loginmoodle/countsessions', 'Loginmoodle::countSessions');
+$routes->get('/users/setuservisit', 'Users::setUserTourVisit');
+$routes->get('/users/getVisitsbyuser', 'Users::getVisitsbyuser');
 
 // IonAuth 
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {	

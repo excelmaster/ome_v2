@@ -67,6 +67,25 @@ class UserModel extends Model
         return $result[0]['LAPSO'];            
     }
 
-    
+    public function getTourVisits($userId){
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->select('tourvisits');
+        $builder->where('id', $_SESSION['user_id']);
+        return $builder->get()->getResultArray();       
+    }
+
+    public function getUserTourVisits(){
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);
+        return $builder->select('tourvisits')->where('id', $_SESSION['user_id'])->get()->getResultArray();
+    }
+
+    public function setUserTourVisit(){        
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);                
+        $builder->set('tourvisits', $_SESSION['tourVisits']+1)->where('id', $_SESSION['user_id'])->update();          
+        return true;
+    }
 
 }

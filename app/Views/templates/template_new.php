@@ -79,7 +79,8 @@
             </a>
         </div>
         <div class="mn_6">
-            <a href="<?php echo base_url('tutorial/' . $site);  ?>">
+            <!-- <a href="<?php echo base_url('tutorial/' . $site);  ?>"> -->
+            <a href="#">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>

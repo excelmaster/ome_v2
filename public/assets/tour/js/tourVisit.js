@@ -42,14 +42,14 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
 
     tour.addStep({
       id:'step_1',
-      text: 'Bienvenidos a nuestro curso de ofimática. Acompañame a un tour por cada una de nuestras opciones',
+      text: 'Bienvenidos a nuestro curso de Inglés. Acompañame a un tour por cada una de nuestras opciones',
       attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-header',
+        element: '#content > div.framezone > div > section.content > div > div > div > div > div.card-header > div > div.col-sm-6',
         on: 'bottom'
       },
       buttons: [
         {
-          text: 'Adelante!',
+          text: 'Siguiente paso',
           action: tour.next
         }
       ]
@@ -59,8 +59,8 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_2',
       text: 'Este es el menú de recursos, aquí podras encontrar estas herramientas:',
       attachTo: {
-        element: '#bodySection > div.menu',
-        on: 'bottom'
+        element: 'body > div.menu',
+        on: 'right'
       },
       buttons: [
         {
@@ -73,12 +73,12 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_3',
       text: 'El botón de tutorial. Al dar clic podras ver este tour las veces que quieras',
       attachTo: {
-        element: '#bodySection > div.menu > div.mn_1',
+        element: 'body > div.menu > div.mn_6 > a > img',
         on: 'right'
       },
       buttons: [
@@ -92,12 +92,12 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_4',
-      text: 'Aquí vas a poder encontrar actividades en pdf, para que repases el contenido visto',
+      text: 'En este diccionario podras encontrar muchos términos en inglés para aumentar tu vocabulario',
       attachTo: {
-        element: '#bodySection > div.menu > div.mn_2',
+        element: 'body > div.menu > div.mn_1 > a > img',
         on: 'right'
       },
       buttons: [
@@ -111,12 +111,12 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_5',
-      text: 'Nuestro diccionario te mostrará los íconos de las opciones usadas frecuentemente',
+      text: 'Auí encuentras canciones para que puedas repasar lo visto en clase y de paso pasar un momento divertido',
       attachTo: {
-        element: '#bodySection > div.menu > div.mn_3',
+        element: 'body > div.menu > div.mn_2 > a > img',
         on: 'right'
       },
       buttons: [
@@ -130,13 +130,13 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_6',
-      text: 'Esta es la zona de contenido. Cada botón te llevará al contenido de nuestro curso, demos una mirada a cada uno: ',
+      text: 'Tenemos una lista de verbos para que puedas empezar a describir las acciones del día a día',
       attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body',
-        on: 'bottom'
+        element: 'body > div.menu > div.mn_3 > a > img',
+        on: 'right'
       },
       buttons: [
         {
@@ -149,13 +149,13 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_7',
-      text: 'Los botones con este ícono te permiten ver una serie de tips y temas de la actualidad informática, te van a servir en tu día a día',
+      text: 'Esta es la zona de pdf, aquí puedes encontrar una serie de actividades para practicar en casa',
       attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body > div > div:nth-child(1) > div > a',
-        on: 'bottom'
+        element: 'body > div.menu > div.mn_4 > a > img',
+        on: 'right'
       },
       buttons: [
         {
@@ -168,12 +168,12 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_8',
-      text: 'Los botones con este ícono te permiten ver el contenido del curso de excel.',
+      text: 'Aquí tenemos la zona de contenido, aquí puedes empezar a ver tus temas desde mundo 1 al 8',
       attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body > div > div:nth-child(2) > div > a',
+        element: '#content > div.framezone > div > section.content > div > div > div > div > div.card-body',
         on: 'bottom'
       },
       buttons: [
@@ -187,12 +187,12 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
+    
     tour.addStep({
       id:'step_9',
-      text: 'Los botones con este ícono te permiten ver el contenido del curso de Powerpoint.',
+      text: 'Al dar clic en estos botones encontraras el contenido de nuestro divertido curso',
       attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body > div > div:nth-child(3) > div > a',
+        element: '#content > div.framezone > div > section.content > div > div > div > div > div.card-body > div > div:nth-child(1) > div',
         on: 'bottom'
       },
       buttons: [
@@ -202,44 +202,6 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         },
         {
           text: 'ok, veamos el siguiente:',
-          action: tour.next
-        }
-      ]
-    })
-
-    tour.addStep({
-      id:'step_10',
-      text: 'Los botones con este ícono te permiten ver el contenido del curso de Word.',
-      attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body > div > div:nth-child(4) > div > a',
-        on: 'bottom'
-      },
-      buttons: [
-        {
-          text: 'Tip anterior:',
-          action: tour.back
-        },
-        {
-          text: 'ok, veamos el siguiente:',
-          action: tour.next
-        }
-      ]
-    })
-
-    tour.addStep({
-      id:'step_11',
-      text: 'Los botones con este ícono te permiten acceder al examen final de cada nivel, para que demuestres lo mucho que aprendiste.',
-      attachTo: {
-        element: '#contentSection > div > div > div > div > div.card-body > div > div:nth-child(5) > div > a',
-        on: 'bottom'
-      },
-      buttons: [
-        {
-          text: 'Tip anterior:',
-          action: tour.back
-        },
-        {
-          text: 'Excelente, sigamos:',
           action: tour.next
         }
       ]
@@ -249,7 +211,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_12',
       text: 'Esta es nuestra sección de soporte, conozcámosla:',
       attachTo: {
-        element: '#bodySection > div.sidebar',
+        element: 'body > div.sidebar',
         on: 'left'
       },
       buttons: [
@@ -268,7 +230,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_13',
       text: 'El botón de certificado te permitirá ver tu información sobre avance del curso, Estará disponible en próximos días',
       attachTo: {
-        element: '#bodySection > div.sidebar > div.sb_2',
+        element: 'body > div.sidebar > div.sb_1 > a > img',
         on: 'left'
       },
       buttons: [
@@ -287,7 +249,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_14',
       text: 'El botón de preguntas frecuentes te ayudará con algunas situaciones comunes que pueden suceder en el desarrollo del curso',
       attachTo: {
-        element: '#bodySection > div.sidebar > div.sb_3',
+        element: 'body > div.sidebar > div.sb_3 > a > img',
         on: 'left'
       },
       buttons: [
@@ -306,7 +268,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_15',
       text: 'El botón de soporte te llevará a whatsapp y desde ahí puedes chatear con un agente de servicio',
       attachTo: {
-        element: '#bodySection > div.sidebar > div.sb_4',
+        element: 'body > div.sidebar > div.sb_4 > a > img',
         on: 'left'
       },
       buttons: [
@@ -332,7 +294,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         {
           text: 'Acceder a la plataforma',
           action: function(event){
-            window.location.href = 'ofim'
+            window.location.href = ''
           }
         }
       ]

@@ -59,7 +59,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
       id:'step_2',
       text: 'Este es el menú de recursos, aquí podras encontrar estas herramientas:',
       attachTo: {
-        element: 'body > div.menu',
+        element: 'body > div.menu', 
         on: 'right'
       },
       buttons: [

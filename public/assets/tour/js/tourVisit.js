@@ -1,3 +1,4 @@
+// trigger user tour
 async function tourVisitsRegistered(){
   let tourFlag = localStorage.getItem('visitTourFlag');
   
@@ -21,11 +22,13 @@ async function tourVisitsRegistered(){
         console.log('error: '+error)
       }
     } else if (localStorage.getItem('manualTutorial')=="1") {
+      localStorage.setItem("manualTutorial","0")
       $('#tourVideo').modal('show')
     } 
   }  
 }
 
+// shepperd user tour settings
 $("#tourVideo").on('hide.bs.modal',function (e) { 
   e.preventDefault()
   console.log('modal clicked')
@@ -299,73 +302,15 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
-
     tour.start()
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//  trigger user tour from tutorial button
+$("#tutorialButton").click(function (e) { 
+  e.preventDefault();
+  localStorage.setItem("manualTutorial","1")
+  tourVisitsRegistered()
+});
 
 
 

@@ -78,7 +78,7 @@
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
-        <div class="mn_6">
+        <div class="mn_6" id="tutorialButton">
             <!-- <a href="<?php echo base_url('tutorial/' . $site);  ?>"> -->
             <a href="#">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
@@ -205,7 +205,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
 
     <script>
-        // podcast
+        // podcast.
         localStorage.setItem('podcastPlayed', 0)
         localStorage.setItem('objectId', '<?php echo $_SESSION["objectId"]; ?>')
         localStorage.setItem('tipo', '<?php echo $_SESSION["tipo"]; ?>')

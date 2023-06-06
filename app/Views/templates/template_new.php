@@ -79,7 +79,8 @@
             </a>
         </div>
         <div class="mn_6">
-            <a href="<?php echo base_url('tutorial/' . $site);  ?>">
+            <!-- <a href="<?php echo base_url('tutorial/' . $site);  ?>"> -->
+            <a href="#">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
@@ -178,7 +179,7 @@
                     </button>
                     <!-- 16:9 aspect ratio -->
                     <div class="ratio ratio-16x9">                        
-                        <iframe width="1903" height="768" src="https://www.youtube.com/embed/ZIs8s6ZG5bs" title="VID INTRO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/qsTz8_OV0KQ" title="Mundo Educativo Digital" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

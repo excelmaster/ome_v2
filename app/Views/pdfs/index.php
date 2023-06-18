@@ -37,13 +37,13 @@ $this->section('content');
             ?>
                 <div class="col-sm-2">
                     <div class="card text-blue bg-transparent">
-                        <h5 class="text-center">Activity <?php echo $c['activityNumber']; ?></h5>
+                        <h5 class="text-center"><?php echo $c['title']; ?></h5>
                         <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
                         <form action="contenido.html" method="post"></form>
                         <?php
                         echo '<a type="button" class="btn bg-transparent" href="'. base_url('pdfcontent/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $c['course_id'] . '/' . $c['lessonId'] . '/' . $c['course_id'] . '/' . $c['tipo'] . '/' . $c['activityNumber']) .'/'.str_replace('.png','',$c['img_path']). '">';
                         ?>
-                        <img src="<?php echo base_url('public/img/' . $site . '/pdf/pdf' . $c['activityNumber'] . '.png') ?>" alt="" class="img-fluid rounded">
+                        <img src="<?php echo base_url('public/img/' . $site . '/pdf/ofi_pdf.png') ?>" alt="" class="img-fluid rounded">
                         </a>
                     </div>
                 </div>

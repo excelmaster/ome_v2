@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 //defined('BASEPATH') OR exit('No direct script access allowed');
-use App\Models\PdfModel;
+use App\Models\PdflistModel;
 
 class Pdfs extends BaseController
 {
 	public function index($site)
 	{
 		if ($_SESSION['logged'] == 1) {
-			$PdfInstance = new PdfModel($db);
-			$pdfs = $PdfInstance->where('categoria', 'pdf_' . $site)->orderBy('activityNumber', 'ASC')->findAll();
+			$PdfInstance = new PdflistModel($db);
+			$pdfslist = $PdfInstance->like('site', $site, 'after' )->findAll();
 			$pdfs = array(
-				'items' => $pdfs,
+				'items' => $pdfslist,
 				'site' => $site
 			);
 			//var_dump($pdfs);		

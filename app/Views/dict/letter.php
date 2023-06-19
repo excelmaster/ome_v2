@@ -19,22 +19,14 @@ $this->section('content');
             <div class="col-sm-2">
                 <a href="<?php echo base_url('dict/' . $site); ?>"><img src="<?php echo base_url('public/img/'. $site . '/dict/ir_dict.gif') ?>"></a>
             </div>
-        </div>
-        <!-- <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div> -->
+        </div>       
     </div>
     <div class="card-body">
-        <div class="row">
+        <div class="letter-container">
             <?php
             foreach ($dicts as $d) {
             ?>
-                <div class="col-sm-2">
+                <div class="dict-rectangle">
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center"> <?php echo strtoupper($d['termino']) ; ?></h5>                        
                         <img src="<?php echo base_url('public/img/' . $site . '/dict/' . strtoupper( $letter) . '/' . str_replace(' ','_', $d['termino']) . '.png') ; ?>" alt="" class="img-fluid bg-transparent" style="width: 100%;">                        

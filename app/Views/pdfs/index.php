@@ -31,11 +31,11 @@ $this->section('content');
         </div> -->
     </div>
     <div class="card-body bg-transparent">
-        <div class="row">
+        <div class="pdf-container">
             <?php
             foreach ($items as $c) {
             ?>
-                <div class="col-sm-2">
+                <div class="col-sm-4 pdf-rectangle">
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center"><?php echo $c['title']; ?></h5>
                         <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">

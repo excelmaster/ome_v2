@@ -298,4 +298,16 @@ body {
   }
 }
 
+.letter-container, .pdf-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.dict-rectangle, .pdf-rectangle{
+  padding: 10px;
+  margin: auto;
+}

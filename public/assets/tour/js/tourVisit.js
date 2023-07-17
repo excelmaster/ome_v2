@@ -288,7 +288,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
 
     tour.addStep({
       id:'step_16',
-      text: 'Esto es todo, ahora a disfrutar de tu curso de ofimática, Bienvenido!',
+      text: 'Esto es todo, ahora a disfrutar de tu curso de Inglés, Bienvenido!',
       attachTo: {
         element: '',
         on: 'bottom'
@@ -302,6 +302,7 @@ $("#tourVideo").on('hide.bs.modal',function (e) {
         }
       ]
     })
+    
     tour.start()
 });
 

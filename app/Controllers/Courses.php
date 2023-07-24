@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\CourseModel;
+use App\Models\ProgressModel;
 use App\Models\UserModel;
 class Courses extends BaseController
 {	
@@ -9,8 +10,14 @@ class Courses extends BaseController
 	public function index( $site)
 	{
 		if($_SESSION['logged']==1){
+			$courseInstance = new ProgressModel($db);
+			$courses = $courseInstance->worldProgress(2, "teens%")->getResultArray();
+			// TODO : borrar este código al terminar el seguimiento de mundos
+			//print_r($courses);
+			/*
 			$courseInstance = new CourseModel($db);
 			$courses = $courseInstance->like('idnumber',$site,'after')->findAll();
+			*/
 			$courses = array(
 				'courses'=>$courses, 
 				'courseId'=>'1', 
@@ -26,6 +33,7 @@ class Courses extends BaseController
 			$this->session->set('objectId','');
 			$this->session->set('tipo','');
 			return view('courses/index',$courses);
+			
 		} else { 
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
 			return redirect()->to('/auth/login');

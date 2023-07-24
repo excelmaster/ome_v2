@@ -42,7 +42,9 @@
                             alt="AdminLTE Logo" class="logo-header">
                     </a>
                 </div>
+
                 <div class="p-2 bd-highlight">
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Usuario: <?php echo $_SESSION['username'] ?></button>
                     <a href="<?php echo base_url('auth/logout'); ?>">
                         <img src="<?php echo base_url('public/img/mdl_img/logout.svg'); ?>" alt="Logout"
                             class="logo-header">

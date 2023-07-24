@@ -50,13 +50,19 @@ $this->section('content');
             foreach ($courses as $c) {
             ?>
                 <div class="col-sm-3 mundo-card">
-                    <div class="card text-blue bg-transparent">
+                    <div class="mundo-card text-blue bg-transparent">
                         <h5 class="text-center">Worldxx <!-- <?php echo $c['mundo']; ?> --></h5>
                         <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
                             <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . $c['mundo']  . '.png'); ?>" alt="" class="img-fluid img-mundos" style="width: 60%;">
                         </a>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
                         </div>
                     </div>
                 </div>
@@ -73,9 +79,16 @@ $this->section('content');
                             <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . ($i + 1) . '.png'); ?>" alt="" class="card-fluid fichas img-mundos" style="width:100%">
                         </a>
                     </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
                     </div>
+
                 </div>
 
             <?php

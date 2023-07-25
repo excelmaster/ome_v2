@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\ActivityModel;
+use App\Models\ProgressModel;
 
 class Activities extends BaseController
 {
@@ -9,8 +10,13 @@ class Activities extends BaseController
 	public function index($site, $lessonId, $courseNumber, $lessonNumber, $courseId)
 	{
 		if($_SESSION['logged']==1){
+			$user_id = $_SESSION['user_id'];
+			$ActivitiesInstance = new ProgressModel($db);    		
+			$activities = $ActivitiesInstance->activityProgress($user_id, $lessonId, $site."%")->getResultArray();
+			/*
 			$ActivitiesInstance = new ActivityModel($db);
 			$activities = $ActivitiesInstance->where('lessonId',$lessonId)->orderBy('activityNumber','ASC')->findAll();
+			*/
 			$activities = array(
 				'lessons'=>$activities, 
 				'course'=>$courseNumber, 

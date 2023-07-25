@@ -36,10 +36,30 @@ $this->section('content');
         <div class="row">
             <?php
             foreach ($lessons as $c) {
-            ?> 
+            ?>
                 <div class="col-sm-4">
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center"><?php echo $c['descripcion']; ?></h5>
+                        <?php
+                        $nota = 0;
+                        if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
+                            $nota = 0;
+                        } else {
+                            $nota = round(($c['notaActual'] / $c['notaTotal']) * 100, 0);
+                        }
+                        ?>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <button type="button" class="btn btn-ligth">
+                                    Avance: <?php echo $nota; ?>%
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
                         <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
                         <form action="contenido.html" method="post"></form>
                         <?php
@@ -54,9 +74,8 @@ $this->section('content');
             }
             $inactivos = $activos + 1;
             ?>
-        </div>        
+        </div>
     </div>
-
     <!-- /.card-body -->
     <div class="card-footer">
         <!-- Footer -->

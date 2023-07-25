@@ -12,11 +12,8 @@ class Activities extends BaseController
 		if($_SESSION['logged']==1){
 			$user_id = $_SESSION['user_id'];
 			$ActivitiesInstance = new ProgressModel($db);    		
-			$activities = $ActivitiesInstance->activityProgress($user_id, $lessonId, $site."%")->getResultArray();
-			/*
-			$ActivitiesInstance = new ActivityModel($db);
-			$activities = $ActivitiesInstance->where('lessonId',$lessonId)->orderBy('activityNumber','ASC')->findAll();
-			*/
+			$activities = $ActivitiesInstance->activityProgress($user_id, $lessonId, $site."%")->getResultArray();			
+
 			$activities = array(
 				'lessons'=>$activities, 
 				'course'=>$courseNumber, 

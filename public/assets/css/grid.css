@@ -339,3 +339,8 @@ position: relative;
     border: 0px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
 }
+
+.lesson-card {
+  display: flex;
+  flex-direction: column-reverse;
+}

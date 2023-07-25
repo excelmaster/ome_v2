@@ -10,22 +10,16 @@ class Courses extends BaseController
 	public function index( $site)
 	{
 		if($_SESSION['logged']==1){
+			$userId =  $_SESSION['user_id'];
 			$courseInstance = new ProgressModel($db);
-			$courses = $courseInstance->worldProgress(2, "teens%")->getResultArray();
-			// TODO : borrar este código al terminar el seguimiento de mundos
-			//print_r($courses);
-			/*
-			$courseInstance = new CourseModel($db);
-			$courses = $courseInstance->like('idnumber',$site,'after')->findAll();
-			*/
+			$courses = $courseInstance->worldProgress($userId, $site."%")->getResultArray();			
 			$courses = array(
 				'courses'=>$courses, 
 				'courseId'=>'1', 
 				'site' => $site,
 				'tourvisit' => '99',
 			);
-			echo $_SESSION['user_id'];
-			$userId =  $_SESSION['user_id'];
+			echo $_SESSION['user_id'];			
 			$userInfo = new UserModel($db);
 			$tourVisits = $userInfo->getTourVisits($userId);
 			$this->session->set('tourVisits', $tourVisits[0]['tourvisits']);

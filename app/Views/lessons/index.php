@@ -29,18 +29,31 @@ $this->section('content');
             foreach ($lessons as $c) {
             ?>
                 <div class="col-sm-3">
-                    <!-- <div class="card text-blue bg-transparent">
-                        <h5 class="text-center text-blue">LESSON </h5>
-                        <img class="card-img-top" src="holder.js/100px180/" alt="">
-                        <a type="button" href="<?php echo base_url('activities/' . $site . '/' . $c['id'] . '/' . $course . '/' . $c['lesson_number'] . '/' . $courseId); ?>">
-                            <picture src="<?php echo base_url('public/img/' . $site . '/lessons/' . $c['img_url']); ?>" alt="" class="img-fluid rounded"></picture>
-                        </a>
-                    </div> -->
-                    <div style="padding:20px"> 
+                    <div class="lesson-card" style="padding:20px">
                         <p class="h4"><?php echo $c['descripcion']; ?></p>
+                        <?php
+                        $nota = 0;
+                        if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
+                            $nota = 0;
+                        } else {
+                            $nota = round(($c['notaActual'] / $c['notaTotal']) * 100, 0);
+                        }
+                        ?>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <button type="button" class="btn btn-ligth">
+                                    Avance: <?php echo $nota; ?>%
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
                         <a type="button" href="<?php echo base_url('activities/' . $site . '/' . $c['id'] . '/' . $course . '/' . $c['lesson_number'] . '/' . $courseId); ?>">
                             <img src="<?php echo base_url('public/img/' . $site . '/lessons/' . $c['img_url']); ?>" alt="" class="img-fluid rounded">
-                        </a>
+                        </a>                        
                     </div>
                 </div>
             <?php

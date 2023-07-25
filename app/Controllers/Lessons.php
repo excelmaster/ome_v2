@@ -2,13 +2,19 @@
 
 namespace App\Controllers;
 use App\Models\LessonModel;
+use App\Models\ProgressModel;
 
 class Lessons extends BaseController
 {
 	public function index($site, $courseId, $courseNumber)
 	{
+		$userId =  $_SESSION['user_id'];
+		$lessonsInstance = new ProgressModel($db);		
+		$lessons = $lessonsInstance->lessonProgress($userId, $site."%", $courseId)->getResultArray();
+		/*
 		$lessonsInstance = new LessonModel($db);
 		$lessons = $lessonsInstance->where('courseId',$courseId)->orderBy('lesson_number','ASC')->findAll();
+		*/
 		$lessons = array(			
 			'lessons'=>$lessons, 
 			'course'=>$courseNumber,

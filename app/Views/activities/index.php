@@ -42,31 +42,41 @@ $this->section('content');
                         <h5 class="text-center"><?php echo $c['descripcion']; ?></h5>
                         <?php
                         $nota = 0;
-                        if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
+                        if ($c['logID'] == null) {
                             $nota = 0;
+                            $iconName = "pending.gif";
                         } else {
-                            $nota = round(($c['notaActual'] / $c['notaTotal']) * 100, 0);
+                            $nota = 100;
+                            $iconName = "check.png";
+                        }
+
+                        if($c['tipo'] == 'resource') {
+                            $iconName = "download.png";
                         }
                         ?>
+
                         <div class="row">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-8">
+                                <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
+                                <form action="contenido.html" method="post"></form>
+                                <?php
+                                echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) . '/' . str_replace('.png', '', $c['img_path']) . '">';
+                                ?>
+                                <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded " style="width:185px;height: 150px;">
+                                </a>
+                                <!-- Avance: <?php echo $nota; ?>%
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div> -->
+                            </div>
+                            <div class="col-sm-4 avance">
                                 <button type="button" class="btn btn-ligth">
-                                    Avance: <?php echo $nota; ?>%
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+
+                                    <img src="<?php echo base_url('public/img/' . $site . '/activities/avance/' . $iconName) ?>" alt="">
                                 </button>
                             </div>
-                            <div class="col-sm-1"></div>
+                            <!-- <div class="col-sm-1"></div> -->
                         </div>
-                        <img class="card-img-top bg-transparent" src="holder.js/100px180/" alt="">
-                        <form action="contenido.html" method="post"></form>
-                        <?php
-                        echo '<a type="button" class="btn bg-transparent" href="' . base_url('content/' . $site . '/' . $c['objectId'] . '/' . $c['lessonId'] . '/' . $course . '/' . $lesson . '/' . $courseId . '/' . $c['tipo'] . '/' . $c['activityNumber']) . '/' . str_replace('.png', '', $c['img_path']) . '">';
-                        ?>
-                        <img src="<?php echo base_url('public/img/' . $site . '/activities/cards/' . $c['img_path']) ?>" alt="" class="img-fluid rounded " style="width:185px;height: 150px;">
-                        </a>
                     </div>
                 </div>
             <?php

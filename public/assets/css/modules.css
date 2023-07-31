@@ -141,3 +141,7 @@
 .iframeWrapper iframe{
   vertical-align:top;
 }
+
+.avance {
+  display: flex;
+}

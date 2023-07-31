@@ -25,8 +25,8 @@ class ProgressModel extends Model
     }
 
     function activityProgress($user_id, $lesson_id, $prefix){
-        $sqlSentence = "call sp_avance_actividades(?,?,?)";
-        $result = $this->db->query($sqlSentence, array($user_id, $lesson_id, $prefix));        
+        $sqlSentence = "call sp_visita_actividades(?,?)";
+        $result = $this->db->query($sqlSentence, array($user_id, $lesson_id));        
         
         if($result){
             return $result;

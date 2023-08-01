@@ -15,9 +15,9 @@ class ProgressModel extends Model
         }        
     }
 
-    function lessonProgress($user_id, $prefix, $course_id){
-        $sqlSentence = "call sp_avance_lecciones(?,?,?)";
-        $result = $this->db->query($sqlSentence, array($user_id, $prefix, $course_id));
+    function lessonProgress($user_id, $course_id){
+        $sqlSentence = "call sp_visita_lecciones(?,?)";
+        $result = $this->db->query($sqlSentence, array($user_id, $course_id));
 
         if($result){
             return $result;

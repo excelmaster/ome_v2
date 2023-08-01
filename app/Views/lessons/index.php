@@ -32,20 +32,22 @@ $this->section('content');
                     <div class="lesson-card" style="padding:20px">
                         <p class="h4"><?php echo $c['descripcion']; ?></p>
                         <?php
+                        /*
                         $nota = 0;
                         if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
                             $nota = 0;
                         } else {
                             $nota = round(($c['notaActual'] / $c['notaTotal']) * 100, 0);
                         }
+                        */
                         ?>
                         <div class="row">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-ligth">
-                                    Avance: <?php echo $nota; ?>%
+                                    Avance: <?php echo round($c['avance'],0); ?>%
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $c['avance']; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </button>
                             </div>

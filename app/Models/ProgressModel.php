@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProgressModel extends Model
 {
     function worldProgress($user_id, $prefix){
-        $sqlSentence = "call sp_avance_mundos(?,?)";
+        $sqlSentence = "call sp_visita_mundos(?,?)";
         $result = $this->db->query($sqlSentence, array($user_id, $prefix));
 
         if($result){

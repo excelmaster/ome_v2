@@ -53,13 +53,15 @@ $this->section('content');
                     <div class="mundo-card text-blue bg-transparent">
                         <h5 class="text-center">World <!-- <?php echo $c['mundo']; ?> --></h5>
                         <div class="row">
-                            <?php
-                            $nota = 0;
+                            <?php                            
+                            $nota = round($c['avance'],0);
+                            /*
                             if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
                                 $nota = 0;
                             } else {
                                 $nota = round(($c['notaActual'] / $c['notaTotal']) * 100, 0);
                             }
+                            */
                             ?>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-10">

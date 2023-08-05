@@ -18,8 +18,7 @@ class Courses extends BaseController
 				'courseId'=>'1', 
 				'site' => $site,
 				'tourvisit' => '99',
-			);
-			echo $_SESSION['user_id'];			
+			);					
 			$userInfo = new UserModel($db);
 			$tourVisits = $userInfo->getTourVisits($userId);
 			$this->session->set('tourVisits', $tourVisits[0]['tourvisits']);

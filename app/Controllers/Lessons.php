@@ -10,18 +10,14 @@ class Lessons extends BaseController
 	{
 		$userId =  $_SESSION['user_id'];
 		$lessonsInstance = new ProgressModel($db);		
-		$lessons = $lessonsInstance->lessonProgress($userId, $courseId)->getResultArray();
-		/*
-		$lessonsInstance = new LessonModel($db);
-		$lessons = $lessonsInstance->where('courseId',$courseId)->orderBy('lesson_number','ASC')->findAll();
-		*/
+		$lessons = $lessonsInstance->lessonProgress($userId, $site, $courseId)->getResultArray();		
 		$lessons = array(			
 			'lessons'=>$lessons, 
 			'course'=>$courseNumber,
 			'courseId'=>$courseId,
 			'site' => $site
 		);	
-		return view('lessons/index',$lessons) ;
+		return view('lessons/index',$lessons) ;		
 	}
 
 	public function list($courseId, $mundoName){

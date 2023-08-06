@@ -67,9 +67,12 @@ $colvideo = array(
             break;
 
           case 'scorm':
-            $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
+            $rutaRegistro = 'https://mdl.mundoeducativodigital.com/mod/scorm/view.php?id='.$objectId;
+            $ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
+            //$ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
             //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
             //echo $ruta;
+            echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;" hidden></iframe>';
             echo '<iframe src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
             break;
 
@@ -121,9 +124,10 @@ $colvideo = array(
                 break;
 
               case 'scorm':
+                //$ruta = 'https://mdl.mundoeducativodigital.com/mod/scorm/view.php?id='.$objectId;
                 //$ruta = 'https://mdl.mundoeducativodigital.com/mod/scorm/loadSCO.php?a=52&scoid=132&currentorg=B0&mode=&attempt=1';
-                $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
-                //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
+                //$ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
+                $ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
                 //echo $ruta;
                 echo '<iframe id="modalIframe"  src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
                 //echo '<iframe id="scorm_object" type="text/html" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" src="https://mdl.mundoeducativodigital.com/mod/scorm/loadSCO.php?a=52&amp;scoid=132&amp;currentorg=B0&amp;mode=&amp;attempt=1"></iframe>';

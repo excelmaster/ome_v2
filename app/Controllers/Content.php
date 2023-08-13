@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\ActivityModel;
+use App\Models\ProgressModel;
 
 class Content extends BaseController
 {
@@ -13,10 +14,7 @@ class Content extends BaseController
 			$resInstance = new ActivityModel($db);
 			$contentData = $resInstance->select('url_resources, activityNumber,descripcion,podcastName')->where('activityNumber', $activity)->where('lessonId', $lessonId)->first();
 			$prevData = $resInstance->select('url_resources, activityNumber,img_path,objectId,tipo,lessonId')->where('activityNumber', $activity - 1)->where('lessonId', $lessonId)->first();
-
-			$maxData = $resInstance->select('activityNumber')->where('lessonId', $lessonId)->orderBy('activityNumber', 'DESC')->first();
-			//var_dump( $maxData);
-			//var_dump( $contentData['activityNumber']);
+			$maxData = $resInstance->select('activityNumber')->where('lessonId', $lessonId)->orderBy('activityNumber', 'DESC')->first();			
 
 			if (intval($contentData['activityNumber']) < intval($maxData['activityNumber'])) {
 				$nextData = $resInstance->select('url_resources, activityNumber,img_path,objectId,tipo,lessonId')->where('activityNumber', $activity + 1)->where('lessonId', $lessonId)->first();
@@ -26,9 +24,6 @@ class Content extends BaseController
 			if (intval($contentData['activityNumber'] > 1)) {
 				$previous = base_url('content/' . $site . '/' . $prevData['objectId'] . '/' . $prevData['lessonId'] . '/' . $courseNumber . '/' . $lessonNumber . '/' . $courseId . '/' . $prevData['tipo'] . '/' . ($activity - 1) . '/' . str_replace('.png', '', $prevData['img_path']));
 			};
-
-			//echo ('PREVIOUS =>' .$previous . '<BR>');
-			//echo ('NEXT =>' .$next);
 
 			$contentData = array(
 				'objectId' => $objectId,
@@ -46,10 +41,16 @@ class Content extends BaseController
 				'url_prev' => $previous,
 				'url_next' => $next
 			);
-			//var_dump($contentData);
+			
 			$this->session->set('podcastName', $contentData['podcastName']);
 			$this->session->set('objectId', $contentData['objectId']);
 			$this->session->set('tipo', $contentData['tipo']);
+			
+			// register activity visit 
+			$progressInstance = new ProgressModel();
+			$progressRecord = $progressInstance->register_scorm_activity($_SESSION['user_id'],$courseId);
+			var_dump($progressRecord);
+
 			return view('content/index', $contentData);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

@@ -52,7 +52,7 @@ $colvideo = array(
         <div class="col-sm-10 direct-chat-text bg-blue"><?php echo 'Lesson ' . $lesson . ' - Activity ' . $activity . ':: <b class="h4">' . $descripcion . '</b>'; ?></div>
       </div>
       <div class="col-md-<?php echo $colvideo['f'] ?>">
-        <a href="<?php echo base_url('activities/' . $site . '/' . $lessonId . '/' . $course . '/' . $lesson . '/' . $courseId); ?>"><img style="height: 700;width: 580" src="<?php echo base_url('public/img/' . $site . '/content/back_activities.svg'); ?>"></a>
+        <a href="<?php echo base_url('activities/' . $site . '/' . $lessonId . '/' . $course . '/' . $lesson . '/' . $courseId); ?>"><img src="<?php echo base_url('public/img/' . $site . '/content/back_activities.svg'); ?>"></a>
       </div>
     </div>
   </div>
@@ -67,11 +67,8 @@ $colvideo = array(
             break;
 
           case 'scorm':
-            $rutaRegistro = 'https://mdl.mundoeducativodigital.com/mod/scorm/view.php?id='.$objectId;
-            //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
-            $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';
-            //$ruta = 'scorm/index/' . $site . '/m' . $course . '/l' . $lesson . '/' . $lesson . '_' . $activity;
-            //echo $ruta;
+            $rutaRegistro = 'https://mdl.mundoeducativodigital.com/mod/scorm/view.php?id='.$objectId;           
+            $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';           
             echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;" hidden></iframe>';
             echo '<iframe src="' . base_url($ruta) . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
             break;

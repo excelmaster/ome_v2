@@ -47,10 +47,11 @@ class Content extends BaseController
 			$this->session->set('tipo', $contentData['tipo']);
 			
 			// register activity visit 
-			$progressInstance = new ProgressModel();
-			$progressRecord = $progressInstance->register_scorm_activity($_SESSION['user_id'],$courseId);
-			var_dump($progressRecord);
-
+			if($tipo == "scorm"){
+				$progressInstance = new ProgressModel();
+				$progressRecord = $progressInstance->register_scorm_activity($_SESSION['user_id'],$courseId);
+			}
+			
 			return view('content/index', $contentData);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

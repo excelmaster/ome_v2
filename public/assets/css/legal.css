@@ -1,0 +1,7 @@
+.legal-content {
+    display: flex;
+    justify-content: space-around;
+    background-color: aliceblue;
+    align-items: center;
+    flex-direction: column;
+}

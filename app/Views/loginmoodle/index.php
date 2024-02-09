@@ -82,6 +82,7 @@
 			hasActiveSession(2);
 		}, 2000);
 		$('#confirmation').hide();
+		localStorage.removeItem('ISBN');
 	</script>
 </body>
 

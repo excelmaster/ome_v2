@@ -1,0 +1,10 @@
+services:
+  dev-cursos:    
+    build:
+      context: .
+      dockerfile: 'dockerfile'
+    restart: 'always'
+    volumes:
+      - 'D:/work/2024/OME/ome_sites/cursos/devcursos/ome_v2/:/var/www/html/'
+    ports:
+      - '4000:80'

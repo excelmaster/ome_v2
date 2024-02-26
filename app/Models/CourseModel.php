@@ -12,7 +12,7 @@ class CourseModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['category', 'fullname','idnumber','label'];
+    protected $allowedFields = ['category', 'fullname','idnumber','label','module'];
     
     protected $useTimestamps = false;
 

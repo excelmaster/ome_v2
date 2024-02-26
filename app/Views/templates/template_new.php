@@ -453,6 +453,9 @@
             let legal = localStorage.getItem('legal');
             console.log("legal: " + legal);
             legalModal();
+            setTimeout(function(){
+                $('#modalISBN').modal('hide');
+            },5000);
             tourVisitsRegistered()
         })
     </script>

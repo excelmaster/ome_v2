@@ -11,7 +11,8 @@ $this->section('content');
     <div class="card-header">
         <div class="row mb-2">
             <div class="col-sm-4">
-                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.svg'); ?>" alt="">
+                <img class="img-fluid img-bnvd"
+                    src="<?php echo base_url('public/img/' . $site . '/template/bienvenidos.svg'); ?>" alt="">
             </div>
             <div class="col-sm-6">
                 <div class="row" hidden>
@@ -40,7 +41,8 @@ $this->section('content');
                 </div>
             </div>
             <div class="col-sm-2">
-                <img class="img-fluid img-bnvd" src="<?php echo base_url('public/img/' . $site . '/template/mensaje_mundo.svg'); ?>" alt="">
+                <img class="img-fluid img-bnvd"
+                    src="<?php echo base_url('public/img/' . $site . '/template/mensaje_mundo.svg'); ?>" alt="">
             </div>
         </div>
     </div>
@@ -48,13 +50,15 @@ $this->section('content');
         <div class="content-container">
             <?php
             foreach ($courses as $c) {
-            ?>
+                ?>
                 <div class="col-sm-3 mundo-card">
                     <div class="mundo-card text-blue bg-transparent">
-                        <h5 class="text-center">World <!-- <?php echo $c['mundo']; ?> --></h5>
+                        <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
+                            <h5 class="text-center"><?php echo $c['module']; ?> </h5>
+                        </a>
                         <div class="row">
-                            <?php                            
-                            $nota = round($c['avance'],0);
+                            <?php
+                            $nota = round($c['avance'], 0);
                             /*
                             if ($c['notaActual'] == 0 || $c['notaActual'] == null) {
                                 $nota = 0;
@@ -66,20 +70,24 @@ $this->section('content');
                             <div class="col-sm-1"></div>
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-ligth">
-                                    Avance: <?php echo $nota; ?>%
+                                    Avance:
+                                    <?php echo $nota; ?>%
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-striped" role="progressbar"
+                                            style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
                                     </div>
                                 </button>
                             </div>
                             <div class="col-sm-1"></div>
                         </div>
                         <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
-                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . $c['mundo']  . '.png'); ?>" alt="" class="img-fluid img-mundos" style="width: 60%;">
+                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . $c['mundo'] . '.png'); ?>"
+                                alt="" class="img-fluid img-mundos" style="width: 60%;">
                         </a>
                     </div>
                 </div>
-            <?php
+                <?php
                 $activos += 1;
             }
             $inactivos = $activos + 1;
@@ -87,16 +95,20 @@ $this->section('content');
             for ($i = $activos; $i < 8; $i++) { ?>
                 <div class="col-sm-3">
                     <div class="card text-blue bg-transparent">
-                        <h5 class="text-center">World <?php echo $inactivos; ?></h5>
+                        <h5 class="text-center">World
+                            <?php echo $inactivos; ?>
+                        </h5>
                         <a href="#">
-                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . ($i + 1) . '.png'); ?>" alt="" class="card-fluid fichas img-mundos" style="width:100%">
+                            <img src="<?php echo base_url('public/img/' . $site . '/courses/mundos' . ($i + 1) . '.png'); ?>"
+                                alt="" class="card-fluid fichas img-mundos" style="width:100%">
                         </a>
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-sm-2"></div>
@@ -104,7 +116,7 @@ $this->section('content');
 
                 </div>
 
-            <?php
+                <?php
                 $inactivos += 1;
             }
             ?>

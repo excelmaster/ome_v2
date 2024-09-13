@@ -44,6 +44,7 @@ body {
   flex-wrap: wrap;
   grid-row-gap: 21px;
   grid-column-gap: 0px;
+  justify-content: space-evenly;
 }
 
 .header {
@@ -330,14 +331,19 @@ body {
   margin: auto;
 }
 .mundo-card {
-position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-clip: border-box;
-    border: 0px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 0px solid rgba(0, 0, 0, .125);
+  border-radius: 0.25rem;
+  align-items: center;
+  margin: 0.5rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .lesson-card {

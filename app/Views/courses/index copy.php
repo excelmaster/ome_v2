@@ -51,7 +51,7 @@ $this->section('content');
             <?php
             foreach ($courses as $c) {
                 ?>
-                <div class="col-sm-2 mundo-card">                    
+                <div class="col-sm-3 mundo-card">                    
                     <div class="mundo-card text-blue bg-transparent">
                         <a href="<?php echo base_url('lessons/' . $site . '/' . $c['id'] . '/' . $c['mundo']); ?>">
                             <h5 class="text-center"><?php echo $c['module']; ?> </h5>
@@ -92,7 +92,7 @@ $this->section('content');
             }
             $inactivos = $activos + 1;
 
-            for ($i = $activos; $i < count($courses) ; $i++) { ?>
+            for ($i = $activos; $i < 9; $i++) { ?>
                 <div class="col-sm-3">
                     <div class="card text-blue bg-transparent">
                         <h5 class="text-center">World
@@ -113,6 +113,7 @@ $this->section('content');
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
+
                 </div>
 
                 <?php

@@ -25,6 +25,7 @@ class Courses extends BaseController
 			$this->session->set('podcastName','');
 			$this->session->set('objectId','');
 			$this->session->set('tipo','');
+			//print_r($courses);
 			return view('courses/index',$courses);			
 		} else { 
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');

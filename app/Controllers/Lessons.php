@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\LessonModel;
+use App\Models\CourseModel;
 use App\Models\ProgressModel;
 
 class Lessons extends BaseController
@@ -9,15 +10,20 @@ class Lessons extends BaseController
 	public function index($site, $courseId, $courseNumber)
 	{
 		$userId =  $_SESSION['user_id'];
-		$lessonsInstance = new ProgressModel($db);		
-		$lessons = $lessonsInstance->lessonProgress($userId, $site, $courseId)->getResultArray();		
+		$lessonsInstance = new ProgressModel($db);				
+		$lessons = $lessonsInstance->lessonProgress($userId, $site, $courseId)->getResultArray();				
 		$lessons = array(			
 			'lessons'=>$lessons, 
 			'course'=>$courseNumber,
 			'courseId'=>$courseId,
 			'site' => $site
 		);	
-		return view('lessons/index',$lessons) ;		
+		
+		$courseInstance = new CourseModel($db);
+		$isExam = $courseInstance->courseIsExam($courseId);		
+		$viewName = ($isExam == 1)?  $viewName = 'lessons/examIndex' : $viewName = 'lessons/index'  ;
+		//print_r($isExam);
+		return view($viewName,$lessons) ;		
 	}
 
 	public function list($courseId, $mundoName){

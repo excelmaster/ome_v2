@@ -12,7 +12,7 @@ class CourseModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['category', 'fullname','idnumber','label','module'];
+    protected $allowedFields = ['category', 'fullname','idnumber','label','module','isExam'];
     
     protected $useTimestamps = false;
 
@@ -22,6 +22,11 @@ class CourseModel extends Model
 
     public function readCourses(){
         return $this->findAll();
+    }
+
+    public function courseIsExam($courseID) : string {
+        $result = $this->select('isExam')->where('id',$courseID)->first();
+        return (int) $result['isExam'];
     }
 
 }

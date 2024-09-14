@@ -70,8 +70,10 @@ $this->section('content');
                             <div class="col-sm-1"></div>
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-ligth">
-                                    Avance:
-                                    <?php echo $nota; ?>%
+                                    
+                                    <?php 
+                                        echo $c['isExam']==0 ? 'Avance:'.$nota.'%' : 'puntaje: '. $c['puntaje'];                                   
+                                    ?>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-striped" role="progressbar"
                                             style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0"

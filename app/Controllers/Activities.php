@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\ActivityModel;
 use App\Models\ProgressModel;
+use App\Models\CourseModel;
 
 class Activities extends BaseController
 {
@@ -11,8 +12,18 @@ class Activities extends BaseController
 	{
 		if($_SESSION['logged']==1){
 			$user_id = $_SESSION['user_id'];
-			$ActivitiesInstance = new ProgressModel($db);    		
-			$activities = $ActivitiesInstance->activityProgress($user_id, $lessonId, $site."%")->getResultArray();			
+			$ActivitiesInstance = new ProgressModel($db); 
+			
+			$courseInstance = new CourseModel($db);
+			$isExam = $courseInstance->courseIsExam($courseId);
+
+			if ($isExam == 1) {
+				$activities = $ActivitiesInstance->activityExamProgress($user_id, $site."%", $lessonId)->getResultArray();
+				$viewName = 'activities/examIndex';
+			} else {
+				$activities = $ActivitiesInstance->activityProgress($user_id, $lessonId, $site."%")->getResultArray();
+				$viewName = 'activities/index';
+			}						
 
 			$activities = array(
 				'lessons'=>$activities, 
@@ -21,7 +32,7 @@ class Activities extends BaseController
 				'courseId'=>$courseId,
 				'site' => $site
 			);							
-			return view('activities/index',$activities) ;
+			return view($viewName,$activities) ;
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
 			return redirect()->to('/auth/login');

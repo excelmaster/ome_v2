@@ -52,4 +52,14 @@ class ProgressModel extends Model
             return $result;
         }
     }
+
+    function activityExamProgress($user_id, $prefix,$lesson_id ){
+        $sqlSentence = "call sp_avance_exam_actividades(?,?,?)";
+        $result = $this->db->query($sqlSentence, array($user_id, $prefix, $lesson_id));        
+
+        if($result){
+            return $result;
+        }
+    }
+
 }

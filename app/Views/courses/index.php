@@ -72,11 +72,11 @@ $this->section('content');
                                 <button type="button" class="btn btn-ligth">
                                     
                                     <?php 
-                                        echo $c['isExam']==0 ? 'Avance:'.$nota.'%' : 'puntaje: '. $c['puntaje'];                                   
+                                        echo $c['isExam']==0 ? 'Avance:'.$nota.'%' : round($c['puntaje'],1).' Puntos';                                   
                                     ?>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-striped" role="progressbar"
-                                            style="width:<?php echo $nota; ?>%" aria-valuenow="10" aria-valuemin="0"
+                                            style="width:<?php echo $c['isExam']==0 ? $nota : round($c['puntaje'],1); ?>%" aria-valuenow="10" aria-valuemin="0"
                                             aria-valuemax="100"></div>
                                     </div>
                                 </button>

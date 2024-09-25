@@ -8,8 +8,7 @@ $this->section('content');
 
 <!-- Default box -->
 <div class="card bg-transparent">
-    <div class="card-header">
-        'exam index'
+    <div class="card-header">        
         <div class="row mb-2">
             <div class="col-sm-3">
                 <img class="img-fluid"
@@ -51,10 +50,10 @@ $this->section('content');
                             <div class="col-sm-1"></div>
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-ligth">
-                                    Avance: <?php echo round($c['avance'], 0); ?>%
+                                    <?php echo round($c['puntaje'], 0).' Puntos'; ?>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-striped" role="progressbar"
-                                            style="width:<?php echo $c['avance']; ?>%" aria-valuenow="10" aria-valuemin="0"
+                                            style="width:<?php echo $c['puntaje']; ?>%" aria-valuenow="10" aria-valuemin="0"
                                             aria-valuemax="100"></div>
                                     </div>
                                 </button>

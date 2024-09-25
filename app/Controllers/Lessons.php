@@ -10,20 +10,28 @@ class Lessons extends BaseController
 	public function index($site, $courseId, $courseNumber)
 	{
 		$userId =  $_SESSION['user_id'];
-		$lessonsInstance = new ProgressModel($db);				
-		$lessons = $lessonsInstance->lessonProgress($userId, $site, $courseId)->getResultArray();				
+		$lessonsInstance = new ProgressModel($db);	
+		$courseInstance = new CourseModel($db);
+		$isExam = $courseInstance->courseIsExam($courseId);
+
+		if ($isExam == 1) {
+			$lessons = $lessonsInstance->lessonExamProgress($userId, $site, $courseId)->getResultArray();
+			$viewName = 'lessons/examIndex';
+		} else {
+			$lessons = $lessonsInstance->lessonProgress($userId, $site, $courseId)->getResultArray();
+			$viewName = 'lessons/index';
+		}
+		
+						
 		$lessons = array(			
 			'lessons'=>$lessons, 
 			'course'=>$courseNumber,
 			'courseId'=>$courseId,
 			'site' => $site
 		);	
-		
-		$courseInstance = new CourseModel($db);
-		$isExam = $courseInstance->courseIsExam($courseId);		
-		$viewName = ($isExam == 1)?  $viewName = 'lessons/examIndex' : $viewName = 'lessons/index'  ;
+				
 		//print_r($isExam);
-		return view($viewName,$lessons) ;		
+		return view($viewName,$lessons);		
 	}
 
 	public function list($courseId, $mundoName){

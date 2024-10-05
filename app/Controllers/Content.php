@@ -42,17 +42,31 @@ class Content extends BaseController
 				'url_next' => $next
 			);
 			
+			$viewName = 'content/index';
 			$this->session->set('podcastName', $contentData['podcastName']);
 			$this->session->set('objectId', $contentData['objectId']);
 			$this->session->set('tipo', $contentData['tipo']);
 			
 			// register activity visit 
+			switch ($tipo) {
+				case 'scorm':
+					$progressInstance = new ProgressModel();
+					$progressRecord = $progressInstance->register_scorm_activity($_SESSION['user_id'],$courseId);
+					break;
+				
+				case 'pdf_exam':
+					$viewName = 'content/index_pdf';
+				
+				default:
+					# code...
+					break;
+			}
 			if($tipo == "scorm"){
 				$progressInstance = new ProgressModel();
 				$progressRecord = $progressInstance->register_scorm_activity($_SESSION['user_id'],$courseId);
 			}
 			
-			return view('content/index', $contentData);
+			return view($viewName, $contentData);
 		} else {
 			$this->session->setFlashdata('message', 'No se encuentra logueado en el sistema');
 			return redirect()->to('/auth/login');

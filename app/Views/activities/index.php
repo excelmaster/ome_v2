@@ -71,7 +71,6 @@ $this->section('content');
                             </div>
                             <div class="col-sm-4 avance">
                                 <button type="button" class="btn btn-ligth">
-
                                     <img src="<?php echo base_url('public/img/' . $site . '/activities/avance/' . $iconName) ?>" alt="">
                                 </button>
                             </div>

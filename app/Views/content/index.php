@@ -77,6 +77,13 @@ $colvideo = array(
             echo '<iframe class="embed-responsive-item" src="' . $urlresource . '" width="900px" height="580px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
             echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
             break;
+          
+          case 'assign':
+            $rutaRegistro = 'https://mdl.mundoeducativodigital.com/mod/assign/view.php?id='.$objectId;           
+            $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';           
+            echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;" hidden></iframe>';
+            echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
+            break;
 
           default:
             # code...
@@ -130,6 +137,13 @@ $colvideo = array(
               case 'resource':
                 echo '<iframe  id="modalIframe" class="embed-responsive-item" src="' . $urlresource . '" width="900px" height="580px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
                 echo '<script src="https://mdl.mundoeducativodigital.com/mod/hvp/library/js/h5p-resizer.js" charset="UTF-8"></script>';
+                break;
+
+              case 'assign':
+                $rutaRegistro = 'https://mdl.mundoeducativodigital.com/mod/assign/view.php?id='.$objectId;           
+                $ruta = 'scorm/' . $site . '/' . $course . '/' . $lesson . '/'  . $activity . '/index.html';           
+                echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;" hidden></iframe>';
+                echo '<iframe src="' . $rutaRegistro . '" class="embed-responsive-item" style="width: 1000px;height:730px;"></iframe>';
                 break;
 
               default:

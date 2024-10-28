@@ -350,3 +350,18 @@ body {
   display: flex;
   flex-direction: column-reverse;
 }
+
+.disabled-link {
+  color: gray; /* Color del texto */
+  pointer-events: none; /* Desactiva los clics */
+  opacity: 0.6; /* Baja opacidad para dar apariencia de deshabilitado */
+  text-decoration: none; /* Quita el subrayado */
+}
+
+.disabled-link a {
+  pointer-events: auto;
+}
+
+.disabled-link img {
+  opacity: 0.6; /* Baja opacidad de la imagen */
+}

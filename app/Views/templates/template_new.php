@@ -92,9 +92,9 @@
         </div>
     </div>
     <div class="sidebar">
-        <div class="sb_1">
-            <a href="#" data-toggle="tooltip" data-placement="right"
-                title="MUY PRONTO PODRÁS DESCARGAR TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO!">
+        <div class="sb_1 disabled-link">
+            <a href="#" data-placement="right" data-bs-toggle="tooltip" 
+                title="DESCARGA TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO OBTENIENDO AL MENOS 85 puntos en el examen final!" >
                 <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>

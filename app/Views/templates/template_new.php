@@ -26,12 +26,13 @@
     style="background-image: url(<?php echo base_url('public/img/' . $site . '/template/bcg_template.jpg'); ?>);">
     <!-- video background -->
     <?php
-        if ($site == 'teens' || $site == 'kids') {
-            echo '<video autoplay muted loop id="myVideo">';
-            echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
-            echo 'Your browser does not support HTML5 video.';
-            echo '</video>';
-        };
+    if ($site == 'teens' || $site == 'kids') {
+        echo '<video autoplay muted loop id="myVideo">';
+        echo '<source src="' . base_url('public/img/' . $site . '/template/video_back.mp4') . '" type="video/mp4">';
+        echo 'Your browser does not support HTML5 video.';
+        echo '</video>';
+    }
+    ;
     ?>
 
     <div class="header">
@@ -65,26 +66,26 @@
             </a>
         </div>
         <div class="mn_1">
-            <a href="<?php echo base_url('dict/' . $site);  ?>">
+            <a href="<?php echo base_url('dict/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_2.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_2">
-            <a href="<?php echo base_url('music/' . $site);  ?>">
+            <a href="<?php echo base_url('music/' . $site); ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_3.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_3">
-            <a href="<?php echo base_url('verbs/front/' . $site)  ?>" data-toggle="tooltip" data-placement="left"
+            <a href="<?php echo base_url('verbs/front/' . $site) ?>" data-toggle="tooltip" data-placement="left"
                 title="APRENDE ESTOS IMPORTANTES VERBOS">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_4.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
         </div>
         <div class="mn_6" id="tutorialButton">
-            <!-- <a href="<?php echo base_url('tutorial/' . $site);  ?>"> -->
+            <!-- <a href="<?php echo base_url('tutorial/' . $site); ?>"> -->
             <a href="#">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/menu_6.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
@@ -92,9 +93,23 @@
         </div>
     </div>
     <div class="sidebar">
-        <div class="sb_1 disabled-link">
-            <a href="#" data-placement="right" data-bs-toggle="tooltip" 
-                title="DESCARGA TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO OBTENIENDO AL MENOS 85 puntos en el examen final!" >
+        <!-- if course is finished redirect to certification view -->
+        <?php
+            $url = "#";
+            $parentClass = "disabled-link"; 
+            $title ="";           
+            
+            if ($_SESSION["coursefinished"]=='1') {
+                $url = base_url('certification');
+                $parentClass = "";
+                $title = "Ya tienes tu certificado, reclámalo aquí";
+            } else {
+                $title = "DESCARGA TU CERTIFICADO DE PARTICIPACIÓN EN NUESTRO CURSO OBTENIENDO AL MENOS 85 puntos en el examen final!" ;
+            }
+        ?>        
+        <div class="sb_1 <?php echo $parentClass; ?>">
+            <a href="<?php echo $url; ?>" data-placement="right" data-bs-toggle="tooltip"
+                title="<?php echo $title; ?>">
                 <img src="<?php echo base_url('public/img/' . $site . '/template/certificado.svg'); ?>"
                     class="img-menu <?php echo $clase; ?>">
             </a>
@@ -128,7 +143,7 @@
                 Your browser does not support the audio element.
             </audio><br>
             <audio id="AudioToolTip" allowfullscreen>
-                <source src="<?php echo base_url('public/sound/' . $site . '/podcast/'.$_SESSION['podcastName']); ?>"
+                <source src="<?php echo base_url('public/sound/' . $site . '/podcast/' . $_SESSION['podcastName']); ?>"
                     type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio><br>
@@ -144,7 +159,7 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <img class="img-fluid" src="<?php //echo base_url('public/img/' . $site . '/template/bienvenidos.png'); 
-                                                            ?>" alt="">
+                                ?>" alt="">
                             </div>
                             <div class="col-sm-6">
                             </div>
@@ -156,7 +171,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <?php $this->renderSection('content'); 
+                                <?php $this->renderSection('content');
                                 ?>
                             </div>
                         </div>
@@ -209,7 +224,8 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="<?php echo base_url('/public/img/kids/template/logo_transparent.png'); ?>" style="height: 150px;width: 150px;">
+                        <img src="<?php echo base_url('/public/img/kids/template/logo_transparent.png'); ?>"
+                            style="height: 150px;width: 150px;">
                         <h6>www.mundoeducativodigital.com</h6>
                     </div>
                     <div class="col-sm-6">
@@ -224,7 +240,7 @@
                         <table class="table table-light table-responsive">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>                                        
+                                    <th>
                                     </th>
                                 </tr>
                             </thead>
@@ -329,7 +345,7 @@
                                             </dd>
                                         </dl>
                                     </td>
-                                </tr>                               
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -346,10 +362,10 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="2"> ISBN Obra Completa: 191-981-989-9559 </td>                                    
+                                    <td colspan="2"> ISBN Obra Completa: 191-981-989-9559 </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Copyright: 2021</td>                                    
+                                    <td colspan="2">Copyright: 2021</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
@@ -453,9 +469,9 @@
             let legal = localStorage.getItem('legal');
             console.log("legal: " + legal);
             legalModal();
-            setTimeout(function(){
+            setTimeout(function () {
                 $('#modalISBN').modal('hide');
-            },5000);
+            }, 5000);
             tourVisitsRegistered()
         })
     </script>

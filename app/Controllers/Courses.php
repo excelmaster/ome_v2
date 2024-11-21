@@ -19,7 +19,8 @@ class Courses extends BaseController
 				'courseId'=>'1', 
 				'site' => $site,
 				'tourvisit' => '99',
-			);				
+			);	
+
 			// Page Tour	
 			$userInfo = new UserModel($db);
 			$tourVisits = $userInfo->getTourVisits($userId);
@@ -30,7 +31,7 @@ class Courses extends BaseController
 			
 			// set finished variable
 			$hasExam = count(array_filter($courses['courses'], function($course) {
-				return $course['isExam'] === "1" &&  $course['puntaje'] >= 60;
+				return $course['isExam'] === "1" &&  $course['puntaje'] >= 0;
 			})) > 0;
 			
 			if ($hasExam) {

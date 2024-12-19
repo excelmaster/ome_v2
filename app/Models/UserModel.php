@@ -88,4 +88,12 @@ class UserModel extends Model
         return true;
     }
 
+    public function getUserCertificateData($userId) {
+        $db = \config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->select("concat(firstname, ' ', lastname ) as fullname");
+        $builder->where('id',$_SESSION['user_id']);
+        $output = $builder->get()->getResultArray(); 
+        return $output;        
+    }
 }

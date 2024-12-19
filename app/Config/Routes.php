@@ -54,6 +54,7 @@ $routes->get('/loginmoodle/countsessions', 'Loginmoodle::countSessions');
 $routes->get('/users/setuservisit', 'Users::setUserTourVisit');
 $routes->get('/users/getVisitsbyuser', 'Users::getVisitsbyuser');
 $routes->get('certificate','Certificate::index');
+$routes->get('/certification/generateCertificate','Certification::generateCertificate');
 
 // IonAuth 
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {	

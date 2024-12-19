@@ -13,7 +13,7 @@ class Certification extends BaseController
                 'nombre' =>$nombre[0],
                 'site' => $_SESSION['course']
             );     
-            //var_dump($nombre[0]['fullname']);       
+            //ar_dump($_SESSION['course']);       
             return view('certification/index', $data);
         }        
     }

@@ -365,3 +365,10 @@ body {
 .disabled-link img {
   opacity: 0.6; /* Baja opacidad de la imagen */
 }
+
+#diplomatext {
+  display: flex;
+  align-content: stretch;
+  align-items: center;
+  flex-direction: column;
+}

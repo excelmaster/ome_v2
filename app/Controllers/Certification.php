@@ -23,7 +23,7 @@ class Certification extends BaseController
         }
     }
 
-    public function generateCertificate()
+    public function generateCertificate3()
     {
         // Conexión a la base de datos y obtención de datos del usuario
         $dbInstance = new UserModel($db);
@@ -57,7 +57,7 @@ class Certification extends BaseController
         try {
             $dompdf->render();
             // Descargar el PDF
-            $dompdf->stream("certificate.pdf", ["Attachment" => false]);
+            $dompdf->stream("certificate.pdf", ["Attachment" => true]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "error al generar el diploma: " . $th->getMessage());
         }
@@ -76,7 +76,7 @@ class Certification extends BaseController
         $this->pdf->output('ejemplo', 'I');
     }
 
-    public function generateCertificate3()
+    public function generateCertificate1()
     {
         // Conexión a la base de datos y obtención de datos del usuario
         $dbInstance = new UserModel($db);
@@ -94,10 +94,11 @@ class Certification extends BaseController
         $svgContent = file_get_contents($templatePath);
 
         // Reemplazar los marcadores con datos dinámicos
-        $svgContent = str_replace('{diplomadate}', $diplomaDate->examdate, $svgContent);
-        $svgContent = str_replace('{course}', session('course'), $svgContent);
-        $svgContent = str_replace('{fullname}', $nombre[0]['fullname'], $svgContent);
+        //$svgContent = str_replace('{diplomadate}', $diplomaDate->examdate, $svgContent);
+        //$svgContent = str_replace('{course}', session('course'), $svgContent);
+        //$svgContent = str_replace('{fullname}', $nombre[0]['fullname'], $svgContent);
 
+        /*
         // Convertir SVG a PNG usando Imagick
         try {
             $imagick = new \Imagick();
@@ -109,6 +110,7 @@ class Certification extends BaseController
         } catch (\Exception $e) {
             return redirect()->back()->with('error', "Error al convertir el SVG a PNG: " . $e->getMessage());
         }
+        */
 
         // Configurar Dompdf
         $options = new Options();
@@ -141,6 +143,75 @@ class Certification extends BaseController
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "Error al generar el diploma: " . $th->getMessage());
         }
+    }
+
+    public function generateCertificate4()
+    {
+        // Cargar la librería Dompdf
+        $options = new Options();
+        $options->set('isRemoteEnabled', true); // Habilitar recursos remotos
+        $dompdf = new Dompdf($options);
+
+        // Datos dinámicos
+        $nombreAlumno = "Juan Pérez"; // Puedes obtener este valor de una base de datos o formulario
+
+        // Cargar el SVG como plantilla
+        $svgContent = file_get_contents(FCPATH . 'public/img/' . session('course') . '/certification/diploma_' . session('course') . '.svg');
+
+        // Reemplazar el nombre del alumno en el SVG
+        $svgContent = str_replace('{{fullname}}', $nombreAlumno, $svgContent);
+        
+        view('test',$svgContent);
+
+        /*
+        // Convertir el SVG a PNG (opcional, si Dompdf no renderiza el SVG correctamente)
+        $im = new \Imagick();
+        $im->readImageBlob($svgContent);
+        $im->setImageFormat("png");
+        $pngPath = ROOTPATH . 'public/img/' . session('course') . '/certification/temp/diploma_' . session('user_id') . '.png';
+        file_put_contents($pngPath, $im);
+
+        // Crear el HTML con la imagen PNG
+        $html = '<div style="width: 100%; text-align: center;">
+            <img src="' . base_url($pngPath) . '" alt="Plantilla">
+         </div>';
+
+        // Cargar el HTML en Dompdf
+        $dompdf->loadHtml($html);
+
+        // Renderizar el PDF
+        $dompdf->render();
+
+        // Descargar el PDF
+        $dompdf->stream("certificado.pdf", array("Attachment" => true));
+        */
+    }
+
+    public function generateCertificate() {
+        // Datos dinámicos
+        $nombreAlumno = "Juan Pérez"; // Puedes obtener este valor de una base de datos o formulario
+
+        // Cargar la vista del diploma
+        $data = ['nombreAlumno' => $nombreAlumno];
+        $html = view('test', $data);
+        //return view('test', $data);
+
+        
+        // Configurar Dompdf
+        $options = new Options();
+        $options->set('isRemoteEnabled', true); // Habilitar recursos remotos (por si usas imágenes externas)
+        $dompdf = new Dompdf($options);
+
+        // Cargar el HTML en Dompdf
+        $dompdf->loadHtml($html);
+
+        // Renderizar el PDF
+        $dompdf->setPaper('A4', 'landscape'); // Opcional: ajustar el tamaño y orientación
+        $dompdf->render();
+
+        // Descargar el PDF
+        $dompdf->stream("diploma.pdf", array("Attachment" => true));
+        
     }
 
 }

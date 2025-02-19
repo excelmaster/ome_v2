@@ -5,7 +5,6 @@ $inactivos = 0;
 $this->extend('templates/template_new', $site);
 $this->section('content');
 ?>
-
 <div class="container">
     <div class="row">
         <p>
@@ -26,19 +25,12 @@ $this->section('content');
                 Nos llena de emoción acompañarte en este logro, y estamos seguros de que este es solo el comienzo de un
                 mundo lleno de nuevas oportunidades. ¡Felicidades!
             </p>
-            <button onclick="downloadCertificate()" type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary">
                 DESCARGA TU CERTIFICADO
             </button>
         </div>
     </div>
 </div>
-
-<script>
-    function downloadCertificate() {   
-        console.log("generate certificate ....");  
-        window.location.href = "<?= base_url('/certification/generateCertificate') ?>"
-    }
-</script>
 
 <?php
 $this->endSection();

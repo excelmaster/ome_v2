@@ -96,4 +96,19 @@ class UserModel extends Model
         $output = $builder->get()->getResultArray(); 
         return $output;        
     }
+
+    public function getDiplomaDate($user_id) {
+        $db = \config\Database::connect();
+        $builder = $db->table("ome_examGradeView");
+        $builder->select("from_unixtime(last_exam_date) as examdate");
+        $builder->where('last_exam_date is not null',null,false);
+        $builder->where([            
+            'userID' => $user_id,
+            'mundo' => '9'
+        ]);
+        $builder->orderBy('last_exam_date','DESC');
+        $result = $builder->get()->getFirstRow();        
+        return $result;
+    }
+
 }

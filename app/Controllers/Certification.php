@@ -76,7 +76,7 @@ class Certification extends BaseController
         $this->pdf->output('ejemplo', 'I');
     }
 
-    public function generateCertificate1()
+    public function generateCertificate_s()
     {
         // Conexión a la base de datos y obtención de datos del usuario
         $dbInstance = new UserModel($db);
@@ -145,7 +145,7 @@ class Certification extends BaseController
         }
     }
 
-    public function generateCertificate4()
+    public function generateCertificate_y()
     {
         // Cargar la librería Dompdf
         $options = new Options();
@@ -188,12 +188,26 @@ class Certification extends BaseController
     }
 
     public function generateCertificate() {
-        // Datos dinámicos
-        $nombreAlumno = "Juan Pérez"; // Puedes obtener este valor de una base de datos o formulario
+    
+    	$dbInstance = new UserModel($db);
 
+        $diplomaDate = $dbInstance->getDiplomaDate(session('user_id'));
+        $nombreAlumno = $dbInstance->getUserCertificateData($_SESSION['user_id']);
+
+        if (!$diplomaDate->examdate) {
+            return redirect()->back()->with('error', 'Diploma no encontrado.');
+        }
+
+        // limpiar memoria
+        ob_clean();
+    
+    
         // Cargar la vista del diploma
-        $data = ['nombreAlumno' => $nombreAlumno];
-        $html = view('test', $data);
+        $data = [
+        	'nombreAlumno' => $nombreAlumno,
+        	'diplomaDate' => $diplomaDate
+        ];
+        $html = view('certification/diploma', $data);
         //return view('test', $data);
 
         
@@ -206,7 +220,7 @@ class Certification extends BaseController
         $dompdf->loadHtml($html);
 
         // Renderizar el PDF
-        $dompdf->setPaper('A4', 'landscape'); // Opcional: ajustar el tamaño y orientación
+        $dompdf->setPaper('letter', 'landscape'); // Opcional: ajustar el tamaño y orientación
         $dompdf->render();
 
         // Descargar el PDF

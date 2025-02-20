@@ -224,7 +224,7 @@ class Certification extends BaseController
         $dompdf->render();
 
         // Descargar el PDF
-        $dompdf->stream("diploma.pdf", array("Attachment" => true));
+        $dompdf->stream("diploma_".strtoupper($nombreAlumno[0]['fullname']).".pdf", array("Attachment" => true));
         
     }
 

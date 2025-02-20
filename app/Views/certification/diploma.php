@@ -57,7 +57,7 @@
     				passing the exams of the English Course:</p>
     				<h2><Strong class="diploma/text">English World For <?php echo ucwords($_SESSION['course']) ?></strong></h2>
                 </p>
-                <p class="diploma-text">Certification Date: <strong><?php echo $diplomaDate->examdate ?></strong></p>
+                <p class="diploma-text"><strong>Learning Duration: 24 months </strong></p>
             </div>
             
             <!-- Columna derecha (Imagen secundaria) -->

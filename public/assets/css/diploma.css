@@ -9,15 +9,15 @@ body {
     background-color: #f0f0f0;
 }
 .diploma {
-    width: 800px;
-    height: 600px;
-    display: flex; /* Usar Flexbox para dividir en columnas */
+    width: 600px;
+    height: 100px;
+    display: flex;
     background-color: #fff;
     border: 10px solid #ffcc00;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .columna-imagen {
-    flex: 1; /* Ocupa 1 parte del espacio disponible */
+    flex: 2; /* Ocupa 1 parte del espacio disponible */
     display: flex;
     justify-content: center;
     align-items: center;
